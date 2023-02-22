@@ -2,7 +2,7 @@ from typing import Literal
 
 
 def snake_case(text: str):
-    convert = "".join(["_" + i.lower() if i.upper() else i for i in text]).lstrip("_")
+    convert = "".join(["_" + i.lower() if i.isupper() else i for i in text]).lstrip("_")
     check_convert = convert.split("_")
     # Handle ARN, IP, HTTP, AWS, KMS
     return "".join(
@@ -25,9 +25,9 @@ def camel_case(text: str):
 
 def convert_all_keys(dict_object: dict, conversion_type: Literal["snake", "camel"]):
     if conversion_type == "snake":
-        case_type = "snake_case"
+        case_type = snake_case
     if conversion_type == "camel":
-        case_type = "camel_case"
+        case_type = camel_case
     case_keys = [case_type(i) for i in dict_object.keys()]
     message = dict(zip(case_keys, list(dict_object.values())))
     for key, value in dict_object.items():
@@ -36,7 +36,7 @@ def convert_all_keys(dict_object: dict, conversion_type: Literal["snake", "camel
         if isinstance(value, list):
             for idx, item in enumerate(value):
                 if isinstance(item, dict):
-                    message[case_type[key]][idx] = convert_all_keys(
+                    message[case_type(key)][idx] = convert_all_keys(
                         item, conversion_type
                     )
     return message

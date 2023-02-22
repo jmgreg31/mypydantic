@@ -1,0 +1,764 @@
+{
+    "captcha_config": {
+        "immunity_time_property": {
+            "immunity_time": 1
+        }
+    },
+    "challenge_config": {
+        "immunity_time_property": {
+            "immunity_time": 1
+        }
+    },
+    "custom_response_bodies": {
+        "string": {
+            "content": "string",
+            "content_type": "string"
+        }
+    },
+    "default_action": {
+        "allow": {
+            "custom_request_handling": {
+                "insert_headers": [
+                    {
+                        "name": "string",
+                        "value": "string"
+                    }
+                ]
+            }
+        },
+        "block": {
+            "custom_response": {
+                "custom_response_body_key": "string",
+                "response_code": 1,
+                "response_headers": [
+                    {
+                        "name": "string",
+                        "value": "string"
+                    }
+                ]
+            }
+        }
+    },
+    "description": "string",
+    "name": "string",
+    "rules": [
+        {
+            "action": {
+                "allow": {
+                    "custom_request_handling": {
+                        "insert_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                },
+                "block": {
+                    "custom_response": {
+                        "custom_response_body_key": "string",
+                        "response_code": 1,
+                        "response_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                },
+                "captcha": {
+                    "custom_request_handling": {
+                        "insert_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                },
+                "challenge": {
+                    "custom_request_handling": {
+                        "insert_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                },
+                "count": {
+                    "custom_request_handling": {
+                        "insert_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                }
+            },
+            "captcha_config": {
+                "immunity_time_property": {
+                    "immunity_time": 1
+                }
+            },
+            "challenge_config": {
+                "immunity_time_property": {
+                    "immunity_time": 1
+                }
+            },
+            "name": "string",
+            "override_action": {
+                "count": {
+                    "custom_request_handling": {
+                        "insert_headers": [
+                            {
+                                "name": "string",
+                                "value": "string"
+                            }
+                        ]
+                    }
+                },
+                "none": {}
+            },
+            "priority": 1,
+            "rule_labels": [
+                {
+                    "name": "string"
+                }
+            ],
+            "statement": {
+                "and_statement": {
+                    "statements": [
+                        "Statement"
+                    ]
+                },
+                "byte_match_statement": {
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "positional_constraint": "string",
+                    "search_string": "'b'blob'",
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                },
+                "geo_match_statement": {
+                    "country_codes": [
+                        "string"
+                    ],
+                    "forwarded_ip_config": {
+                        "fallback_behavior": "string",
+                        "header_name": "string"
+                    }
+                },
+                "ip_set_reference_statement": {
+                    "arn": "string",
+                    "ip_set_forwarded_ip_config": {
+                        "fallback_behavior": "string",
+                        "header_name": "string",
+                        "position": "string"
+                    }
+                },
+                "label_match_statement": {
+                    "key": "string",
+                    "scope": "string"
+                },
+                "managed_rule_group_statement": {
+                    "excluded_rules": [
+                        {
+                            "name": "string"
+                        }
+                    ],
+                    "managed_rule_group_configs": [
+                        {
+                            "aws_managed_rules_atp_rule_set": {
+                                "login_path": "string",
+                                "request_inspection": {
+                                    "password_field": {
+                                        "identifier": "string"
+                                    },
+                                    "payload_type": "string",
+                                    "username_field": {
+                                        "identifier": "string"
+                                    }
+                                },
+                                "response_inspection": {
+                                    "body_contains": {
+                                        "failure_strings": [
+                                            "string"
+                                        ],
+                                        "success_strings": [
+                                            "string"
+                                        ]
+                                    },
+                                    "header": {
+                                        "failure_values": [
+                                            "string"
+                                        ],
+                                        "name": "string",
+                                        "success_values": [
+                                            "string"
+                                        ]
+                                    },
+                                    "json": {
+                                        "failure_values": [
+                                            "string"
+                                        ],
+                                        "identifier": "string",
+                                        "success_values": [
+                                            "string"
+                                        ]
+                                    },
+                                    "status_code": {
+                                        "failure_codes": [
+                                            1
+                                        ],
+                                        "success_codes": [
+                                            1
+                                        ]
+                                    }
+                                }
+                            },
+                            "aws_managed_rules_bot_control_rule_set": {
+                                "inspection_level": "string"
+                            },
+                            "login_path": "string",
+                            "password_field": {
+                                "identifier": "string"
+                            },
+                            "payload_type": "string",
+                            "username_field": {
+                                "identifier": "string"
+                            }
+                        }
+                    ],
+                    "name": "string",
+                    "rule_action_overrides": [
+                        {
+                            "action_to_use": {
+                                "allow": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "block": {
+                                    "custom_response": {
+                                        "custom_response_body_key": "string",
+                                        "response_code": 1,
+                                        "response_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "captcha": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "challenge": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "count": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "name": "string"
+                        }
+                    ],
+                    "scope_down_statement": "Statement",
+                    "vendor_name": "string",
+                    "version": "string"
+                },
+                "not_statement": {
+                    "statement": "Statement"
+                },
+                "or_statement": {
+                    "statements": [
+                        "Statement"
+                    ]
+                },
+                "rate_based_statement": {
+                    "aggregate_key_type": "string",
+                    "forwarded_ip_config": {
+                        "fallback_behavior": "string",
+                        "header_name": "string"
+                    },
+                    "limit": 1,
+                    "scope_down_statement": "Statement"
+                },
+                "regex_match_statement": {
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "regex_string": "string",
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                },
+                "regex_pattern_set_reference_statement": {
+                    "arn": "string",
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                },
+                "rule_group_reference_statement": {
+                    "arn": "string",
+                    "excluded_rules": [
+                        {
+                            "name": "string"
+                        }
+                    ],
+                    "rule_action_overrides": [
+                        {
+                            "action_to_use": {
+                                "allow": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "block": {
+                                    "custom_response": {
+                                        "custom_response_body_key": "string",
+                                        "response_code": 1,
+                                        "response_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "captcha": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "challenge": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "count": {
+                                    "custom_request_handling": {
+                                        "insert_headers": [
+                                            {
+                                                "name": "string",
+                                                "value": "string"
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            "name": "string"
+                        }
+                    ]
+                },
+                "size_constraint_statement": {
+                    "comparison_operator": "string",
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "size": 1,
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                },
+                "sqli_match_statement": {
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "sensitivity_level": "string",
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                },
+                "xss_match_statement": {
+                    "field_to_match": {
+                        "all_query_arguments": {},
+                        "body": {
+                            "oversize_handling": "string"
+                        },
+                        "cookies": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_cookies": [
+                                    "string"
+                                ],
+                                "included_cookies": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "headers": {
+                            "match_pattern": {
+                                "all": {},
+                                "excluded_headers": [
+                                    "string"
+                                ],
+                                "included_headers": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "json_body": {
+                            "invalid_fallback_behavior": "string",
+                            "match_pattern": {
+                                "all": {},
+                                "included_paths": [
+                                    "string"
+                                ]
+                            },
+                            "match_scope": "string",
+                            "oversize_handling": "string"
+                        },
+                        "method": {},
+                        "query_string": {},
+                        "single_header": {
+                            "name": "string"
+                        },
+                        "single_query_argument": {
+                            "name": "string"
+                        },
+                        "uri_path": {}
+                    },
+                    "text_transformations": [
+                        {
+                            "priority": 1,
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "visibility_config": {
+                "cloud_watch_metrics_enabled": false,
+                "metric_name": "string",
+                "sampled_requests_enabled": false
+            }
+        }
+    ],
+    "scope": "string",
+    "tags": [
+        {
+            "key": "string",
+            "value": "string"
+        }
+    ],
+    "token_domains": [
+        "string"
+    ],
+    "visibility_config": {
+        "cloud_watch_metrics_enabled": false,
+        "metric_name": "string",
+        "sampled_requests_enabled": false
+    }
+}
