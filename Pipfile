@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = 'https://pypi.python.org/simple'
+verify_ssl = true
+
+[requires]
+python_version = "3.9"
+
+[packages]
+PyYaml = "*"
+boto3 = "*"
+botocore = "*"
+mypy-boto3-wafv2 = "*"
+coloredlogs = "*"
+black = "==22.3.0"
+datamodel-code-generator = "*"
+pdoc = "*"
+pylint = "*"
