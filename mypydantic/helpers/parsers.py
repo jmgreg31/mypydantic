@@ -40,3 +40,16 @@ def convert_all_keys(dict_object: dict, conversion_type: Literal["snake", "camel
                         item, conversion_type
                     )
     return message
+
+
+def sanitize(dict_object: dict) -> dict:
+    for key, value in dict_object.items():
+        if isinstance(value, str):
+            dict_object[key] = value.replace("\n", " ").rstrip(" ")
+        if isinstance(value, dict):
+            sanitize(value)
+        if isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    sanitize(item)
+    return dict_object
