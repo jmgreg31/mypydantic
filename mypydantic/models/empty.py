@@ -1,4 +1,4 @@
-from __future__ import annotations
+# pylint: disable = invalid-name
 
 from typing import Literal, Any, Iterator
 

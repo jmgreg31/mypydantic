@@ -46,10 +46,12 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+TESTS*.xml
 *.cover
 *.py,cover
 .hypothesis/
 .pytest_cache/
+
 
 # Translations
 *.mo
@@ -127,6 +129,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VSCode
+.vscode/
 
 # misc
 output_logs.json

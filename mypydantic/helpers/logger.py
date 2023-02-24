@@ -1,3 +1,4 @@
+# pylint: disable = super-with-arguments,broad-exception-caught
 import decimal
 import json
 import logging
@@ -79,23 +80,23 @@ class CustomLogger:
 
     def info(self, message, details: Optional[Union[list, dict]] = None):
         message = self.get_message(message, details)
-        self.log().info(message)
+        self.log().info("%s", message)
 
     def debug(self, message, details: Optional[Union[list, dict]] = None):
         message = self.get_message(message, details)
-        self.log().debug(message)
+        self.log().debug("%s", message)
 
     def warning(self, message, details: Optional[Union[list, dict]] = None):
         message = self.get_message(message, details)
-        self.log().warning(message)
+        self.log().warning("%s", message)
 
     def error(self, message, details: Optional[Union[list, dict]] = None):
         message = self.get_message(message, details)
-        self.log().error(message)
+        self.log().error("%s", message)
 
     def output(self, values: dict):
         wrkdir = os.getcwd()
         file_path = "output_logs.json"
         with open(file_path, "w", encoding="utf-8") as out_file:
             out_file.write(json.dumps(values, indent=4, cls=JsonHelper))
-        self.log().info(f"Logs output to: {wrkdir}/{file_path}")
+        self.log().info("Logs output to: %s/%s", wrkdir, file_path)

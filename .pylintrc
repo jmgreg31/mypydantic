@@ -1,0 +1,4 @@
+[MESSAGE CONTROL]
+
+disable=missing-module-docstring,missing-function-docstring,missing-docstring,too-few-public-methods
+ignore-paths=generate.py,example.py
