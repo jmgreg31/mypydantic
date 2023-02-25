@@ -456,3 +456,28 @@ class WebACL(BaseModel):
                 }
             )
         return _create_object
+
+    def update_object(self) -> dict:
+        _create_object = self.create_object()
+        _create_object.pop("Tags")
+        _update_object = {
+            "Id": self.id,
+            "LockToken": self.lock_token,
+        }
+        return {**_create_object, **_update_object}
+
+    def delete_object(self) -> dict:
+        _delete_object = {
+            "Name": self.name,
+            "Scope": self.scope,
+            "Id": self.id,
+            "LockToken": self.lock_token,
+        }
+        return _delete_object
+
+
+class WebACLResponse(BaseModel):
+    web_acl: WebACL
+    lock_token: str
+    application_integration_url: Optional[str] = None
+    response_metadata: Optional[dict] = None
