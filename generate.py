@@ -1,6 +1,7 @@
-from mypydantic.helpers.parsers import convert_all_keys
 import json
+
 from mypydantic.helpers.logger import CustomLogger
+from mypydantic.helpers.parsers import convert_all_keys
 
 LOG = CustomLogger()
 LOG.local = True

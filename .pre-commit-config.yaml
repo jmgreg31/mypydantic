@@ -5,12 +5,11 @@ repos:
       - id: black
         language_version: python3
         name: Format Python [black]
-  # - repo: https://github.com/jumanjihouse/pre-commit-hooks
-  #   # brew install ruby
-  #   rev: 1.11.0
-  #   hooks:
-  #     - id: markdownlint
-  #       name: Lint Markdown
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 1.11.0
+    hooks:
+      - id: markdownlint
+        name: Lint Markdown
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.1.0
     hooks:

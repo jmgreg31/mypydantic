@@ -1,8 +1,10 @@
-import yaml
 from typing import Union
-from mypydantic.models.web_acl import WebACL
+
+import yaml
+
 from mypydantic.helpers.logger import CustomLogger
 from mypydantic.helpers.parsers import sanitize
+from mypydantic.models.web_acl import WebACL
 
 LOG = CustomLogger()
 LOG.local = True

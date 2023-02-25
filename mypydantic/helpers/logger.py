@@ -3,9 +3,11 @@ import decimal
 import json
 import logging
 import os
-from typing import Optional, Union
 from datetime import datetime
+from typing import Optional, Union
+
 import coloredlogs
+
 from mypydantic.models.empty import Empty
 
 

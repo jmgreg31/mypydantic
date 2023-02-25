@@ -5,9 +5,11 @@
 from __future__ import annotations
 
 from typing import Any, Dict, List, Optional, Union
+
 from pydantic import BaseModel, Field
-from mypydantic.models.empty import Empty
+
 from mypydantic.helpers.parsers import convert_all_keys
+from mypydantic.models.empty import Empty
 
 
 class ImmunityTimeProperty(BaseModel):

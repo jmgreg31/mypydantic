@@ -1,6 +1,6 @@
 # pylint: disable = invalid-name
 
-from typing import Literal, Any, Iterator
+from typing import Any, Iterator, Literal
 
 # Referenced from https://gist.github.com/charbonnierg/b693316276e67fb02189548841830a34
 
