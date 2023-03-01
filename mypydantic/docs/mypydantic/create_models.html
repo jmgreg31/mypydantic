@@ -32,7 +32,7 @@
                     <a class="function" href="#generate_model_file">generate_model_file</a>
             </li>
             <li>
-                    <a class="function" href="#get_base_tempalte">get_base_tempalte</a>
+                    <a class="function" href="#get_base_template">get_base_template</a>
             </li>
             <li>
                     <a class="function" href="#check_attributes">check_attributes</a>
@@ -103,14 +103,14 @@
 </span><span id="L-31"><a href="#L-31"><span class="linenos"> 31</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_test</span>
 </span><span id="L-32"><a href="#L-32"><span class="linenos"> 32</span></a>        <span class="k">else</span> <span class="n">base_model_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">_test.py&quot;</span>
 </span><span id="L-33"><a href="#L-33"><span class="linenos"> 33</span></a>    <span class="p">)</span>
-</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">get_base_tempalte</span><span class="p">()</span>
+</span><span id="L-34"><a href="#L-34"><span class="linenos"> 34</span></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">get_base_template</span><span class="p">()</span>
 </span><span id="L-35"><a href="#L-35"><span class="linenos"> 35</span></a>    <span class="n">file_content</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">current_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 </span><span id="L-36"><a href="#L-36"><span class="linenos"> 36</span></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
 </span><span id="L-37"><a href="#L-37"><span class="linenos"> 37</span></a>        <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
 </span><span id="L-38"><a href="#L-38"><span class="linenos"> 38</span></a>    <span class="n">LOG</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model Generated: </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="L-39"><a href="#L-39"><span class="linenos"> 39</span></a>
 </span><span id="L-40"><a href="#L-40"><span class="linenos"> 40</span></a>
-</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="k">def</span> <span class="nf">get_base_tempalte</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">:</span>
+</span><span id="L-41"><a href="#L-41"><span class="linenos"> 41</span></a><span class="k">def</span> <span class="nf">get_base_template</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">:</span>
 </span><span id="L-42"><a href="#L-42"><span class="linenos"> 42</span></a>    <span class="n">template_loader</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">TEMPLATE_DIR</span><span class="p">)</span>
 </span><span id="L-43"><a href="#L-43"><span class="linenos"> 43</span></a>    <span class="n">template_env</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">template_loader</span><span class="p">)</span>
 </span><span id="L-44"><a href="#L-44"><span class="linenos"> 44</span></a>    <span class="n">config_template</span> <span class="o">=</span> <span class="s2">&quot;base.jinja&quot;</span>
@@ -255,7 +255,7 @@
 </span><span id="generate_model_file-32"><a href="#generate_model_file-32"><span class="linenos">32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_test</span>
 </span><span id="generate_model_file-33"><a href="#generate_model_file-33"><span class="linenos">33</span></a>        <span class="k">else</span> <span class="n">base_model_path</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2">_test.py&quot;</span>
 </span><span id="generate_model_file-34"><a href="#generate_model_file-34"><span class="linenos">34</span></a>    <span class="p">)</span>
-</span><span id="generate_model_file-35"><a href="#generate_model_file-35"><span class="linenos">35</span></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">get_base_tempalte</span><span class="p">()</span>
+</span><span id="generate_model_file-35"><a href="#generate_model_file-35"><span class="linenos">35</span></a>    <span class="n">template</span> <span class="o">=</span> <span class="n">get_base_template</span><span class="p">()</span>
 </span><span id="generate_model_file-36"><a href="#generate_model_file-36"><span class="linenos">36</span></a>    <span class="n">file_content</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">current_date</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
 </span><span id="generate_model_file-37"><a href="#generate_model_file-37"><span class="linenos">37</span></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
 </span><span id="generate_model_file-38"><a href="#generate_model_file-38"><span class="linenos">38</span></a>        <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
@@ -266,22 +266,22 @@
 
 
                 </section>
-                <section id="get_base_tempalte">
-                            <input id="get_base_tempalte-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+                <section id="get_base_template">
+                            <input id="get_base_template-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr function">
 
         <span class="def">def</span>
-        <span class="name">get_base_tempalte</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n">jinja2</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">Template</span>:</span></span>
+        <span class="name">get_base_template</span><span class="signature pdoc-code condensed">(<span class="return-annotation">) -> <span class="n">jinja2</span><span class="o">.</span><span class="n">environment</span><span class="o">.</span><span class="n">Template</span>:</span></span>
 
-                <label class="view-source-button" for="get_base_tempalte-view-source"><span>View Source</span></label>
+                <label class="view-source-button" for="get_base_template-view-source"><span>View Source</span></label>
 
     </div>
-    <a class="headerlink" href="#get_base_tempalte"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="get_base_tempalte-42"><a href="#get_base_tempalte-42"><span class="linenos">42</span></a><span class="k">def</span> <span class="nf">get_base_tempalte</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">:</span>
-</span><span id="get_base_tempalte-43"><a href="#get_base_tempalte-43"><span class="linenos">43</span></a>    <span class="n">template_loader</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">TEMPLATE_DIR</span><span class="p">)</span>
-</span><span id="get_base_tempalte-44"><a href="#get_base_tempalte-44"><span class="linenos">44</span></a>    <span class="n">template_env</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">template_loader</span><span class="p">)</span>
-</span><span id="get_base_tempalte-45"><a href="#get_base_tempalte-45"><span class="linenos">45</span></a>    <span class="n">config_template</span> <span class="o">=</span> <span class="s2">&quot;base.jinja&quot;</span>
-</span><span id="get_base_tempalte-46"><a href="#get_base_tempalte-46"><span class="linenos">46</span></a>    <span class="k">return</span> <span class="n">template_env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">config_template</span><span class="p">)</span>
+    <a class="headerlink" href="#get_base_template"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="get_base_template-42"><a href="#get_base_template-42"><span class="linenos">42</span></a><span class="k">def</span> <span class="nf">get_base_template</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">:</span>
+</span><span id="get_base_template-43"><a href="#get_base_template-43"><span class="linenos">43</span></a>    <span class="n">template_loader</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">FileSystemLoader</span><span class="p">(</span><span class="n">TEMPLATE_DIR</span><span class="p">)</span>
+</span><span id="get_base_template-44"><a href="#get_base_template-44"><span class="linenos">44</span></a>    <span class="n">template_env</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Environment</span><span class="p">(</span><span class="n">loader</span><span class="o">=</span><span class="n">template_loader</span><span class="p">)</span>
+</span><span id="get_base_template-45"><a href="#get_base_template-45"><span class="linenos">45</span></a>    <span class="n">config_template</span> <span class="o">=</span> <span class="s2">&quot;base.jinja&quot;</span>
+</span><span id="get_base_template-46"><a href="#get_base_template-46"><span class="linenos">46</span></a>    <span class="k">return</span> <span class="n">template_env</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="n">config_template</span><span class="p">)</span>
 </span></pre></div>
 
 
