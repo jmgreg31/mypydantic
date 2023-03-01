@@ -4,10 +4,10 @@ from typing import Literal
 def snake_case(text: str):
     convert = "".join(["_" + i.lower() if i.isupper() else i for i in text]).lstrip("_")
     check_convert = convert.split("_")
-    # Handle ARN, IP, HTTP, AWS, KMS
+    # Handle ARN, IP, HTTP, AWS, KMS, ACL
     return "".join(
         [
-            "" + j if len(j) == 1 and j not in ("p", "s") else j + "_"
+            "" + j if len(j) == 1 and j not in ("p", "s", "l") else j + "_"
             for j in check_convert
         ]
     ).rstrip("_")

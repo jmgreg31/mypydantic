@@ -8,13 +8,9 @@ from typing import Optional, Union
 
 import coloredlogs
 
-from mypydantic.models.empty import Empty
-
 
 class JsonHelper(json.JSONEncoder):
     def default(self, o):
-        if isinstance(o, Empty):
-            return dict(o)
         if isinstance(o, decimal.Decimal):
             return int(o)
         if isinstance(o, set):

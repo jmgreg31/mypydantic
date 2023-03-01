@@ -1,4 +1,4 @@
-.PHONY: install lock fmt lint docs create-docs view-docs pcommit commit generate test py-test model
+.PHONY: install lock fmt lint docs create-docs view-docs pcommit commit create-models generate test
 
 PWD=$$(pwd)
 
@@ -35,18 +35,10 @@ commit:
 	@read -p "Commit Branch: " COMMIT_BRANCH \
 	&& pipenv run git push origin $${COMMIT_BRANCH}
 
-generate:
+create-models:
 	@pipenv run python3 generate.py
 
+generate: create-models fmt
+
 test:
-	@pipenv run python3 example.py
-
-py-test:
 	@pipenv run pytest mypydantic
-
-model:
-	@pipenv run datamodel-codegen --input templates/web_acl_snake.json \
-	--output mypydantic/models/web_acl.py \
-	--input-file-type json \
-	--class-name WebACL \
-	--disable-timestamp
