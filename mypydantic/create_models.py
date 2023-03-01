@@ -31,14 +31,14 @@ def generate_model_file(
         if not is_test
         else base_model_path + f"{service}_test.py"
     )
-    template = get_base_tempalte()
+    template = get_base_template()
     file_content = template.render(current_date=datetime.now().ctime(), model=model)
     with open(model_path, "w", encoding="utf-8") as write_file:
         write_file.write(file_content)
     LOG.info(f"Model Generated: {service}")
 
 
-def get_base_tempalte() -> jinja2.Template:
+def get_base_template() -> jinja2.Template:
     template_loader = jinja2.FileSystemLoader(TEMPLATE_DIR)
     template_env = jinja2.Environment(loader=template_loader)
     config_template = "base.jinja"
