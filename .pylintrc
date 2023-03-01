@@ -1,4 +1,4 @@
 [MESSAGE CONTROL]
 
-disable=missing-module-docstring,missing-function-docstring,missing-docstring,too-few-public-methods,too-many-lines,redefined-builtin,redefined-outer-name,no-name-in-module
+disable=missing-module-docstring,missing-function-docstring,missing-docstring,too-few-public-methods,too-many-lines,redefined-builtin,redefined-outer-name,no-name-in-module,duplicate-code
 ignore-paths=generate.py,example.py

@@ -17,6 +17,7 @@ Currently, the resources supported are:
 
 - wafv2
 - lambda
+- cloudformation
 
 ## Usage
 
