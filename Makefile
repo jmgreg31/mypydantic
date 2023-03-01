@@ -18,7 +18,7 @@ lint:
 docs: create-docs pcommit
 
 create-docs:
-	@pipenv run pdoc -o mypydantic/docs -d google --no-search ./mypydantic
+	@pipenv run pdoc -o docs -d google --no-search ./mypydantic
 
 view-docs:
 	@open file://${PWD}/mypydantic/docs/index.html
