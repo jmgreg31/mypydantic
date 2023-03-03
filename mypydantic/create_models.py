@@ -9,12 +9,7 @@ import jinja2
 from mypy_boto3 import submodules
 from mypy_boto3_wafv2 import type_defs
 
-from mypydantic.constants import (
-    BASEMODEL_NAME_CONFLICTS,
-    SUPPORTED_SERVICES,
-    TEMPLATE_DIR,
-    TYPE_CASTS,
-)
+from mypydantic.constants import BASEMODEL_NAME_CONFLICTS, TEMPLATE_DIR, TYPE_CASTS
 from mypydantic.helpers.logger import CustomLogger
 from mypydantic.helpers.parsers import snake_case
 
@@ -133,7 +128,6 @@ def build_model(service: str, type_defs: type_defs):
     LOG.info(f"Building Models for: {service}")
     build_model_template = "\n"
     for type_def in type_defs.__all__:
-        # if str(type_def) == "CreateWebACLRequestRequestTypeDef":
         type_def_model = getattr(type_defs, type_def)
         annotations = type_def_model.__annotations__
         opitonal_args = list(getattr(type_def_model, "__optional_keys__"))
@@ -141,8 +135,11 @@ def build_model(service: str, type_defs: type_defs):
         build_model_template = build_model_properties(
             build_model_template, annotations, opitonal_args
         )
-    model = build_model_template.replace("TypeDef", "").replace(
-        "RequestRequest", "Request"
+    model = (
+        build_model_template.replace("TypeDef", "Model")
+        .replace("RequestRequest", "Request")
+        .replace("NoneType", "None")
+        .replace('"Ellipsis"', "...")
     )
     LOG.debug(model)
     generate_model_file(service, model, is_test=False)
@@ -151,10 +148,10 @@ def build_model(service: str, type_defs: type_defs):
 def main():
     for sub in submodules.SUBMODULES:
         service = sub.import_name.rstrip("_")
-        if service in SUPPORTED_SERVICES:
-            module = importlib.import_module(sub.module_name)
-            type_defs = getattr(module, "type_defs")
-            build_model(service, type_defs)
+        module = importlib.import_module(sub.module_name)
+        type_defs = getattr(module, "type_defs")
+        # if service == "glue":
+        build_model(service, type_defs)
 
 
 if __name__ == "__main__":

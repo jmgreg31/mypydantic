@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import IO, Any, Dict, List, Literal, Mapping, Optional, Sequence, Union, Type
+from decimal import Decimal
+from typing import IO, Any, Dict, List, Literal, Mapping, Optional, Sequence, Union, Type, Set, Callable
 
+from boto3.dynamodb.conditions import ConditionBase
+from boto3.s3.transfer import TransferConfig
+from botocore.client import BaseClient
 from botocore.response import StreamingBody
 from pydantic import Field
 

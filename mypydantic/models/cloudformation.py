@@ -1,4 +1,4 @@
-# Model Generated: Wed Mar  1 14:20:28 2023
+# Model Generated: Thu Mar  2 21:56:17 2023
 
 from __future__ import annotations
 
@@ -10,24 +10,24 @@ from pydantic import Field
 from mypydantic.models.base_model import BaseModel
 
 
-class AccountGateResult(BaseModel):
+class AccountGateResultModel(BaseModel):
     status: Optional[Literal["FAILED", "SKIPPED", "SUCCEEDED"]] = Field(
         default=None, alias="Status"
     )
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
 
 
-class AccountLimit(BaseModel):
+class AccountLimitModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     value: Optional[int] = Field(default=None, alias="Value")
 
 
-class LoggingConfig(BaseModel):
+class LoggingConfigModel(BaseModel):
     log_role_arn: str = Field(alias="LogRoleArn")
     log_group_name: str = Field(alias="LogGroupName")
 
 
-class ResponseMetadata(BaseModel):
+class ResponseMetadataModel(BaseModel):
     request_id: str = Field(alias="RequestId")
     host_id: str = Field(alias="HostId")
     http_status_code: int = Field(alias="HTTPStatusCode")
@@ -35,14 +35,14 @@ class ResponseMetadata(BaseModel):
     retry_attempts: int = Field(alias="RetryAttempts")
 
 
-class AutoDeployment(BaseModel):
+class AutoDeploymentModel(BaseModel):
     enabled: Optional[bool] = Field(default=None, alias="Enabled")
     retain_stacks_on_account_removal: Optional[bool] = Field(
         default=None, alias="RetainStacksOnAccountRemoval"
     )
 
 
-class TypeConfigurationIdentifier(BaseModel):
+class TypeConfigurationIdentifierModel(BaseModel):
     type_arn: Optional[str] = Field(default=None, alias="TypeArn")
     type_configuration_alias: Optional[str] = Field(
         default=None, alias="TypeConfigurationAlias"
@@ -56,7 +56,7 @@ class TypeConfigurationIdentifier(BaseModel):
     type_name: Optional[str] = Field(default=None, alias="TypeName")
 
 
-class TypeConfigurationDetails(BaseModel):
+class TypeConfigurationDetailsModel(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
     alias: Optional[str] = Field(default=None, alias="Alias")
     configuration: Optional[str] = Field(default=None, alias="Configuration")
@@ -68,20 +68,20 @@ class TypeConfigurationDetails(BaseModel):
     )
 
 
-class CancelUpdateStackInputRequest(BaseModel):
+class CancelUpdateStackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
 
 
-class CancelUpdateStackInputStackCancelUpdate(BaseModel):
+class CancelUpdateStackInputStackCancelUpdateModel(BaseModel):
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
 
 
-class ChangeSetHookResourceTargetDetails(BaseModel):
+class ChangeSetHookResourceTargetDetailsModel(BaseModel):
     logical_resource_id: Optional[str] = Field(default=None, alias="LogicalResourceId")
     resource_type: Optional[str] = Field(default=None, alias="ResourceType")
     resource_action: Optional[
@@ -89,7 +89,7 @@ class ChangeSetHookResourceTargetDetails(BaseModel):
     ] = Field(default=None, alias="ResourceAction")
 
 
-class ChangeSetSummary(BaseModel):
+class ChangeSetSummaryModel(BaseModel):
     stack_id: Optional[str] = Field(default=None, alias="StackId")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     change_set_id: Optional[str] = Field(default=None, alias="ChangeSetId")
@@ -126,7 +126,7 @@ class ChangeSetSummary(BaseModel):
     root_change_set_id: Optional[str] = Field(default=None, alias="RootChangeSetId")
 
 
-class ContinueUpdateRollbackInputRequest(BaseModel):
+class ContinueUpdateRollbackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
     resources_to_skip: Optional[Sequence[str]] = Field(
@@ -137,25 +137,25 @@ class ContinueUpdateRollbackInputRequest(BaseModel):
     )
 
 
-class Parameter(BaseModel):
+class ParameterModel(BaseModel):
     parameter_key: Optional[str] = Field(default=None, alias="ParameterKey")
     parameter_value: Optional[str] = Field(default=None, alias="ParameterValue")
     use_previous_value: Optional[bool] = Field(default=None, alias="UsePreviousValue")
     resolved_value: Optional[str] = Field(default=None, alias="ResolvedValue")
 
 
-class ResourceToImport(BaseModel):
+class ResourceToImportModel(BaseModel):
     resource_type: str = Field(alias="ResourceType")
     logical_resource_id: str = Field(alias="LogicalResourceId")
     resource_identifier: Mapping[str, str] = Field(alias="ResourceIdentifier")
 
 
-class Tag(BaseModel):
+class TagModel(BaseModel):
     key: str = Field(alias="Key")
     value: str = Field(alias="Value")
 
 
-class DeploymentTargets(BaseModel):
+class DeploymentTargetsModel(BaseModel):
     accounts: Optional[Sequence[str]] = Field(default=None, alias="Accounts")
     accounts_url: Optional[str] = Field(default=None, alias="AccountsUrl")
     organizational_unit_ids: Optional[Sequence[str]] = Field(
@@ -166,7 +166,7 @@ class DeploymentTargets(BaseModel):
     ] = Field(default=None, alias="AccountFilterType")
 
 
-class StackSetOperationPreferences(BaseModel):
+class StackSetOperationPreferencesModel(BaseModel):
     region_concurrency_type: Optional[Literal["PARALLEL", "SEQUENTIAL"]] = Field(
         default=None, alias="RegionConcurrencyType"
     )
@@ -185,11 +185,11 @@ class StackSetOperationPreferences(BaseModel):
     )
 
 
-class ManagedExecution(BaseModel):
+class ManagedExecutionModel(BaseModel):
     active: Optional[bool] = Field(default=None, alias="Active")
 
 
-class DeactivateTypeInputRequest(BaseModel):
+class DeactivateTypeInputRequestModel(BaseModel):
     type_name: Optional[str] = Field(default=None, alias="TypeName")
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
@@ -197,12 +197,12 @@ class DeactivateTypeInputRequest(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
 
 
-class DeleteChangeSetInputRequest(BaseModel):
+class DeleteChangeSetInputRequestModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
 
 
-class DeleteStackInputRequest(BaseModel):
+class DeleteStackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     retain_resources: Optional[Sequence[str]] = Field(
         default=None, alias="RetainResources"
@@ -213,7 +213,7 @@ class DeleteStackInputRequest(BaseModel):
     )
 
 
-class DeleteStackInputStackDelete(BaseModel):
+class DeleteStackInputStackDeleteModel(BaseModel):
     retain_resources: Optional[Sequence[str]] = Field(
         default=None, alias="RetainResources"
     )
@@ -223,14 +223,14 @@ class DeleteStackInputStackDelete(BaseModel):
     )
 
 
-class DeleteStackSetInputRequest(BaseModel):
+class DeleteStackSetInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
 
 
-class DeregisterTypeInputRequest(BaseModel):
+class DeregisterTypeInputRequestModel(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
@@ -239,48 +239,48 @@ class DeregisterTypeInputRequest(BaseModel):
     version_id: Optional[str] = Field(default=None, alias="VersionId")
 
 
-class PaginatorConfig(BaseModel):
+class PaginatorConfigModel(BaseModel):
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
     page_size: Optional[int] = Field(default=None, alias="PageSize")
     starting_token: Optional[str] = Field(default=None, alias="StartingToken")
 
 
-class DescribeAccountLimitsInputRequest(BaseModel):
+class DescribeAccountLimitsInputRequestModel(BaseModel):
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class DescribeChangeSetHooksInputRequest(BaseModel):
+class DescribeChangeSetHooksInputRequestModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
     logical_resource_id: Optional[str] = Field(default=None, alias="LogicalResourceId")
 
 
-class WaiterConfig(BaseModel):
+class WaiterConfigModel(BaseModel):
     delay: Optional[int] = Field(default=None, alias="Delay")
     max_attempts: Optional[int] = Field(default=None, alias="MaxAttempts")
 
 
-class DescribeChangeSetInputRequest(BaseModel):
+class DescribeChangeSetInputRequestModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class DescribePublisherInputRequest(BaseModel):
+class DescribePublisherInputRequestModel(BaseModel):
     publisher_id: Optional[str] = Field(default=None, alias="PublisherId")
 
 
-class DescribeStackDriftDetectionStatusInputRequest(BaseModel):
+class DescribeStackDriftDetectionStatusInputRequestModel(BaseModel):
     stack_drift_detection_id: str = Field(alias="StackDriftDetectionId")
 
 
-class DescribeStackEventsInputRequest(BaseModel):
+class DescribeStackEventsInputRequestModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class StackEvent(BaseModel):
+class StackEventModel(BaseModel):
     stack_id: str = Field(alias="StackId")
     event_id: str = Field(alias="EventId")
     stack_name: str = Field(alias="StackName")
@@ -341,7 +341,7 @@ class StackEvent(BaseModel):
     )
 
 
-class DescribeStackInstanceInputRequest(BaseModel):
+class DescribeStackInstanceInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     stack_instance_account: str = Field(alias="StackInstanceAccount")
     stack_instance_region: str = Field(alias="StackInstanceRegion")
@@ -350,7 +350,7 @@ class DescribeStackInstanceInputRequest(BaseModel):
     )
 
 
-class DescribeStackResourceDriftsInputRequest(BaseModel):
+class DescribeStackResourceDriftsInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     stack_resource_drift_status_filters: Optional[
         Sequence[Literal["DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"]]
@@ -359,12 +359,12 @@ class DescribeStackResourceDriftsInputRequest(BaseModel):
     max_results: Optional[int] = Field(default=None, alias="MaxResults")
 
 
-class DescribeStackResourceInputRequest(BaseModel):
+class DescribeStackResourceInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     logical_resource_id: str = Field(alias="LogicalResourceId")
 
 
-class DescribeStackResourcesInputRequest(BaseModel):
+class DescribeStackResourcesInputRequestModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     logical_resource_id: Optional[str] = Field(default=None, alias="LogicalResourceId")
     physical_resource_id: Optional[str] = Field(
@@ -372,14 +372,14 @@ class DescribeStackResourcesInputRequest(BaseModel):
     )
 
 
-class DescribeStackSetInputRequest(BaseModel):
+class DescribeStackSetInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
 
 
-class DescribeStackSetOperationInputRequest(BaseModel):
+class DescribeStackSetOperationInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     operation_id: str = Field(alias="OperationId")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
@@ -387,12 +387,12 @@ class DescribeStackSetOperationInputRequest(BaseModel):
     )
 
 
-class DescribeStacksInputRequest(BaseModel):
+class DescribeStacksInputRequestModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class DescribeTypeInputRequest(BaseModel):
+class DescribeTypeInputRequestModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -405,7 +405,7 @@ class DescribeTypeInputRequest(BaseModel):
     )
 
 
-class RequiredActivatedType(BaseModel):
+class RequiredActivatedTypeModel(BaseModel):
     type_name_alias: Optional[str] = Field(default=None, alias="TypeNameAlias")
     original_type_name: Optional[str] = Field(default=None, alias="OriginalTypeName")
     publisher_id: Optional[str] = Field(default=None, alias="PublisherId")
@@ -414,23 +414,23 @@ class RequiredActivatedType(BaseModel):
     )
 
 
-class DescribeTypeRegistrationInputRequest(BaseModel):
+class DescribeTypeRegistrationInputRequestModel(BaseModel):
     registration_token: str = Field(alias="RegistrationToken")
 
 
-class DetectStackDriftInputRequest(BaseModel):
+class DetectStackDriftInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     logical_resource_ids: Optional[Sequence[str]] = Field(
         default=None, alias="LogicalResourceIds"
     )
 
 
-class DetectStackResourceDriftInputRequest(BaseModel):
+class DetectStackResourceDriftInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     logical_resource_id: str = Field(alias="LogicalResourceId")
 
 
-class ExecuteChangeSetInputRequest(BaseModel):
+class ExecuteChangeSetInputRequestModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     client_request_token: Optional[str] = Field(
@@ -439,17 +439,17 @@ class ExecuteChangeSetInputRequest(BaseModel):
     disable_rollback: Optional[bool] = Field(default=None, alias="DisableRollback")
 
 
-class Export(BaseModel):
+class ExportModel(BaseModel):
     exporting_stack_id: Optional[str] = Field(default=None, alias="ExportingStackId")
     name: Optional[str] = Field(default=None, alias="Name")
     value: Optional[str] = Field(default=None, alias="Value")
 
 
-class GetStackPolicyInputRequest(BaseModel):
+class GetStackPolicyInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
 
 
-class GetTemplateInputRequest(BaseModel):
+class GetTemplateInputRequestModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     change_set_name: Optional[str] = Field(default=None, alias="ChangeSetName")
     template_stage: Optional[Literal["Original", "Processed"]] = Field(
@@ -457,7 +457,7 @@ class GetTemplateInputRequest(BaseModel):
     )
 
 
-class GetTemplateSummaryInputRequest(BaseModel):
+class GetTemplateSummaryInputRequestModel(BaseModel):
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
@@ -467,7 +467,7 @@ class GetTemplateSummaryInputRequest(BaseModel):
     )
 
 
-class ResourceIdentifierSummary(BaseModel):
+class ResourceIdentifierSummaryModel(BaseModel):
     resource_type: Optional[str] = Field(default=None, alias="ResourceType")
     logical_resource_ids: Optional[List[str]] = Field(
         default=None, alias="LogicalResourceIds"
@@ -477,40 +477,40 @@ class ResourceIdentifierSummary(BaseModel):
     )
 
 
-class ListChangeSetsInputRequest(BaseModel):
+class ListChangeSetsInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class ListExportsInputRequest(BaseModel):
+class ListExportsInputRequestModel(BaseModel):
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class ListImportsInputRequest(BaseModel):
+class ListImportsInputRequestModel(BaseModel):
     export_name: str = Field(alias="ExportName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class StackInstanceFilter(BaseModel):
+class StackInstanceFilterModel(BaseModel):
     name: Optional[Literal["DETAILED_STATUS", "LAST_OPERATION_ID"]] = Field(
         default=None, alias="Name"
     )
     values: Optional[str] = Field(default=None, alias="Values")
 
 
-class ListStackResourcesInputRequest(BaseModel):
+class ListStackResourcesInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class OperationResultFilter(BaseModel):
+class OperationResultFilterModel(BaseModel):
     name: Optional[Literal["OPERATION_RESULT_STATUS"]] = Field(
         default=None, alias="Name"
     )
     values: Optional[str] = Field(default=None, alias="Values")
 
 
-class ListStackSetOperationsInputRequest(BaseModel):
+class ListStackSetOperationsInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
     max_results: Optional[int] = Field(default=None, alias="MaxResults")
@@ -519,7 +519,7 @@ class ListStackSetOperationsInputRequest(BaseModel):
     )
 
 
-class ListStackSetsInputRequest(BaseModel):
+class ListStackSetsInputRequestModel(BaseModel):
     next_token: Optional[str] = Field(default=None, alias="NextToken")
     max_results: Optional[int] = Field(default=None, alias="MaxResults")
     status: Optional[Literal["ACTIVE", "DELETED"]] = Field(default=None, alias="Status")
@@ -528,7 +528,7 @@ class ListStackSetsInputRequest(BaseModel):
     )
 
 
-class ListStacksInputRequest(BaseModel):
+class ListStacksInputRequestModel(BaseModel):
     next_token: Optional[str] = Field(default=None, alias="NextToken")
     stack_status_filter: Optional[
         Sequence[
@@ -561,7 +561,7 @@ class ListStacksInputRequest(BaseModel):
     ] = Field(default=None, alias="StackStatusFilter")
 
 
-class ListTypeRegistrationsInputRequest(BaseModel):
+class ListTypeRegistrationsInputRequestModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -574,7 +574,7 @@ class ListTypeRegistrationsInputRequest(BaseModel):
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class ListTypeVersionsInputRequest(BaseModel):
+class ListTypeVersionsInputRequestModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -588,7 +588,7 @@ class ListTypeVersionsInputRequest(BaseModel):
     publisher_id: Optional[str] = Field(default=None, alias="PublisherId")
 
 
-class TypeVersionSummary(BaseModel):
+class TypeVersionSummaryModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -603,7 +603,7 @@ class TypeVersionSummary(BaseModel):
     )
 
 
-class TypeFilters(BaseModel):
+class TypeFiltersModel(BaseModel):
     category: Optional[
         Literal["ACTIVATED", "AWS_TYPES", "REGISTERED", "THIRD_PARTY"]
     ] = Field(default=None, alias="Category")
@@ -611,7 +611,7 @@ class TypeFilters(BaseModel):
     type_name_prefix: Optional[str] = Field(default=None, alias="TypeNamePrefix")
 
 
-class TypeSummary(BaseModel):
+class TypeSummaryModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -635,30 +635,30 @@ class TypeSummary(BaseModel):
     is_activated: Optional[bool] = Field(default=None, alias="IsActivated")
 
 
-class ModuleInfo(BaseModel):
+class ModuleInfoModel(BaseModel):
     type_hierarchy: Optional[str] = Field(default=None, alias="TypeHierarchy")
     logical_id_hierarchy: Optional[str] = Field(
         default=None, alias="LogicalIdHierarchy"
     )
 
 
-class Output(BaseModel):
+class OutputModel(BaseModel):
     output_key: Optional[str] = Field(default=None, alias="OutputKey")
     output_value: Optional[str] = Field(default=None, alias="OutputValue")
     description: Optional[str] = Field(default=None, alias="Description")
     export_name: Optional[str] = Field(default=None, alias="ExportName")
 
 
-class ParameterConstraints(BaseModel):
+class ParameterConstraintsModel(BaseModel):
     allowed_values: Optional[List[str]] = Field(default=None, alias="AllowedValues")
 
 
-class PhysicalResourceIdContextKeyValuePair(BaseModel):
+class PhysicalResourceIdContextKeyValuePairModel(BaseModel):
     key: str = Field(alias="Key")
     value: str = Field(alias="Value")
 
 
-class PropertyDifference(BaseModel):
+class PropertyDifferenceModel(BaseModel):
     property_path: str = Field(alias="PropertyPath")
     expected_value: str = Field(alias="ExpectedValue")
     actual_value: str = Field(alias="ActualValue")
@@ -667,7 +667,7 @@ class PropertyDifference(BaseModel):
     )
 
 
-class PublishTypeInputRequest(BaseModel):
+class PublishTypeInputRequestModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -678,7 +678,7 @@ class PublishTypeInputRequest(BaseModel):
     )
 
 
-class RecordHandlerProgressInputRequest(BaseModel):
+class RecordHandlerProgressInputRequestModel(BaseModel):
     bearer_token: str = Field(alias="BearerToken")
     operation_status: Literal["FAILED", "IN_PROGRESS", "PENDING", "SUCCESS"] = Field(
         alias="OperationStatus"
@@ -716,14 +716,14 @@ class RecordHandlerProgressInputRequest(BaseModel):
     )
 
 
-class RegisterPublisherInputRequest(BaseModel):
+class RegisterPublisherInputRequestModel(BaseModel):
     accept_terms_and_conditions: Optional[bool] = Field(
         default=None, alias="AcceptTermsAndConditions"
     )
     connection_arn: Optional[str] = Field(default=None, alias="ConnectionArn")
 
 
-class ResourceTargetDefinition(BaseModel):
+class ResourceTargetDefinitionModel(BaseModel):
     attribute: Optional[
         Literal[
             "CreationPolicy",
@@ -740,12 +740,12 @@ class ResourceTargetDefinition(BaseModel):
     )
 
 
-class RollbackTrigger(BaseModel):
+class RollbackTriggerModel(BaseModel):
     arn: str = Field(alias="Arn")
     type: str = Field(alias="Type")
 
 
-class RollbackStackInputRequest(BaseModel):
+class RollbackStackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
     client_request_token: Optional[str] = Field(
@@ -753,31 +753,31 @@ class RollbackStackInputRequest(BaseModel):
     )
 
 
-class ServiceResourceEventRequest(BaseModel):
+class ServiceResourceEventRequestModel(BaseModel):
     id: str = Field(alias="id")
 
 
-class ServiceResourceStackRequest(BaseModel):
+class ServiceResourceStackRequestModel(BaseModel):
     name: str = Field(alias="name")
 
 
-class ServiceResourceStackResourceRequest(BaseModel):
+class ServiceResourceStackResourceRequestModel(BaseModel):
     stack_name: str = Field(alias="stack_name")
     logical_id: str = Field(alias="logical_id")
 
 
-class ServiceResourceStackResourceSummaryRequest(BaseModel):
+class ServiceResourceStackResourceSummaryRequestModel(BaseModel):
     stack_name: str = Field(alias="stack_name")
     logical_id: str = Field(alias="logical_id")
 
 
-class SetStackPolicyInputRequest(BaseModel):
+class SetStackPolicyInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     stack_policy_body: Optional[str] = Field(default=None, alias="StackPolicyBody")
     stack_policy_url: Optional[str] = Field(default=None, alias="StackPolicyURL")
 
 
-class SetTypeConfigurationInputRequest(BaseModel):
+class SetTypeConfigurationInputRequestModel(BaseModel):
     configuration: str = Field(alias="Configuration")
     type_arn: Optional[str] = Field(default=None, alias="TypeArn")
     configuration_alias: Optional[str] = Field(default=None, alias="ConfigurationAlias")
@@ -787,7 +787,7 @@ class SetTypeConfigurationInputRequest(BaseModel):
     )
 
 
-class SetaultVersionInputRequest(BaseModel):
+class SetModelaultVersionInputRequestModel(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
@@ -796,14 +796,14 @@ class SetaultVersionInputRequest(BaseModel):
     version_id: Optional[str] = Field(default=None, alias="VersionId")
 
 
-class SignalResourceInputRequest(BaseModel):
+class SignalResourceInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     logical_resource_id: str = Field(alias="LogicalResourceId")
     unique_id: str = Field(alias="UniqueId")
     status: Literal["FAILURE", "SUCCESS"] = Field(alias="Status")
 
 
-class StackDriftInformationSummary(BaseModel):
+class StackDriftInformationSummaryModel(BaseModel):
     stack_drift_status: Literal["DRIFTED", "IN_SYNC", "NOT_CHECKED", "UNKNOWN"] = Field(
         alias="StackDriftStatus"
     )
@@ -812,7 +812,7 @@ class StackDriftInformationSummary(BaseModel):
     )
 
 
-class StackDriftInformation(BaseModel):
+class StackDriftInformationModel(BaseModel):
     stack_drift_status: Literal["DRIFTED", "IN_SYNC", "NOT_CHECKED", "UNKNOWN"] = Field(
         alias="StackDriftStatus"
     )
@@ -821,13 +821,13 @@ class StackDriftInformation(BaseModel):
     )
 
 
-class StackInstanceComprehensiveStatus(BaseModel):
+class StackInstanceComprehensiveStatusModel(BaseModel):
     detailed_status: Optional[
         Literal["CANCELLED", "FAILED", "INOPERABLE", "PENDING", "RUNNING", "SUCCEEDED"]
     ] = Field(default=None, alias="DetailedStatus")
 
 
-class StackResourceDriftInformation(BaseModel):
+class StackResourceDriftInformationModel(BaseModel):
     stack_resource_drift_status: Literal[
         "DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"
     ] = Field(alias="StackResourceDriftStatus")
@@ -836,7 +836,7 @@ class StackResourceDriftInformation(BaseModel):
     )
 
 
-class StackResourceDriftInformationSummary(BaseModel):
+class StackResourceDriftInformationSummaryModel(BaseModel):
     stack_resource_drift_status: Literal[
         "DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"
     ] = Field(alias="StackResourceDriftStatus")
@@ -845,11 +845,11 @@ class StackResourceDriftInformationSummary(BaseModel):
     )
 
 
-class StackResourceRequest(BaseModel):
+class StackResourceRequestModel(BaseModel):
     logical_id: str = Field(alias="logical_id")
 
 
-class StackSetDriftDetectionDetails(BaseModel):
+class StackSetDriftDetectionDetailsModel(BaseModel):
     drift_status: Optional[Literal["DRIFTED", "IN_SYNC", "NOT_CHECKED"]] = Field(
         default=None, alias="DriftStatus"
     )
@@ -876,13 +876,13 @@ class StackSetDriftDetectionDetails(BaseModel):
     )
 
 
-class StackSetOperationStatusDetails(BaseModel):
+class StackSetOperationStatusDetailsModel(BaseModel):
     failed_stack_instances_count: Optional[int] = Field(
         default=None, alias="FailedStackInstancesCount"
     )
 
 
-class StopStackSetOperationInputRequest(BaseModel):
+class StopStackSetOperationInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     operation_id: str = Field(alias="OperationId")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
@@ -890,14 +890,14 @@ class StopStackSetOperationInputRequest(BaseModel):
     )
 
 
-class TemplateParameter(BaseModel):
+class TemplateParameterModel(BaseModel):
     parameter_key: Optional[str] = Field(default=None, alias="ParameterKey")
     default_value: Optional[str] = Field(default=None, alias="DefaultValue")
     no_echo: Optional[bool] = Field(default=None, alias="NoEcho")
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class TestTypeInputRequest(BaseModel):
+class TestTypeInputRequestModel(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
@@ -907,24 +907,24 @@ class TestTypeInputRequest(BaseModel):
     log_delivery_bucket: Optional[str] = Field(default=None, alias="LogDeliveryBucket")
 
 
-class UpdateTerminationProtectionInputRequest(BaseModel):
+class UpdateTerminationProtectionInputRequestModel(BaseModel):
     enable_termination_protection: bool = Field(alias="EnableTerminationProtection")
     stack_name: str = Field(alias="StackName")
 
 
-class ValidateTemplateInputRequest(BaseModel):
+class ValidateTemplateInputRequestModel(BaseModel):
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
 
 
-class StackSetOperationResultSummary(BaseModel):
+class StackSetOperationResultSummaryModel(BaseModel):
     account: Optional[str] = Field(default=None, alias="Account")
     region: Optional[str] = Field(default=None, alias="Region")
     status: Optional[
         Literal["CANCELLED", "FAILED", "PENDING", "RUNNING", "SUCCEEDED"]
     ] = Field(default=None, alias="Status")
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
-    account_gate_result: Optional[AccountGateResult] = Field(
+    account_gate_result: Optional[AccountGateResultModel] = Field(
         default=None, alias="AccountGateResult"
     )
     organizational_unit_id: Optional[str] = Field(
@@ -932,7 +932,7 @@ class StackSetOperationResultSummary(BaseModel):
     )
 
 
-class ActivateTypeInputRequest(BaseModel):
+class ActivateTypeInputRequestModel(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
@@ -941,7 +941,9 @@ class ActivateTypeInputRequest(BaseModel):
     type_name: Optional[str] = Field(default=None, alias="TypeName")
     type_name_alias: Optional[str] = Field(default=None, alias="TypeNameAlias")
     auto_update: Optional[bool] = Field(default=None, alias="AutoUpdate")
-    logging_config: Optional[LoggingConfig] = Field(default=None, alias="LoggingConfig")
+    logging_config: Optional[LoggingConfigModel] = Field(
+        default=None, alias="LoggingConfig"
+    )
     execution_role_arn: Optional[str] = Field(default=None, alias="ExecutionRoleArn")
     version_bump: Optional[Literal["MAJOR", "MINOR"]] = Field(
         default=None, alias="VersionBump"
@@ -949,67 +951,69 @@ class ActivateTypeInputRequest(BaseModel):
     major_version: Optional[int] = Field(default=None, alias="MajorVersion")
 
 
-class RegisterTypeInputRequest(BaseModel):
+class RegisterTypeInputRequestModel(BaseModel):
     type_name: str = Field(alias="TypeName")
     schema_handler_package: str = Field(alias="SchemaHandlerPackage")
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
-    logging_config: Optional[LoggingConfig] = Field(default=None, alias="LoggingConfig")
+    logging_config: Optional[LoggingConfigModel] = Field(
+        default=None, alias="LoggingConfig"
+    )
     execution_role_arn: Optional[str] = Field(default=None, alias="ExecutionRoleArn")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
 
 
-class ActivateTypeOutput(BaseModel):
+class ActivateTypeOutputModel(BaseModel):
     arn: str = Field(alias="Arn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateChangeSetOutput(BaseModel):
+class CreateChangeSetOutputModel(BaseModel):
     id: str = Field(alias="Id")
     stack_id: str = Field(alias="StackId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateStackInstancesOutput(BaseModel):
+class CreateStackInstancesOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateStackOutput(BaseModel):
+class CreateStackOutputModel(BaseModel):
     stack_id: str = Field(alias="StackId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateStackSetOutput(BaseModel):
+class CreateStackSetOutputModel(BaseModel):
     stack_set_id: str = Field(alias="StackSetId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DeleteStackInstancesOutput(BaseModel):
+class DeleteStackInstancesOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeAccountLimitsOutput(BaseModel):
-    account_limits: List[AccountLimit] = Field(alias="AccountLimits")
+class DescribeAccountLimitsOutputModel(BaseModel):
+    account_limits: List[AccountLimitModel] = Field(alias="AccountLimits")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribePublisherOutput(BaseModel):
+class DescribePublisherOutputModel(BaseModel):
     publisher_id: str = Field(alias="PublisherId")
     publisher_status: Literal["UNVERIFIED", "VERIFIED"] = Field(alias="PublisherStatus")
     identity_provider: Literal["AWS_Marketplace", "Bitbucket", "GitHub"] = Field(
         alias="IdentityProvider"
     )
     publisher_profile: str = Field(alias="PublisherProfile")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackDriftDetectionStatusOutput(BaseModel):
+class DescribeStackDriftDetectionStatusOutputModel(BaseModel):
     stack_id: str = Field(alias="StackId")
     stack_drift_detection_id: str = Field(alias="StackDriftDetectionId")
     stack_drift_status: Literal["DRIFTED", "IN_SYNC", "NOT_CHECKED", "UNKNOWN"] = Field(
@@ -1021,192 +1025,194 @@ class DescribeStackDriftDetectionStatusOutput(BaseModel):
     detection_status_reason: str = Field(alias="DetectionStatusReason")
     drifted_stack_resource_count: int = Field(alias="DriftedStackResourceCount")
     timestamp: datetime = Field(alias="Timestamp")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeTypeRegistrationOutput(BaseModel):
+class DescribeTypeRegistrationOutputModel(BaseModel):
     progress_status: Literal["COMPLETE", "FAILED", "IN_PROGRESS"] = Field(
         alias="ProgressStatus"
     )
     description: str = Field(alias="Description")
     type_arn: str = Field(alias="TypeArn")
     type_version_arn: str = Field(alias="TypeVersionArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DetectStackDriftOutput(BaseModel):
+class DetectStackDriftOutputModel(BaseModel):
     stack_drift_detection_id: str = Field(alias="StackDriftDetectionId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DetectStackSetDriftOutput(BaseModel):
+class DetectStackSetDriftOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class EmptyResponseMetadata(BaseModel):
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class EmptyResponseMetadataModel(BaseModel):
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class EstimateTemplateCostOutput(BaseModel):
+class EstimateTemplateCostOutputModel(BaseModel):
     url: str = Field(alias="Url")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetStackPolicyOutput(BaseModel):
+class GetStackPolicyOutputModel(BaseModel):
     stack_policy_body: str = Field(alias="StackPolicyBody")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetTemplateOutput(BaseModel):
+class GetTemplateOutputModel(BaseModel):
     template_body: Dict[str, Any] = Field(alias="TemplateBody")
     stages_available: List[Literal["Original", "Processed"]] = Field(
         alias="StagesAvailable"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ImportStacksToStackSetOutput(BaseModel):
+class ImportStacksToStackSetOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListImportsOutput(BaseModel):
+class ListImportsOutputModel(BaseModel):
     imports: List[str] = Field(alias="Imports")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListTypeRegistrationsOutput(BaseModel):
+class ListTypeRegistrationsOutputModel(BaseModel):
     registration_token_list: List[str] = Field(alias="RegistrationTokenList")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ModuleInfoResponseMetadata(BaseModel):
+class ModuleInfoResponseMetadataModel(BaseModel):
     type_hierarchy: str = Field(alias="TypeHierarchy")
     logical_id_hierarchy: str = Field(alias="LogicalIdHierarchy")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PublishTypeOutput(BaseModel):
+class PublishTypeOutputModel(BaseModel):
     public_type_arn: str = Field(alias="PublicTypeArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RegisterPublisherOutput(BaseModel):
+class RegisterPublisherOutputModel(BaseModel):
     publisher_id: str = Field(alias="PublisherId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RegisterTypeOutput(BaseModel):
+class RegisterTypeOutputModel(BaseModel):
     registration_token: str = Field(alias="RegistrationToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RollbackStackOutput(BaseModel):
+class RollbackStackOutputModel(BaseModel):
     stack_id: str = Field(alias="StackId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class SetTypeConfigurationOutput(BaseModel):
+class SetTypeConfigurationOutputModel(BaseModel):
     configuration_arn: str = Field(alias="ConfigurationArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class StackDriftInformationResponseMetadata(BaseModel):
+class StackDriftInformationResponseMetadataModel(BaseModel):
     stack_drift_status: Literal["DRIFTED", "IN_SYNC", "NOT_CHECKED", "UNKNOWN"] = Field(
         alias="StackDriftStatus"
     )
     last_check_timestamp: datetime = Field(alias="LastCheckTimestamp")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class StackResourceDriftInformationResponseMetadata(BaseModel):
+class StackResourceDriftInformationResponseMetadataModel(BaseModel):
     stack_resource_drift_status: Literal[
         "DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"
     ] = Field(alias="StackResourceDriftStatus")
     last_check_timestamp: datetime = Field(alias="LastCheckTimestamp")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class StackResourceDriftInformationSummaryResponseMetadata(BaseModel):
+class StackResourceDriftInformationSummaryResponseMetadataModel(BaseModel):
     stack_resource_drift_status: Literal[
         "DELETED", "IN_SYNC", "MODIFIED", "NOT_CHECKED"
     ] = Field(alias="StackResourceDriftStatus")
     last_check_timestamp: datetime = Field(alias="LastCheckTimestamp")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class TestTypeOutput(BaseModel):
+class TestTypeOutputModel(BaseModel):
     type_version_arn: str = Field(alias="TypeVersionArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateStackInstancesOutput(BaseModel):
+class UpdateStackInstancesOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateStackOutput(BaseModel):
+class UpdateStackOutputModel(BaseModel):
     stack_id: str = Field(alias="StackId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateStackSetOutput(BaseModel):
+class UpdateStackSetOutputModel(BaseModel):
     operation_id: str = Field(alias="OperationId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateTerminationProtectionOutput(BaseModel):
+class UpdateTerminationProtectionOutputModel(BaseModel):
     stack_id: str = Field(alias="StackId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class BatchDescribeTypeConfigurationsError(BaseModel):
+class BatchDescribeTypeConfigurationsErrorModel(BaseModel):
     error_code: Optional[str] = Field(default=None, alias="ErrorCode")
     error_message: Optional[str] = Field(default=None, alias="ErrorMessage")
-    type_configuration_identifier: Optional[TypeConfigurationIdentifier] = Field(
+    type_configuration_identifier: Optional[TypeConfigurationIdentifierModel] = Field(
         default=None, alias="TypeConfigurationIdentifier"
     )
 
 
-class BatchDescribeTypeConfigurationsInputRequest(BaseModel):
-    type_configuration_identifiers: Sequence[TypeConfigurationIdentifier] = Field(
+class BatchDescribeTypeConfigurationsInputRequestModel(BaseModel):
+    type_configuration_identifiers: Sequence[TypeConfigurationIdentifierModel] = Field(
         alias="TypeConfigurationIdentifiers"
     )
 
 
-class ChangeSetHookTargetDetails(BaseModel):
+class ChangeSetHookTargetDetailsModel(BaseModel):
     target_type: Optional[Literal["RESOURCE"]] = Field(default=None, alias="TargetType")
-    resource_target_details: Optional[ChangeSetHookResourceTargetDetails] = Field(
+    resource_target_details: Optional[ChangeSetHookResourceTargetDetailsModel] = Field(
         default=None, alias="ResourceTargetDetails"
     )
 
 
-class ListChangeSetsOutput(BaseModel):
-    summaries: List[ChangeSetSummary] = Field(alias="Summaries")
+class ListChangeSetsOutputModel(BaseModel):
+    summaries: List[ChangeSetSummaryModel] = Field(alias="Summaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class EstimateTemplateCostInputRequest(BaseModel):
+class EstimateTemplateCostInputRequestModel(BaseModel):
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
 
 
-class CreateStackInstancesInputRequest(BaseModel):
+class CreateStackInstancesInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     regions: Sequence[str] = Field(alias="Regions")
     accounts: Optional[Sequence[str]] = Field(default=None, alias="Accounts")
-    deployment_targets: Optional[DeploymentTargets] = Field(
+    deployment_targets: Optional[DeploymentTargetsModel] = Field(
         default=None, alias="DeploymentTargets"
     )
-    parameter_overrides: Optional[Sequence[Parameter]] = Field(
+    parameter_overrides: Optional[Sequence[ParameterModel]] = Field(
         default=None, alias="ParameterOverrides"
     )
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1215,15 +1221,15 @@ class CreateStackInstancesInputRequest(BaseModel):
     )
 
 
-class DeleteStackInstancesInputRequest(BaseModel):
+class DeleteStackInstancesInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     regions: Sequence[str] = Field(alias="Regions")
     retain_stacks: bool = Field(alias="RetainStacks")
     accounts: Optional[Sequence[str]] = Field(default=None, alias="Accounts")
-    deployment_targets: Optional[DeploymentTargets] = Field(
+    deployment_targets: Optional[DeploymentTargetsModel] = Field(
         default=None, alias="DeploymentTargets"
     )
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1232,9 +1238,9 @@ class DeleteStackInstancesInputRequest(BaseModel):
     )
 
 
-class DetectStackSetDriftInputRequest(BaseModel):
+class DetectStackSetDriftInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1243,14 +1249,14 @@ class DetectStackSetDriftInputRequest(BaseModel):
     )
 
 
-class ImportStacksToStackSetInputRequest(BaseModel):
+class ImportStacksToStackSetInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     stack_ids: Optional[Sequence[str]] = Field(default=None, alias="StackIds")
     stack_ids_url: Optional[str] = Field(default=None, alias="StackIdsUrl")
     organizational_unit_ids: Optional[Sequence[str]] = Field(
         default=None, alias="OrganizationalUnitIds"
     )
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1259,17 +1265,17 @@ class ImportStacksToStackSetInputRequest(BaseModel):
     )
 
 
-class UpdateStackInstancesInputRequest(BaseModel):
+class UpdateStackInstancesInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     regions: Sequence[str] = Field(alias="Regions")
     accounts: Optional[Sequence[str]] = Field(default=None, alias="Accounts")
-    deployment_targets: Optional[DeploymentTargets] = Field(
+    deployment_targets: Optional[DeploymentTargetsModel] = Field(
         default=None, alias="DeploymentTargets"
     )
-    parameter_overrides: Optional[Sequence[Parameter]] = Field(
+    parameter_overrides: Optional[Sequence[ParameterModel]] = Field(
         default=None, alias="ParameterOverrides"
     )
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1278,19 +1284,21 @@ class UpdateStackInstancesInputRequest(BaseModel):
     )
 
 
-class CreateStackSetInputRequest(BaseModel):
+class CreateStackSetInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     description: Optional[str] = Field(default=None, alias="Description")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
     stack_id: Optional[str] = Field(default=None, alias="StackId")
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     capabilities: Optional[
         Sequence[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
         ]
     ] = Field(default=None, alias="Capabilities")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     administration_role_arn: Optional[str] = Field(
         default=None, alias="AdministrationRoleARN"
     )
@@ -1298,7 +1306,7 @@ class CreateStackSetInputRequest(BaseModel):
     permission_model: Optional[Literal["SELF_MANAGED", "SERVICE_MANAGED"]] = Field(
         default=None, alias="PermissionModel"
     )
-    auto_deployment: Optional[AutoDeployment] = Field(
+    auto_deployment: Optional[AutoDeploymentModel] = Field(
         default=None, alias="AutoDeployment"
     )
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
@@ -1307,17 +1315,17 @@ class CreateStackSetInputRequest(BaseModel):
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
-    managed_execution: Optional[ManagedExecution] = Field(
+    managed_execution: Optional[ManagedExecutionModel] = Field(
         default=None, alias="ManagedExecution"
     )
 
 
-class StackSetSummary(BaseModel):
+class StackSetSummaryModel(BaseModel):
     stack_set_name: Optional[str] = Field(default=None, alias="StackSetName")
     stack_set_id: Optional[str] = Field(default=None, alias="StackSetId")
     description: Optional[str] = Field(default=None, alias="Description")
     status: Optional[Literal["ACTIVE", "DELETED"]] = Field(default=None, alias="Status")
-    auto_deployment: Optional[AutoDeployment] = Field(
+    auto_deployment: Optional[AutoDeploymentModel] = Field(
         default=None, alias="AutoDeployment"
     )
     permission_model: Optional[Literal["SELF_MANAGED", "SERVICE_MANAGED"]] = Field(
@@ -1329,12 +1337,12 @@ class StackSetSummary(BaseModel):
     last_drift_check_timestamp: Optional[datetime] = Field(
         default=None, alias="LastDriftCheckTimestamp"
     )
-    managed_execution: Optional[ManagedExecution] = Field(
+    managed_execution: Optional[ManagedExecutionModel] = Field(
         default=None, alias="ManagedExecution"
     )
 
 
-class UpdateStackSetInputRequest(BaseModel):
+class UpdateStackSetInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     description: Optional[str] = Field(default=None, alias="Description")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
@@ -1342,27 +1350,29 @@ class UpdateStackSetInputRequest(BaseModel):
     use_previous_template: Optional[bool] = Field(
         default=None, alias="UsePreviousTemplate"
     )
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     capabilities: Optional[
         Sequence[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
         ]
     ] = Field(default=None, alias="Capabilities")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     administration_role_arn: Optional[str] = Field(
         default=None, alias="AdministrationRoleARN"
     )
     execution_role_name: Optional[str] = Field(default=None, alias="ExecutionRoleName")
-    deployment_targets: Optional[DeploymentTargets] = Field(
+    deployment_targets: Optional[DeploymentTargetsModel] = Field(
         default=None, alias="DeploymentTargets"
     )
     permission_model: Optional[Literal["SELF_MANAGED", "SERVICE_MANAGED"]] = Field(
         default=None, alias="PermissionModel"
     )
-    auto_deployment: Optional[AutoDeployment] = Field(
+    auto_deployment: Optional[AutoDeploymentModel] = Field(
         default=None, alias="AutoDeployment"
     )
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
@@ -1371,87 +1381,87 @@ class UpdateStackSetInputRequest(BaseModel):
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    managed_execution: Optional[ManagedExecution] = Field(
+    managed_execution: Optional[ManagedExecutionModel] = Field(
         default=None, alias="ManagedExecution"
     )
 
 
-class DescribeAccountLimitsInputDescribeAccountLimitsPaginate(BaseModel):
-    pagination_config: Optional[PaginatorConfig] = Field(
+class DescribeAccountLimitsInputDescribeAccountLimitsPaginateModel(BaseModel):
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class DescribeChangeSetInputDescribeChangeSetPaginate(BaseModel):
+class DescribeChangeSetInputDescribeChangeSetPaginateModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class DescribeStackEventsInputDescribeStackEventsPaginate(BaseModel):
+class DescribeStackEventsInputDescribeStackEventsPaginateModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class DescribeStacksInputDescribeStacksPaginate(BaseModel):
+class DescribeStacksInputDescribeStacksPaginateModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListChangeSetsInputListChangeSetsPaginate(BaseModel):
+class ListChangeSetsInputListChangeSetsPaginateModel(BaseModel):
     stack_name: str = Field(alias="StackName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListExportsInputListExportsPaginate(BaseModel):
-    pagination_config: Optional[PaginatorConfig] = Field(
+class ListExportsInputListExportsPaginateModel(BaseModel):
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListImportsInputListImportsPaginate(BaseModel):
+class ListImportsInputListImportsPaginateModel(BaseModel):
     export_name: str = Field(alias="ExportName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStackResourcesInputListStackResourcesPaginate(BaseModel):
+class ListStackResourcesInputListStackResourcesPaginateModel(BaseModel):
     stack_name: str = Field(alias="StackName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStackSetOperationsInputListStackSetOperationsPaginate(BaseModel):
+class ListStackSetOperationsInputListStackSetOperationsPaginateModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStackSetsInputListStackSetsPaginate(BaseModel):
+class ListStackSetsInputListStackSetsPaginateModel(BaseModel):
     status: Optional[Literal["ACTIVE", "DELETED"]] = Field(default=None, alias="Status")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStacksInputListStacksPaginate(BaseModel):
+class ListStacksInputListStacksPaginateModel(BaseModel):
     stack_status_filter: Optional[
         Sequence[
             Literal[
@@ -1481,66 +1491,82 @@ class ListStacksInputListStacksPaginate(BaseModel):
             ]
         ]
     ] = Field(default=None, alias="StackStatusFilter")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class DescribeChangeSetInputChangeSetCreateCompleteWait(BaseModel):
+class DescribeChangeSetInputChangeSetCreateCompleteWaitModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackCreateCompleteWait(BaseModel):
+class DescribeStacksInputStackCreateCompleteWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackDeleteCompleteWait(BaseModel):
+class DescribeStacksInputStackDeleteCompleteWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackExistsWait(BaseModel):
+class DescribeStacksInputStackExistsWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackImportCompleteWait(BaseModel):
+class DescribeStacksInputStackImportCompleteWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackRollbackCompleteWait(BaseModel):
+class DescribeStacksInputStackRollbackCompleteWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStacksInputStackUpdateCompleteWait(BaseModel):
+class DescribeStacksInputStackUpdateCompleteWaitModel(BaseModel):
     stack_name: Optional[str] = Field(default=None, alias="StackName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeTypeRegistrationInputTypeRegistrationCompleteWait(BaseModel):
+class DescribeTypeRegistrationInputTypeRegistrationCompleteWaitModel(BaseModel):
     registration_token: str = Field(alias="RegistrationToken")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class DescribeStackEventsOutput(BaseModel):
-    stack_events: List[StackEvent] = Field(alias="StackEvents")
+class DescribeStackEventsOutputModel(BaseModel):
+    stack_events: List[StackEventModel] = Field(alias="StackEvents")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeTypeOutput(BaseModel):
+class DescribeTypeOutputModel(BaseModel):
     arn: str = Field(alias="Arn")
     type: Literal["HOOK", "MODULE", "RESOURCE"] = Field(alias="Type")
     type_name: str = Field(alias="TypeName")
@@ -1551,13 +1577,13 @@ class DescribeTypeOutput(BaseModel):
     )
     type_tests_status_description: str = Field(alias="TypeTestsStatusDescription")
     description: str = Field(alias="Description")
-    schema: str = Field(alias="Schema")
+    schema_: str = Field(alias="Schema")
     provisioning_type: Literal[
         "FULLY_MUTABLE", "IMMUTABLE", "NON_PROVISIONABLE"
     ] = Field(alias="ProvisioningType")
     deprecated_status: Literal["DEPRECATED", "LIVE"] = Field(alias="DeprecatedStatus")
-    logging_config: LoggingConfig = Field(alias="LoggingConfig")
-    required_activated_types: List[RequiredActivatedType] = Field(
+    logging_config: LoggingConfigModel = Field(alias="LoggingConfig")
+    required_activated_types: List[RequiredActivatedTypeModel] = Field(
         alias="RequiredActivatedTypes"
     )
     execution_role_arn: str = Field(alias="ExecutionRoleArn")
@@ -1574,18 +1600,18 @@ class DescribeTypeOutput(BaseModel):
     latest_public_version: str = Field(alias="LatestPublicVersion")
     is_activated: bool = Field(alias="IsActivated")
     auto_update: bool = Field(alias="AutoUpdate")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListExportsOutput(BaseModel):
-    exports: List[Export] = Field(alias="Exports")
+class ListExportsOutputModel(BaseModel):
+    exports: List[ExportModel] = Field(alias="Exports")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListStackInstancesInputListStackInstancesPaginate(BaseModel):
+class ListStackInstancesInputListStackInstancesPaginateModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
-    filters: Optional[Sequence[StackInstanceFilter]] = Field(
+    filters: Optional[Sequence[StackInstanceFilterModel]] = Field(
         default=None, alias="Filters"
     )
     stack_instance_account: Optional[str] = Field(
@@ -1597,16 +1623,16 @@ class ListStackInstancesInputListStackInstancesPaginate(BaseModel):
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStackInstancesInputRequest(BaseModel):
+class ListStackInstancesInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
     max_results: Optional[int] = Field(default=None, alias="MaxResults")
-    filters: Optional[Sequence[StackInstanceFilter]] = Field(
+    filters: Optional[Sequence[StackInstanceFilterModel]] = Field(
         default=None, alias="Filters"
     )
     stack_instance_account: Optional[str] = Field(
@@ -1620,21 +1646,23 @@ class ListStackInstancesInputRequest(BaseModel):
     )
 
 
-class ListStackSetOperationResultsInputListStackSetOperationResultsPaginate(BaseModel):
+class ListStackSetOperationResultsInputListStackSetOperationResultsPaginateModel(
+    BaseModel
+):
     stack_set_name: str = Field(alias="StackSetName")
     operation_id: str = Field(alias="OperationId")
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    filters: Optional[Sequence[OperationResultFilter]] = Field(
+    filters: Optional[Sequence[OperationResultFilterModel]] = Field(
         default=None, alias="Filters"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListStackSetOperationResultsInputRequest(BaseModel):
+class ListStackSetOperationResultsInputRequestModel(BaseModel):
     stack_set_name: str = Field(alias="StackSetName")
     operation_id: str = Field(alias="OperationId")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
@@ -1642,20 +1670,20 @@ class ListStackSetOperationResultsInputRequest(BaseModel):
     call_as: Optional[Literal["DELEGATED_ADMIN", "SELF"]] = Field(
         default=None, alias="CallAs"
     )
-    filters: Optional[Sequence[OperationResultFilter]] = Field(
+    filters: Optional[Sequence[OperationResultFilterModel]] = Field(
         default=None, alias="Filters"
     )
 
 
-class ListTypeVersionsOutput(BaseModel):
-    type_version_summaries: List[TypeVersionSummary] = Field(
+class ListTypeVersionsOutputModel(BaseModel):
+    type_version_summaries: List[TypeVersionSummaryModel] = Field(
         alias="TypeVersionSummaries"
     )
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListTypesInputListTypesPaginate(BaseModel):
+class ListTypesInputListTypesPaginateModel(BaseModel):
     visibility: Optional[Literal["PRIVATE", "PUBLIC"]] = Field(
         default=None, alias="Visibility"
     )
@@ -1668,13 +1696,13 @@ class ListTypesInputListTypesPaginate(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
-    filters: Optional[TypeFilters] = Field(default=None, alias="Filters")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    filters: Optional[TypeFiltersModel] = Field(default=None, alias="Filters")
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListTypesInputRequest(BaseModel):
+class ListTypesInputRequestModel(BaseModel):
     visibility: Optional[Literal["PRIVATE", "PUBLIC"]] = Field(
         default=None, alias="Visibility"
     )
@@ -1687,29 +1715,29 @@ class ListTypesInputRequest(BaseModel):
     type: Optional[Literal["HOOK", "MODULE", "RESOURCE"]] = Field(
         default=None, alias="Type"
     )
-    filters: Optional[TypeFilters] = Field(default=None, alias="Filters")
+    filters: Optional[TypeFiltersModel] = Field(default=None, alias="Filters")
     max_results: Optional[int] = Field(default=None, alias="MaxResults")
     next_token: Optional[str] = Field(default=None, alias="NextToken")
 
 
-class ListTypesOutput(BaseModel):
-    type_summaries: List[TypeSummary] = Field(alias="TypeSummaries")
+class ListTypesOutputModel(BaseModel):
+    type_summaries: List[TypeSummaryModel] = Field(alias="TypeSummaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ParameterDeclaration(BaseModel):
+class ParameterDeclarationModel(BaseModel):
     parameter_key: Optional[str] = Field(default=None, alias="ParameterKey")
     default_value: Optional[str] = Field(default=None, alias="DefaultValue")
     parameter_type: Optional[str] = Field(default=None, alias="ParameterType")
     no_echo: Optional[bool] = Field(default=None, alias="NoEcho")
     description: Optional[str] = Field(default=None, alias="Description")
-    parameter_constraints: Optional[ParameterConstraints] = Field(
+    parameter_constraints: Optional[ParameterConstraintsModel] = Field(
         default=None, alias="ParameterConstraints"
     )
 
 
-class StackResourceDrift(BaseModel):
+class StackResourceDriftModel(BaseModel):
     stack_id: str = Field(alias="StackId")
     logical_resource_id: str = Field(alias="LogicalResourceId")
     resource_type: str = Field(alias="ResourceType")
@@ -1721,18 +1749,20 @@ class StackResourceDrift(BaseModel):
         default=None, alias="PhysicalResourceId"
     )
     physical_resource_id_context: Optional[
-        List[PhysicalResourceIdContextKeyValuePair]
+        List[PhysicalResourceIdContextKeyValuePairModel]
     ] = Field(default=None, alias="PhysicalResourceIdContext")
     expected_properties: Optional[str] = Field(default=None, alias="ExpectedProperties")
     actual_properties: Optional[str] = Field(default=None, alias="ActualProperties")
-    property_differences: Optional[List[PropertyDifference]] = Field(
+    property_differences: Optional[List[PropertyDifferenceModel]] = Field(
         default=None, alias="PropertyDifferences"
     )
-    module_info: Optional[ModuleInfo] = Field(default=None, alias="ModuleInfo")
+    module_info: Optional[ModuleInfoModel] = Field(default=None, alias="ModuleInfo")
 
 
-class ResourceChangeDetail(BaseModel):
-    target: Optional[ResourceTargetDefinition] = Field(default=None, alias="Target")
+class ResourceChangeDetailModel(BaseModel):
+    target: Optional[ResourceTargetDefinitionModel] = Field(
+        default=None, alias="Target"
+    )
     evaluation: Optional[Literal["Dynamic", "Static"]] = Field(
         default=None, alias="Evaluation"
     )
@@ -1748,14 +1778,14 @@ class ResourceChangeDetail(BaseModel):
     causing_entity: Optional[str] = Field(default=None, alias="CausingEntity")
 
 
-class RollbackConfigurationResponseMetadata(BaseModel):
-    rollback_triggers: List[RollbackTrigger] = Field(alias="RollbackTriggers")
+class RollbackConfigurationResponseMetadataModel(BaseModel):
+    rollback_triggers: List[RollbackTriggerModel] = Field(alias="RollbackTriggers")
     monitoring_time_in_minutes: int = Field(alias="MonitoringTimeInMinutes")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RollbackConfiguration(BaseModel):
-    rollback_triggers: Optional[Sequence[RollbackTrigger]] = Field(
+class RollbackConfigurationModel(BaseModel):
+    rollback_triggers: Optional[Sequence[RollbackTriggerModel]] = Field(
         default=None, alias="RollbackTriggers"
     )
     monitoring_time_in_minutes: Optional[int] = Field(
@@ -1763,7 +1793,7 @@ class RollbackConfiguration(BaseModel):
     )
 
 
-class StackSummary(BaseModel):
+class StackSummaryModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     creation_time: datetime = Field(alias="CreationTime")
     stack_status: Literal[
@@ -1800,12 +1830,12 @@ class StackSummary(BaseModel):
     stack_status_reason: Optional[str] = Field(default=None, alias="StackStatusReason")
     parent_id: Optional[str] = Field(default=None, alias="ParentId")
     root_id: Optional[str] = Field(default=None, alias="RootId")
-    drift_information: Optional[StackDriftInformationSummary] = Field(
+    drift_information: Optional[StackDriftInformationSummaryModel] = Field(
         default=None, alias="DriftInformation"
     )
 
 
-class StackInstanceSummary(BaseModel):
+class StackInstanceSummaryModel(BaseModel):
     stack_set_id: Optional[str] = Field(default=None, alias="StackSetId")
     region: Optional[str] = Field(default=None, alias="Region")
     account: Optional[str] = Field(default=None, alias="Account")
@@ -1814,7 +1844,7 @@ class StackInstanceSummary(BaseModel):
         default=None, alias="Status"
     )
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
-    stack_instance_status: Optional[StackInstanceComprehensiveStatus] = Field(
+    stack_instance_status: Optional[StackInstanceComprehensiveStatusModel] = Field(
         default=None, alias="StackInstanceStatus"
     )
     organizational_unit_id: Optional[str] = Field(
@@ -1829,18 +1859,18 @@ class StackInstanceSummary(BaseModel):
     last_operation_id: Optional[str] = Field(default=None, alias="LastOperationId")
 
 
-class StackInstance(BaseModel):
+class StackInstanceModel(BaseModel):
     stack_set_id: Optional[str] = Field(default=None, alias="StackSetId")
     region: Optional[str] = Field(default=None, alias="Region")
     account: Optional[str] = Field(default=None, alias="Account")
     stack_id: Optional[str] = Field(default=None, alias="StackId")
-    parameter_overrides: Optional[List[Parameter]] = Field(
+    parameter_overrides: Optional[List[ParameterModel]] = Field(
         default=None, alias="ParameterOverrides"
     )
     status: Optional[Literal["CURRENT", "INOPERABLE", "OUTDATED"]] = Field(
         default=None, alias="Status"
     )
-    stack_instance_status: Optional[StackInstanceComprehensiveStatus] = Field(
+    stack_instance_status: Optional[StackInstanceComprehensiveStatusModel] = Field(
         default=None, alias="StackInstanceStatus"
     )
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
@@ -1856,7 +1886,7 @@ class StackInstance(BaseModel):
     last_operation_id: Optional[str] = Field(default=None, alias="LastOperationId")
 
 
-class StackResourceDetail(BaseModel):
+class StackResourceDetailModel(BaseModel):
     logical_resource_id: str = Field(alias="LogicalResourceId")
     resource_type: str = Field(alias="ResourceType")
     last_updated_timestamp: datetime = Field(alias="LastUpdatedTimestamp")
@@ -1894,13 +1924,13 @@ class StackResourceDetail(BaseModel):
     )
     description: Optional[str] = Field(default=None, alias="Description")
     metadata: Optional[str] = Field(default=None, alias="Metadata")
-    drift_information: Optional[StackResourceDriftInformation] = Field(
+    drift_information: Optional[StackResourceDriftInformationModel] = Field(
         default=None, alias="DriftInformation"
     )
-    module_info: Optional[ModuleInfo] = Field(default=None, alias="ModuleInfo")
+    module_info: Optional[ModuleInfoModel] = Field(default=None, alias="ModuleInfo")
 
 
-class StackResource(BaseModel):
+class StackResourceModel(BaseModel):
     logical_resource_id: str = Field(alias="LogicalResourceId")
     resource_type: str = Field(alias="ResourceType")
     timestamp: datetime = Field(alias="Timestamp")
@@ -1937,13 +1967,13 @@ class StackResource(BaseModel):
         default=None, alias="ResourceStatusReason"
     )
     description: Optional[str] = Field(default=None, alias="Description")
-    drift_information: Optional[StackResourceDriftInformation] = Field(
+    drift_information: Optional[StackResourceDriftInformationModel] = Field(
         default=None, alias="DriftInformation"
     )
-    module_info: Optional[ModuleInfo] = Field(default=None, alias="ModuleInfo")
+    module_info: Optional[ModuleInfoModel] = Field(default=None, alias="ModuleInfo")
 
 
-class StackResourceSummary(BaseModel):
+class StackResourceSummaryModel(BaseModel):
     logical_resource_id: str = Field(alias="LogicalResourceId")
     resource_type: str = Field(alias="ResourceType")
     last_updated_timestamp: datetime = Field(alias="LastUpdatedTimestamp")
@@ -1977,34 +2007,34 @@ class StackResourceSummary(BaseModel):
     resource_status_reason: Optional[str] = Field(
         default=None, alias="ResourceStatusReason"
     )
-    drift_information: Optional[StackResourceDriftInformationSummary] = Field(
+    drift_information: Optional[StackResourceDriftInformationSummaryModel] = Field(
         default=None, alias="DriftInformation"
     )
-    module_info: Optional[ModuleInfo] = Field(default=None, alias="ModuleInfo")
+    module_info: Optional[ModuleInfoModel] = Field(default=None, alias="ModuleInfo")
 
 
-class StackSet(BaseModel):
+class StackSetModel(BaseModel):
     stack_set_name: Optional[str] = Field(default=None, alias="StackSetName")
     stack_set_id: Optional[str] = Field(default=None, alias="StackSetId")
     description: Optional[str] = Field(default=None, alias="Description")
     status: Optional[Literal["ACTIVE", "DELETED"]] = Field(default=None, alias="Status")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
-    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[List[ParameterModel]] = Field(default=None, alias="Parameters")
     capabilities: Optional[
         List[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
         ]
     ] = Field(default=None, alias="Capabilities")
-    tags: Optional[List[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[List[TagModel]] = Field(default=None, alias="Tags")
     stack_set_arn: Optional[str] = Field(default=None, alias="StackSetARN")
     administration_role_arn: Optional[str] = Field(
         default=None, alias="AdministrationRoleARN"
     )
     execution_role_name: Optional[str] = Field(default=None, alias="ExecutionRoleName")
-    stack_set_drift_detection_details: Optional[StackSetDriftDetectionDetails] = Field(
-        default=None, alias="StackSetDriftDetectionDetails"
-    )
-    auto_deployment: Optional[AutoDeployment] = Field(
+    stack_set_drift_detection_details: Optional[
+        StackSetDriftDetectionDetailsModel
+    ] = Field(default=None, alias="StackSetDriftDetectionDetails")
+    auto_deployment: Optional[AutoDeploymentModel] = Field(
         default=None, alias="AutoDeployment"
     )
     permission_model: Optional[Literal["SELF_MANAGED", "SERVICE_MANAGED"]] = Field(
@@ -2013,13 +2043,13 @@ class StackSet(BaseModel):
     organizational_unit_ids: Optional[List[str]] = Field(
         default=None, alias="OrganizationalUnitIds"
     )
-    managed_execution: Optional[ManagedExecution] = Field(
+    managed_execution: Optional[ManagedExecutionModel] = Field(
         default=None, alias="ManagedExecution"
     )
     regions: Optional[List[str]] = Field(default=None, alias="Regions")
 
 
-class StackSetOperationSummary(BaseModel):
+class StackSetOperationSummaryModel(BaseModel):
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
     action: Optional[Literal["CREATE", "DELETE", "DETECT_DRIFT", "UPDATE"]] = Field(
         default=None, alias="Action"
@@ -2032,15 +2062,15 @@ class StackSetOperationSummary(BaseModel):
     )
     end_timestamp: Optional[datetime] = Field(default=None, alias="EndTimestamp")
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
-    status_details: Optional[StackSetOperationStatusDetails] = Field(
+    status_details: Optional[StackSetOperationStatusDetailsModel] = Field(
         default=None, alias="StatusDetails"
     )
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
 
 
-class StackSetOperation(BaseModel):
+class StackSetOperationModel(BaseModel):
     operation_id: Optional[str] = Field(default=None, alias="OperationId")
     stack_set_id: Optional[str] = Field(default=None, alias="StackSetId")
     action: Optional[Literal["CREATE", "DELETE", "DETECT_DRIFT", "UPDATE"]] = Field(
@@ -2049,7 +2079,7 @@ class StackSetOperation(BaseModel):
     status: Optional[
         Literal["FAILED", "QUEUED", "RUNNING", "STOPPED", "STOPPING", "SUCCEEDED"]
     ] = Field(default=None, alias="Status")
-    operation_preferences: Optional[StackSetOperationPreferences] = Field(
+    operation_preferences: Optional[StackSetOperationPreferencesModel] = Field(
         default=None, alias="OperationPreferences"
     )
     retain_stacks: Optional[bool] = Field(default=None, alias="RetainStacks")
@@ -2061,47 +2091,47 @@ class StackSetOperation(BaseModel):
         default=None, alias="CreationTimestamp"
     )
     end_timestamp: Optional[datetime] = Field(default=None, alias="EndTimestamp")
-    deployment_targets: Optional[DeploymentTargets] = Field(
+    deployment_targets: Optional[DeploymentTargetsModel] = Field(
         default=None, alias="DeploymentTargets"
     )
-    stack_set_drift_detection_details: Optional[StackSetDriftDetectionDetails] = Field(
-        default=None, alias="StackSetDriftDetectionDetails"
-    )
+    stack_set_drift_detection_details: Optional[
+        StackSetDriftDetectionDetailsModel
+    ] = Field(default=None, alias="StackSetDriftDetectionDetails")
     status_reason: Optional[str] = Field(default=None, alias="StatusReason")
-    status_details: Optional[StackSetOperationStatusDetails] = Field(
+    status_details: Optional[StackSetOperationStatusDetailsModel] = Field(
         default=None, alias="StatusDetails"
     )
 
 
-class ValidateTemplateOutput(BaseModel):
-    parameters: List[TemplateParameter] = Field(alias="Parameters")
+class ValidateTemplateOutputModel(BaseModel):
+    parameters: List[TemplateParameterModel] = Field(alias="Parameters")
     description: str = Field(alias="Description")
     capabilities: List[
         Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
     ] = Field(alias="Capabilities")
     capabilities_reason: str = Field(alias="CapabilitiesReason")
     declared_transforms: List[str] = Field(alias="DeclaredTransforms")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListStackSetOperationResultsOutput(BaseModel):
-    summaries: List[StackSetOperationResultSummary] = Field(alias="Summaries")
+class ListStackSetOperationResultsOutputModel(BaseModel):
+    summaries: List[StackSetOperationResultSummaryModel] = Field(alias="Summaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class BatchDescribeTypeConfigurationsOutput(BaseModel):
-    errors: List[BatchDescribeTypeConfigurationsError] = Field(alias="Errors")
-    unprocessed_type_configurations: List[TypeConfigurationIdentifier] = Field(
+class BatchDescribeTypeConfigurationsOutputModel(BaseModel):
+    errors: List[BatchDescribeTypeConfigurationsErrorModel] = Field(alias="Errors")
+    unprocessed_type_configurations: List[TypeConfigurationIdentifierModel] = Field(
         alias="UnprocessedTypeConfigurations"
     )
-    type_configurations: List[TypeConfigurationDetails] = Field(
+    type_configurations: List[TypeConfigurationDetailsModel] = Field(
         alias="TypeConfigurations"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ChangeSetHook(BaseModel):
+class ChangeSetHookModel(BaseModel):
     invocation_point: Optional[Literal["PRE_PROVISION"]] = Field(
         default=None, alias="InvocationPoint"
     )
@@ -2113,19 +2143,19 @@ class ChangeSetHook(BaseModel):
     type_configuration_version_id: Optional[str] = Field(
         default=None, alias="TypeConfigurationVersionId"
     )
-    target_details: Optional[ChangeSetHookTargetDetails] = Field(
+    target_details: Optional[ChangeSetHookTargetDetailsModel] = Field(
         default=None, alias="TargetDetails"
     )
 
 
-class ListStackSetsOutput(BaseModel):
-    summaries: List[StackSetSummary] = Field(alias="Summaries")
+class ListStackSetsOutputModel(BaseModel):
+    summaries: List[StackSetSummaryModel] = Field(alias="Summaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetTemplateSummaryOutput(BaseModel):
-    parameters: List[ParameterDeclaration] = Field(alias="Parameters")
+class GetTemplateSummaryOutputModel(BaseModel):
+    parameters: List[ParameterDeclarationModel] = Field(alias="Parameters")
     description: str = Field(alias="Description")
     capabilities: List[
         Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
@@ -2135,24 +2165,26 @@ class GetTemplateSummaryOutput(BaseModel):
     version: str = Field(alias="Version")
     metadata: str = Field(alias="Metadata")
     declared_transforms: List[str] = Field(alias="DeclaredTransforms")
-    resource_identifier_summaries: List[ResourceIdentifierSummary] = Field(
+    resource_identifier_summaries: List[ResourceIdentifierSummaryModel] = Field(
         alias="ResourceIdentifierSummaries"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackResourceDriftsOutput(BaseModel):
-    stack_resource_drifts: List[StackResourceDrift] = Field(alias="StackResourceDrifts")
+class DescribeStackResourceDriftsOutputModel(BaseModel):
+    stack_resource_drifts: List[StackResourceDriftModel] = Field(
+        alias="StackResourceDrifts"
+    )
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DetectStackResourceDriftOutput(BaseModel):
-    stack_resource_drift: StackResourceDrift = Field(alias="StackResourceDrift")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DetectStackResourceDriftOutputModel(BaseModel):
+    stack_resource_drift: StackResourceDriftModel = Field(alias="StackResourceDrift")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ResourceChange(BaseModel):
+class ResourceChangeModel(BaseModel):
     action: Optional[Literal["Add", "Dynamic", "Import", "Modify", "Remove"]] = Field(
         default=None, alias="Action"
     )
@@ -2176,12 +2208,14 @@ class ResourceChange(BaseModel):
             ]
         ]
     ] = Field(default=None, alias="Scope")
-    details: Optional[List[ResourceChangeDetail]] = Field(default=None, alias="Details")
+    details: Optional[List[ResourceChangeDetailModel]] = Field(
+        default=None, alias="Details"
+    )
     change_set_id: Optional[str] = Field(default=None, alias="ChangeSetId")
-    module_info: Optional[ModuleInfo] = Field(default=None, alias="ModuleInfo")
+    module_info: Optional[ModuleInfoModel] = Field(default=None, alias="ModuleInfo")
 
 
-class CreateChangeSetInputRequest(BaseModel):
+class CreateChangeSetInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     change_set_name: str = Field(alias="ChangeSetName")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
@@ -2189,7 +2223,9 @@ class CreateChangeSetInputRequest(BaseModel):
     use_previous_template: Optional[bool] = Field(
         default=None, alias="UsePreviousTemplate"
     )
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     capabilities: Optional[
         Sequence[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
@@ -2197,19 +2233,19 @@ class CreateChangeSetInputRequest(BaseModel):
     ] = Field(default=None, alias="Capabilities")
     resource_types: Optional[Sequence[str]] = Field(default=None, alias="ResourceTypes")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     notification_arns: Optional[Sequence[str]] = Field(
         default=None, alias="NotificationARNs"
     )
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     client_token: Optional[str] = Field(default=None, alias="ClientToken")
     description: Optional[str] = Field(default=None, alias="Description")
     change_set_type: Optional[Literal["CREATE", "IMPORT", "UPDATE"]] = Field(
         default=None, alias="ChangeSetType"
     )
-    resources_to_import: Optional[Sequence[ResourceToImport]] = Field(
+    resources_to_import: Optional[Sequence[ResourceToImportModel]] = Field(
         default=None, alias="ResourcesToImport"
     )
     include_nested_stacks: Optional[bool] = Field(
@@ -2217,13 +2253,15 @@ class CreateChangeSetInputRequest(BaseModel):
     )
 
 
-class CreateStackInputRequest(BaseModel):
+class CreateStackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     disable_rollback: Optional[bool] = Field(default=None, alias="DisableRollback")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     timeout_in_minutes: Optional[int] = Field(default=None, alias="TimeoutInMinutes")
@@ -2242,7 +2280,7 @@ class CreateStackInputRequest(BaseModel):
     )
     stack_policy_body: Optional[str] = Field(default=None, alias="StackPolicyBody")
     stack_policy_url: Optional[str] = Field(default=None, alias="StackPolicyURL")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
@@ -2251,13 +2289,15 @@ class CreateStackInputRequest(BaseModel):
     )
 
 
-class CreateStackInputServiceResourceCreateStack(BaseModel):
+class CreateStackInputServiceResourceCreateStackModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     disable_rollback: Optional[bool] = Field(default=None, alias="DisableRollback")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     timeout_in_minutes: Optional[int] = Field(default=None, alias="TimeoutInMinutes")
@@ -2276,7 +2316,7 @@ class CreateStackInputServiceResourceCreateStack(BaseModel):
     )
     stack_policy_body: Optional[str] = Field(default=None, alias="StackPolicyBody")
     stack_policy_url: Optional[str] = Field(default=None, alias="StackPolicyURL")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
@@ -2285,7 +2325,7 @@ class CreateStackInputServiceResourceCreateStack(BaseModel):
     )
 
 
-class Stack(BaseModel):
+class StackModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     creation_time: datetime = Field(alias="CreationTime")
     stack_status: Literal[
@@ -2316,10 +2356,10 @@ class Stack(BaseModel):
     stack_id: Optional[str] = Field(default=None, alias="StackId")
     change_set_id: Optional[str] = Field(default=None, alias="ChangeSetId")
     description: Optional[str] = Field(default=None, alias="Description")
-    parameters: Optional[List[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[List[ParameterModel]] = Field(default=None, alias="Parameters")
     deletion_time: Optional[datetime] = Field(default=None, alias="DeletionTime")
     last_updated_time: Optional[datetime] = Field(default=None, alias="LastUpdatedTime")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     stack_status_reason: Optional[str] = Field(default=None, alias="StackStatusReason")
@@ -2333,20 +2373,20 @@ class Stack(BaseModel):
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
         ]
     ] = Field(default=None, alias="Capabilities")
-    outputs: Optional[List[Output]] = Field(default=None, alias="Outputs")
+    outputs: Optional[List[OutputModel]] = Field(default=None, alias="Outputs")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
-    tags: Optional[List[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[List[TagModel]] = Field(default=None, alias="Tags")
     enable_termination_protection: Optional[bool] = Field(
         default=None, alias="EnableTerminationProtection"
     )
     parent_id: Optional[str] = Field(default=None, alias="ParentId")
     root_id: Optional[str] = Field(default=None, alias="RootId")
-    drift_information: Optional[StackDriftInformation] = Field(
+    drift_information: Optional[StackDriftInformationModel] = Field(
         default=None, alias="DriftInformation"
     )
 
 
-class UpdateStackInputRequest(BaseModel):
+class UpdateStackInputRequestModel(BaseModel):
     stack_name: str = Field(alias="StackName")
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
@@ -2359,7 +2399,9 @@ class UpdateStackInputRequest(BaseModel):
     stack_policy_during_update_url: Optional[str] = Field(
         default=None, alias="StackPolicyDuringUpdateURL"
     )
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     capabilities: Optional[
         Sequence[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
@@ -2367,7 +2409,7 @@ class UpdateStackInputRequest(BaseModel):
     ] = Field(default=None, alias="Capabilities")
     resource_types: Optional[Sequence[str]] = Field(default=None, alias="ResourceTypes")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     stack_policy_body: Optional[str] = Field(default=None, alias="StackPolicyBody")
@@ -2375,14 +2417,14 @@ class UpdateStackInputRequest(BaseModel):
     notification_arns: Optional[Sequence[str]] = Field(
         default=None, alias="NotificationARNs"
     )
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     disable_rollback: Optional[bool] = Field(default=None, alias="DisableRollback")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
 
 
-class UpdateStackInputStackUpdate(BaseModel):
+class UpdateStackInputStackUpdateModel(BaseModel):
     template_body: Optional[str] = Field(default=None, alias="TemplateBody")
     template_url: Optional[str] = Field(default=None, alias="TemplateURL")
     use_previous_template: Optional[bool] = Field(
@@ -2394,7 +2436,9 @@ class UpdateStackInputStackUpdate(BaseModel):
     stack_policy_during_update_url: Optional[str] = Field(
         default=None, alias="StackPolicyDuringUpdateURL"
     )
-    parameters: Optional[Sequence[Parameter]] = Field(default=None, alias="Parameters")
+    parameters: Optional[Sequence[ParameterModel]] = Field(
+        default=None, alias="Parameters"
+    )
     capabilities: Optional[
         Sequence[
             Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
@@ -2402,7 +2446,7 @@ class UpdateStackInputStackUpdate(BaseModel):
     ] = Field(default=None, alias="Capabilities")
     resource_types: Optional[Sequence[str]] = Field(default=None, alias="ResourceTypes")
     role_arn: Optional[str] = Field(default=None, alias="RoleARN")
-    rollback_configuration: Optional[RollbackConfiguration] = Field(
+    rollback_configuration: Optional[RollbackConfigurationModel] = Field(
         default=None, alias="RollbackConfiguration"
     )
     stack_policy_body: Optional[str] = Field(default=None, alias="StackPolicyBody")
@@ -2410,98 +2454,98 @@ class UpdateStackInputStackUpdate(BaseModel):
     notification_arns: Optional[Sequence[str]] = Field(
         default=None, alias="NotificationARNs"
     )
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
     disable_rollback: Optional[bool] = Field(default=None, alias="DisableRollback")
     client_request_token: Optional[str] = Field(
         default=None, alias="ClientRequestToken"
     )
 
 
-class ListStacksOutput(BaseModel):
-    stack_summaries: List[StackSummary] = Field(alias="StackSummaries")
+class ListStacksOutputModel(BaseModel):
+    stack_summaries: List[StackSummaryModel] = Field(alias="StackSummaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListStackInstancesOutput(BaseModel):
-    summaries: List[StackInstanceSummary] = Field(alias="Summaries")
+class ListStackInstancesOutputModel(BaseModel):
+    summaries: List[StackInstanceSummaryModel] = Field(alias="Summaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackInstanceOutput(BaseModel):
-    stack_instance: StackInstance = Field(alias="StackInstance")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DescribeStackInstanceOutputModel(BaseModel):
+    stack_instance: StackInstanceModel = Field(alias="StackInstance")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackResourceOutput(BaseModel):
-    stack_resource_detail: StackResourceDetail = Field(alias="StackResourceDetail")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DescribeStackResourceOutputModel(BaseModel):
+    stack_resource_detail: StackResourceDetailModel = Field(alias="StackResourceDetail")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackResourcesOutput(BaseModel):
-    stack_resources: List[StackResource] = Field(alias="StackResources")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DescribeStackResourcesOutputModel(BaseModel):
+    stack_resources: List[StackResourceModel] = Field(alias="StackResources")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListStackResourcesOutput(BaseModel):
-    stack_resource_summaries: List[StackResourceSummary] = Field(
+class ListStackResourcesOutputModel(BaseModel):
+    stack_resource_summaries: List[StackResourceSummaryModel] = Field(
         alias="StackResourceSummaries"
     )
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackSetOutput(BaseModel):
-    stack_set: StackSet = Field(alias="StackSet")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DescribeStackSetOutputModel(BaseModel):
+    stack_set: StackSetModel = Field(alias="StackSet")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListStackSetOperationsOutput(BaseModel):
-    summaries: List[StackSetOperationSummary] = Field(alias="Summaries")
+class ListStackSetOperationsOutputModel(BaseModel):
+    summaries: List[StackSetOperationSummaryModel] = Field(alias="Summaries")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeStackSetOperationOutput(BaseModel):
-    stack_set_operation: StackSetOperation = Field(alias="StackSetOperation")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class DescribeStackSetOperationOutputModel(BaseModel):
+    stack_set_operation: StackSetOperationModel = Field(alias="StackSetOperation")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeChangeSetHooksOutput(BaseModel):
+class DescribeChangeSetHooksOutputModel(BaseModel):
     change_set_id: str = Field(alias="ChangeSetId")
     change_set_name: str = Field(alias="ChangeSetName")
-    hooks: List[ChangeSetHook] = Field(alias="Hooks")
+    hooks: List[ChangeSetHookModel] = Field(alias="Hooks")
     status: Literal["PLANNED", "PLANNING", "UNAVAILABLE"] = Field(alias="Status")
     next_token: str = Field(alias="NextToken")
     stack_id: str = Field(alias="StackId")
     stack_name: str = Field(alias="StackName")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class Change(BaseModel):
+class ChangeModel(BaseModel):
     type: Optional[Literal["Resource"]] = Field(default=None, alias="Type")
     hook_invocation_count: Optional[int] = Field(
         default=None, alias="HookInvocationCount"
     )
-    resource_change: Optional[ResourceChange] = Field(
+    resource_change: Optional[ResourceChangeModel] = Field(
         default=None, alias="ResourceChange"
     )
 
 
-class DescribeStacksOutput(BaseModel):
-    stacks: List[Stack] = Field(alias="Stacks")
+class DescribeStacksOutputModel(BaseModel):
+    stacks: List[StackModel] = Field(alias="Stacks")
     next_token: str = Field(alias="NextToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DescribeChangeSetOutput(BaseModel):
+class DescribeChangeSetOutputModel(BaseModel):
     change_set_name: str = Field(alias="ChangeSetName")
     change_set_id: str = Field(alias="ChangeSetId")
     stack_id: str = Field(alias="StackId")
     stack_name: str = Field(alias="StackName")
     description: str = Field(alias="Description")
-    parameters: List[Parameter] = Field(alias="Parameters")
+    parameters: List[ParameterModel] = Field(alias="Parameters")
     creation_time: datetime = Field(alias="CreationTime")
     execution_status: Literal[
         "AVAILABLE",
@@ -2523,14 +2567,16 @@ class DescribeChangeSetOutput(BaseModel):
     ] = Field(alias="Status")
     status_reason: str = Field(alias="StatusReason")
     notification_arns: List[str] = Field(alias="NotificationARNs")
-    rollback_configuration: RollbackConfiguration = Field(alias="RollbackConfiguration")
+    rollback_configuration: RollbackConfigurationModel = Field(
+        alias="RollbackConfiguration"
+    )
     capabilities: List[
         Literal["CAPABILITY_AUTO_EXPAND", "CAPABILITY_IAM", "CAPABILITY_NAMED_IAM"]
     ] = Field(alias="Capabilities")
-    tags: List[Tag] = Field(alias="Tags")
-    changes: List[Change] = Field(alias="Changes")
+    tags: List[TagModel] = Field(alias="Tags")
+    changes: List[ChangeModel] = Field(alias="Changes")
     next_token: str = Field(alias="NextToken")
     include_nested_stacks: bool = Field(alias="IncludeNestedStacks")
     parent_change_set_id: str = Field(alias="ParentChangeSetId")
     root_change_set_id: str = Field(alias="RootChangeSetId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")

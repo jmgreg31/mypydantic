@@ -1,4 +1,4 @@
-.PHONY: install lock fmt lint docs create-docs view-docs pcommit commit create-models generate test
+.PHONY: install lock fmt lint docs create-docs view-docs pcommit commit create-models generate test rm-imports
 
 PWD=$$(pwd)
 
@@ -38,7 +38,10 @@ commit:
 create-models:
 	@pipenv run python3 generate.py
 
-generate: create-models fmt
+generate: create-models rm-imports fmt
 
 test:
 	@pipenv run pytest mypydantic
+
+rm-imports:
+	@pipenv run autoflake -i --remove-all-unused-imports ./mypydantic/models/*

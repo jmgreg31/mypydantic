@@ -1,108 +1,111 @@
 from mypydantic.helpers.logger import CustomLogger
 from mypydantic.models.wafv2 import (
-    CaptchaConfig,
-    ChallengeConfig,
-    CreateWebACLRequest,
-    CreateWebACLResponse,
-    CustomResponseBody,
-    DefaultAction,
-    ImmunityTimeProperty,
-    IPSetReferenceStatement,
-    Rule,
-    Statement,
-    Tag,
-    VisibilityConfig,
+    CaptchaConfigModel,
+    ChallengeConfigModel,
+    CreateWebACLRequestModel,
+    CustomResponseBodyModel,
+    DefaultActionModel,
+    ImmunityTimePropertyModel,
+    IPSetReferenceStatementModel,
+    RuleModel,
+    StatementModel,
+    TagModel,
+    VisibilityConfigModel,
 )
 
 LOG = CustomLogger()
 LOG.local = True
 
 
-def build_with_aws_keys() -> CreateWebACLRequest:
+def build_with_aws_keys() -> CreateWebACLRequestModel:
     config = {
         "Name": "Example WebACL AWS Keys",
         "Scope": "REGIONAL",
-        "VisibilityConfig": VisibilityConfig(
+        "VisibilityConfig": VisibilityConfigModel(
             SampledRequestsEnabled=False,
             CloudWatchMetricsEnabled=False,
             MetricName="test",
         ),
-        "DefaultAction": DefaultAction(Allow={}),
+        "DefaultAction": DefaultActionModel(Allow={}),
         "Description": "example model",
         "Rules": [
-            Rule(
+            RuleModel(
                 Name="example rule",
                 Priority=0,
-                VisibilityConfig=VisibilityConfig(
+                VisibilityConfig=VisibilityConfigModel(
                     SampledRequestsEnabled=False,
                     CloudWatchMetricsEnabled=False,
                     MetricName="test",
                 ),
-                Statement=Statement(
-                    IPSetReferenceStatement=IPSetReferenceStatement(ARN="ipset:arn")
+                Statement=StatementModel(
+                    IPSetReferenceStatement=IPSetReferenceStatementModel(
+                        ARN="ipset:arn"
+                    )
                 ),
             )
         ],
-        "Tags": [Tag(Key="TAG_KEY", Value="TAG_VALUE")],
+        "Tags": [TagModel(Key="TAG_KEY", Value="TAG_VALUE")],
         "CustomResponseBodies": {
-            "success_code": CustomResponseBody(
+            "success_code": CustomResponseBodyModel(
                 ContentType="APPLICATION_JSON", Content="Success"
             ),
         },
-        "CaptchaConfig": CaptchaConfig(
-            ImmunityTimeProperty=ImmunityTimeProperty(ImmunityTime=1)
+        "CaptchaConfig": CaptchaConfigModel(
+            ImmunityTimeProperty=ImmunityTimePropertyModel(ImmunityTime=1)
         ),
-        "ChallengeConfig": ChallengeConfig(
-            ImmunityTimeProperty=ImmunityTimeProperty(ImmunityTime=1)
+        "ChallengeConfig": ChallengeConfigModel(
+            ImmunityTimeProperty=ImmunityTimePropertyModel(ImmunityTime=1)
         ),
         "TokenDomains": ["example.com"],
     }
-    create_web_acl_request = CreateWebACLRequest(**config)
+    create_web_acl_request = CreateWebACLRequestModel(**config)
     LOG.debug(create_web_acl_request)
     LOG.debug(create_web_acl_request.dict(by_alias=True, exclude_none=True))
     return create_web_acl_request
 
 
-def build_with_snake_keys() -> CreateWebACLRequest:
+def build_with_snake_keys() -> CreateWebACLRequestModel:
     config = {
         "name": "Example WebACL Snake Keys",
         "scope": "REGIONAL",
-        "visibility_config": VisibilityConfig(
+        "visibility_config": VisibilityConfigModel(
             SampledRequestsEnabled=False,
             CloudWatchMetricsEnabled=False,
             MetricName="test",
         ),
-        "default_action": DefaultAction(Allow={}),
+        "default_action": DefaultActionModel(Allow={}),
         "description": "example model",
         "rules": [
-            Rule(
+            RuleModel(
                 Name="example rule",
                 Priority=0,
-                VisibilityConfig=VisibilityConfig(
+                VisibilityConfig=VisibilityConfigModel(
                     SampledRequestsEnabled=False,
                     CloudWatchMetricsEnabled=False,
                     MetricName="test",
                 ),
-                Statement=Statement(
-                    IPSetReferenceStatement=IPSetReferenceStatement(ARN="ipset:arn")
+                Statement=StatementModel(
+                    IPSetReferenceStatement=IPSetReferenceStatementModel(
+                        ARN="ipset:arn"
+                    )
                 ),
             )
         ],
-        "tags": [Tag(Key="TAG_KEY", Value="TAG_VALUE")],
+        "tags": [TagModel(Key="TAG_KEY", Value="TAG_VALUE")],
         "custom_response_bodies": {
-            "success_code": CustomResponseBody(
+            "success_code": CustomResponseBodyModel(
                 ContentType="APPLICATION_JSON", Content="Success"
             ),
         },
-        "captcha_config": CaptchaConfig(
-            ImmunityTimeProperty=ImmunityTimeProperty(ImmunityTime=1)
+        "captcha_config": CaptchaConfigModel(
+            ImmunityTimeProperty=ImmunityTimePropertyModel(ImmunityTime=1)
         ),
-        "challenge_config": ChallengeConfig(
-            ImmunityTimeProperty=ImmunityTimeProperty(ImmunityTime=1)
+        "challenge_config": ChallengeConfigModel(
+            ImmunityTimeProperty=ImmunityTimePropertyModel(ImmunityTime=1)
         ),
         "token_domains": ["example.com"],
     }
-    create_web_acl_request = CreateWebACLRequest(**config)
+    create_web_acl_request = CreateWebACLRequestModel(**config)
     LOG.debug(create_web_acl_request)
     LOG.debug(create_web_acl_request.dict(by_alias=True, exclude_none=True))
     return create_web_acl_request

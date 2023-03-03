@@ -1,19 +1,19 @@
-# Model Generated: Wed Mar  1 14:20:28 2023
+# Model Generated: Thu Mar  2 21:56:24 2023
 
 from __future__ import annotations
 
 from datetime import datetime
 from typing import (
-    IO,
     Any,
     Dict,
+    IO,
     List,
     Literal,
     Mapping,
     Optional,
     Sequence,
-    Union,
     Type,
+    Union,
 )
 
 from botocore.response import StreamingBody
@@ -22,32 +22,32 @@ from pydantic import Field
 from mypydantic.models.base_model import BaseModel
 
 
-class AWSManagedRulesBotControlRuleSet(BaseModel):
+class AWSManagedRulesBotControlRuleSetModel(BaseModel):
     inspection_level: Literal["COMMON", "TARGETED"] = Field(alias="InspectionLevel")
 
 
-class ActionCondition(BaseModel):
+class ActionConditionModel(BaseModel):
     action: Literal[
         "ALLOW", "BLOCK", "CAPTCHA", "CHALLENGE", "COUNT", "EXCLUDED_AS_COUNT"
     ] = Field(alias="Action")
 
 
-class AndStatement(BaseModel):
-    statements: Sequence[Statement] = Field(alias="Statements")
+class AndStatementModel(BaseModel):
+    statements: Sequence[StatementModel] = Field(alias="Statements")
 
 
-class AssociateWebACLRequest(BaseModel):
+class AssociateWebACLRequestModel(BaseModel):
     web_acl_arn: str = Field(alias="WebACLArn")
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class Body(BaseModel):
+class BodyModel(BaseModel):
     oversize_handling: Optional[Literal["CONTINUE", "MATCH", "NO_MATCH"]] = Field(
         default=None, alias="OversizeHandling"
     )
 
 
-class TextTransformation(BaseModel):
+class TextTransformationModel(BaseModel):
     priority: int = Field(alias="Priority")
     type: Literal[
         "BASE64_DECODE",
@@ -74,11 +74,11 @@ class TextTransformation(BaseModel):
     ] = Field(alias="Type")
 
 
-class ImmunityTimeProperty(BaseModel):
+class ImmunityTimePropertyModel(BaseModel):
     immunity_time: int = Field(alias="ImmunityTime")
 
 
-class CaptchaResponse(BaseModel):
+class CaptchaResponseModel(BaseModel):
     response_code: Optional[int] = Field(default=None, alias="ResponseCode")
     solve_timestamp: Optional[int] = Field(default=None, alias="SolveTimestamp")
     failure_reason: Optional[
@@ -88,7 +88,7 @@ class CaptchaResponse(BaseModel):
     ] = Field(default=None, alias="FailureReason")
 
 
-class ChallengeResponse(BaseModel):
+class ChallengeResponseModel(BaseModel):
     response_code: Optional[int] = Field(default=None, alias="ResponseCode")
     solve_timestamp: Optional[int] = Field(default=None, alias="SolveTimestamp")
     failure_reason: Optional[
@@ -98,7 +98,7 @@ class ChallengeResponse(BaseModel):
     ] = Field(default=None, alias="FailureReason")
 
 
-class ResponseMetadata(BaseModel):
+class ResponseMetadataModel(BaseModel):
     request_id: str = Field(alias="RequestId")
     host_id: str = Field(alias="HostId")
     http_status_code: int = Field(alias="HTTPStatusCode")
@@ -106,11 +106,11 @@ class ResponseMetadata(BaseModel):
     retry_attempts: int = Field(alias="RetryAttempts")
 
 
-class LabelNameCondition(BaseModel):
+class LabelNameConditionModel(BaseModel):
     label_name: str = Field(alias="LabelName")
 
 
-class CookieMatchPattern(BaseModel):
+class CookieMatchPatternModel(BaseModel):
     all: Optional[Mapping[str, Any]] = Field(default=None, alias="All")
     included_cookies: Optional[Sequence[str]] = Field(
         default=None, alias="IncludedCookies"
@@ -120,12 +120,12 @@ class CookieMatchPattern(BaseModel):
     )
 
 
-class Tag(BaseModel):
+class TagModel(BaseModel):
     key: str = Field(alias="Key")
     value: str = Field(alias="Value")
 
 
-class IPSetSummary(BaseModel):
+class IPSetSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -133,11 +133,11 @@ class IPSetSummary(BaseModel):
     arn: Optional[str] = Field(default=None, alias="ARN")
 
 
-class Regex(BaseModel):
+class RegexModel(BaseModel):
     regex_string: Optional[str] = Field(default=None, alias="RegexString")
 
 
-class RegexPatternSetSummary(BaseModel):
+class RegexPatternSetSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -145,20 +145,20 @@ class RegexPatternSetSummary(BaseModel):
     arn: Optional[str] = Field(default=None, alias="ARN")
 
 
-class CustomResponseBody(BaseModel):
+class CustomResponseBodyModel(BaseModel):
     content_type: Literal["APPLICATION_JSON", "TEXT_HTML", "TEXT_PLAIN"] = Field(
         alias="ContentType"
     )
     content: str = Field(alias="Content")
 
 
-class VisibilityConfig(BaseModel):
+class VisibilityConfigModel(BaseModel):
     sampled_requests_enabled: bool = Field(alias="SampledRequestsEnabled")
     cloud_watch_metrics_enabled: bool = Field(alias="CloudWatchMetricsEnabled")
     metric_name: str = Field(alias="MetricName")
 
 
-class RuleGroupSummary(BaseModel):
+class RuleGroupSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -166,7 +166,7 @@ class RuleGroupSummary(BaseModel):
     arn: Optional[str] = Field(default=None, alias="ARN")
 
 
-class WebACLSummary(BaseModel):
+class WebACLSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -174,96 +174,96 @@ class WebACLSummary(BaseModel):
     arn: Optional[str] = Field(default=None, alias="ARN")
 
 
-class CustomHTTPHeader(BaseModel):
+class CustomHTTPHeaderModel(BaseModel):
     name: str = Field(alias="Name")
     value: str = Field(alias="Value")
 
 
-class DeleteFirewallManagerRuleGroupsRequest(BaseModel):
+class DeleteFirewallManagerRuleGroupsRequestModel(BaseModel):
     web_acl_arn: str = Field(alias="WebACLArn")
     web_acl_lock_token: str = Field(alias="WebACLLockToken")
 
 
-class DeleteIPSetRequest(BaseModel):
+class DeleteIPSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
     lock_token: str = Field(alias="LockToken")
 
 
-class DeleteLoggingConfigurationRequest(BaseModel):
+class DeleteLoggingConfigurationRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class DeletePermissionPolicyRequest(BaseModel):
+class DeletePermissionPolicyRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class DeleteRegexPatternSetRequest(BaseModel):
+class DeleteRegexPatternSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
     lock_token: str = Field(alias="LockToken")
 
 
-class DeleteRuleGroupRequest(BaseModel):
+class DeleteRuleGroupRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
     lock_token: str = Field(alias="LockToken")
 
 
-class DeleteWebACLRequest(BaseModel):
+class DeleteWebACLRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
     lock_token: str = Field(alias="LockToken")
 
 
-class DescribeManagedRuleGroupRequest(BaseModel):
+class DescribeManagedRuleGroupRequestModel(BaseModel):
     vendor_name: str = Field(alias="VendorName")
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     version_name: Optional[str] = Field(default=None, alias="VersionName")
 
 
-class LabelSummary(BaseModel):
+class LabelSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
 
 
-class DisassociateWebACLRequest(BaseModel):
+class DisassociateWebACLRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class ExcludedRule(BaseModel):
+class ExcludedRuleModel(BaseModel):
     name: str = Field(alias="Name")
 
 
-class SingleHeader(BaseModel):
+class SingleHeaderModel(BaseModel):
     name: str = Field(alias="Name")
 
 
-class SingleQueryArgument(BaseModel):
+class SingleQueryArgumentModel(BaseModel):
     name: str = Field(alias="Name")
 
 
-class ForwardedIPConfig(BaseModel):
+class ForwardedIPConfigModel(BaseModel):
     header_name: str = Field(alias="HeaderName")
     fallback_behavior: Literal["MATCH", "NO_MATCH"] = Field(alias="FallbackBehavior")
 
 
-class GenerateMobileSdkReleaseUrlRequest(BaseModel):
+class GenerateMobileSdkReleaseUrlRequestModel(BaseModel):
     platform: Literal["ANDROID", "IOS"] = Field(alias="Platform")
     release_version: str = Field(alias="ReleaseVersion")
 
 
-class GetIPSetRequest(BaseModel):
+class GetIPSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
 
 
-class IPSet(BaseModel):
+class IPSetModel(BaseModel):
     name: str = Field(alias="Name")
     id: str = Field(alias="Id")
     arn: str = Field(alias="ARN")
@@ -272,26 +272,26 @@ class IPSet(BaseModel):
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class GetLoggingConfigurationRequest(BaseModel):
+class GetLoggingConfigurationRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class GetManagedRuleSetRequest(BaseModel):
+class GetManagedRuleSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
 
 
-class GetMobileSdkReleaseRequest(BaseModel):
+class GetMobileSdkReleaseRequestModel(BaseModel):
     platform: Literal["ANDROID", "IOS"] = Field(alias="Platform")
     release_version: str = Field(alias="ReleaseVersion")
 
 
-class GetPermissionPolicyRequest(BaseModel):
+class GetPermissionPolicyRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class GetRateBasedStatementManagedKeysRequest(BaseModel):
+class GetRateBasedStatementManagedKeysRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     web_acl_name: str = Field(alias="WebACLName")
     web_acl_id: str = Field(alias="WebACLId")
@@ -299,20 +299,20 @@ class GetRateBasedStatementManagedKeysRequest(BaseModel):
     rule_group_rule_name: Optional[str] = Field(default=None, alias="RuleGroupRuleName")
 
 
-class RateBasedStatementManagedKeysIPSet(BaseModel):
+class RateBasedStatementManagedKeysIPSetModel(BaseModel):
     ip_address_version: Optional[Literal["IPV4", "IPV6"]] = Field(
         default=None, alias="IPAddressVersion"
     )
     addresses: Optional[List[str]] = Field(default=None, alias="Addresses")
 
 
-class GetRegexPatternSetRequest(BaseModel):
+class GetRegexPatternSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
 
 
-class GetRuleGroupRequest(BaseModel):
+class GetRuleGroupRequestModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     scope: Optional[Literal["CLOUDFRONT", "REGIONAL"]] = Field(
         default=None, alias="Scope"
@@ -321,27 +321,27 @@ class GetRuleGroupRequest(BaseModel):
     arn: Optional[str] = Field(default=None, alias="ARN")
 
 
-class TimeWindow(BaseModel):
+class TimeWindowModel(BaseModel):
     start_time: Union[datetime, str] = Field(alias="StartTime")
     end_time: Union[datetime, str] = Field(alias="EndTime")
 
 
-class GetWebACLForResourceRequest(BaseModel):
+class GetWebACLForResourceRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
 
 
-class GetWebACLRequest(BaseModel):
+class GetWebACLRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
 
 
-class HTTPHeader(BaseModel):
+class HTTPHeaderModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     value: Optional[str] = Field(default=None, alias="Value")
 
 
-class HeaderMatchPattern(BaseModel):
+class HeaderMatchPatternModel(BaseModel):
     all: Optional[Mapping[str, Any]] = Field(default=None, alias="All")
     included_headers: Optional[Sequence[str]] = Field(
         default=None, alias="IncludedHeaders"
@@ -351,27 +351,27 @@ class HeaderMatchPattern(BaseModel):
     )
 
 
-class IPSetForwardedIPConfig(BaseModel):
+class IPSetForwardedIPConfigModel(BaseModel):
     header_name: str = Field(alias="HeaderName")
     fallback_behavior: Literal["MATCH", "NO_MATCH"] = Field(alias="FallbackBehavior")
     position: Literal["ANY", "FIRST", "LAST"] = Field(alias="Position")
 
 
-class JsonMatchPattern(BaseModel):
+class JsonMatchPatternModel(BaseModel):
     all: Optional[Mapping[str, Any]] = Field(default=None, alias="All")
     included_paths: Optional[Sequence[str]] = Field(default=None, alias="IncludedPaths")
 
 
-class LabelMatchStatement(BaseModel):
+class LabelMatchStatementModel(BaseModel):
     scope: Literal["LABEL", "NAMESPACE"] = Field(alias="Scope")
     key: str = Field(alias="Key")
 
 
-class Label(BaseModel):
+class LabelModel(BaseModel):
     name: str = Field(alias="Name")
 
 
-class ListAvailableManagedRuleGroupVersionsRequest(BaseModel):
+class ListAvailableManagedRuleGroupVersionsRequestModel(BaseModel):
     vendor_name: str = Field(alias="VendorName")
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
@@ -379,20 +379,20 @@ class ListAvailableManagedRuleGroupVersionsRequest(BaseModel):
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ManagedRuleGroupVersion(BaseModel):
+class ManagedRuleGroupVersionModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     last_update_timestamp: Optional[datetime] = Field(
         default=None, alias="LastUpdateTimestamp"
     )
 
 
-class ListAvailableManagedRuleGroupsRequest(BaseModel):
+class ListAvailableManagedRuleGroupsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ManagedRuleGroupSummary(BaseModel):
+class ManagedRuleGroupSummaryModel(BaseModel):
     vendor_name: Optional[str] = Field(default=None, alias="VendorName")
     name: Optional[str] = Field(default=None, alias="Name")
     versioning_supported: Optional[bool] = Field(
@@ -401,25 +401,25 @@ class ManagedRuleGroupSummary(BaseModel):
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class ListIPSetsRequest(BaseModel):
+class ListIPSetsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ListLoggingConfigurationsRequest(BaseModel):
+class ListLoggingConfigurationsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ListManagedRuleSetsRequest(BaseModel):
+class ListManagedRuleSetsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ManagedRuleSetSummary(BaseModel):
+class ManagedRuleSetSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -428,24 +428,24 @@ class ManagedRuleSetSummary(BaseModel):
     label_namespace: Optional[str] = Field(default=None, alias="LabelNamespace")
 
 
-class ListMobileSdkReleasesRequest(BaseModel):
+class ListMobileSdkReleasesRequestModel(BaseModel):
     platform: Literal["ANDROID", "IOS"] = Field(alias="Platform")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ReleaseSummary(BaseModel):
+class ReleaseSummaryModel(BaseModel):
     release_version: Optional[str] = Field(default=None, alias="ReleaseVersion")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
 
 
-class ListRegexPatternSetsRequest(BaseModel):
+class ListRegexPatternSetsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ListResourcesForWebACLRequest(BaseModel):
+class ListResourcesForWebACLRequestModel(BaseModel):
     web_acl_arn: str = Field(alias="WebACLArn")
     resource_type: Optional[
         Literal[
@@ -458,33 +458,33 @@ class ListResourcesForWebACLRequest(BaseModel):
     ] = Field(default=None, alias="ResourceType")
 
 
-class ListRuleGroupsRequest(BaseModel):
+class ListRuleGroupsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ListTagsForResourceRequest(BaseModel):
+class ListTagsForResourceRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceARN")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class ListWebACLsRequest(BaseModel):
+class ListWebACLsRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     next_marker: Optional[str] = Field(default=None, alias="NextMarker")
     limit: Optional[int] = Field(default=None, alias="Limit")
 
 
-class PasswordField(BaseModel):
+class PasswordFieldModel(BaseModel):
     identifier: str = Field(alias="Identifier")
 
 
-class UsernameField(BaseModel):
+class UsernameFieldModel(BaseModel):
     identifier: str = Field(alias="Identifier")
 
 
-class ManagedRuleSetVersion(BaseModel):
+class ManagedRuleSetVersionModel(BaseModel):
     associated_rule_group_arn: Optional[str] = Field(
         default=None, alias="AssociatedRuleGroupArn"
     )
@@ -499,54 +499,54 @@ class ManagedRuleSetVersion(BaseModel):
     expiry_timestamp: Optional[datetime] = Field(default=None, alias="ExpiryTimestamp")
 
 
-class NotStatement(BaseModel):
+class NotStatementModel(BaseModel):
     statement: Dict[str, Any] = Field(alias="Statement")
 
 
-class OrStatement(BaseModel):
-    statements: Sequence[Statement] = Field(alias="Statements")
+class OrStatementModel(BaseModel):
+    statements: Sequence[StatementModel] = Field(alias="Statements")
 
 
-class VersionToPublish(BaseModel):
+class VersionToPublishModel(BaseModel):
     associated_rule_group_arn: Optional[str] = Field(
         default=None, alias="AssociatedRuleGroupArn"
     )
     forecasted_lifetime: Optional[int] = Field(default=None, alias="ForecastedLifetime")
 
 
-class PutPermissionPolicyRequest(BaseModel):
+class PutPermissionPolicyRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
     policy: str = Field(alias="Policy")
 
 
-class ResponseInspectionBodyContains(BaseModel):
+class ResponseInspectionBodyContainsModel(BaseModel):
     success_strings: Sequence[str] = Field(alias="SuccessStrings")
     failure_strings: Sequence[str] = Field(alias="FailureStrings")
 
 
-class ResponseInspectionHeader(BaseModel):
+class ResponseInspectionHeaderModel(BaseModel):
     name: str = Field(alias="Name")
     success_values: Sequence[str] = Field(alias="SuccessValues")
     failure_values: Sequence[str] = Field(alias="FailureValues")
 
 
-class ResponseInspectionJson(BaseModel):
+class ResponseInspectionJsonModel(BaseModel):
     identifier: str = Field(alias="Identifier")
     success_values: Sequence[str] = Field(alias="SuccessValues")
     failure_values: Sequence[str] = Field(alias="FailureValues")
 
 
-class ResponseInspectionStatusCode(BaseModel):
+class ResponseInspectionStatusCodeModel(BaseModel):
     success_codes: Sequence[int] = Field(alias="SuccessCodes")
     failure_codes: Sequence[int] = Field(alias="FailureCodes")
 
 
-class UntagResourceRequest(BaseModel):
+class UntagResourceRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceARN")
     tag_keys: Sequence[str] = Field(alias="TagKeys")
 
 
-class UpdateIPSetRequest(BaseModel):
+class UpdateIPSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
@@ -555,7 +555,7 @@ class UpdateIPSetRequest(BaseModel):
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class UpdateManagedRuleSetVersionExpiryDateRequest(BaseModel):
+class UpdateManagedRuleSetVersionExpiryDateRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
@@ -564,204 +564,206 @@ class UpdateManagedRuleSetVersionExpiryDateRequest(BaseModel):
     expiry_timestamp: Union[datetime, str] = Field(alias="ExpiryTimestamp")
 
 
-class CaptchaConfig(BaseModel):
-    immunity_time_property: Optional[ImmunityTimeProperty] = Field(
+class CaptchaConfigModel(BaseModel):
+    immunity_time_property: Optional[ImmunityTimePropertyModel] = Field(
         default=None, alias="ImmunityTimeProperty"
     )
 
 
-class ChallengeConfig(BaseModel):
-    immunity_time_property: Optional[ImmunityTimeProperty] = Field(
+class ChallengeConfigModel(BaseModel):
+    immunity_time_property: Optional[ImmunityTimePropertyModel] = Field(
         default=None, alias="ImmunityTimeProperty"
     )
 
 
-class CheckCapacityResponse(BaseModel):
+class CheckCapacityResponseModel(BaseModel):
     capacity: int = Field(alias="Capacity")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class DeleteFirewallManagerRuleGroupsResponse(BaseModel):
+class DeleteFirewallManagerRuleGroupsResponseModel(BaseModel):
     next_web_acl_lock_token: str = Field(alias="NextWebACLLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GenerateMobileSdkReleaseUrlResponse(BaseModel):
+class GenerateMobileSdkReleaseUrlResponseModel(BaseModel):
     url: str = Field(alias="Url")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetPermissionPolicyResponse(BaseModel):
+class GetPermissionPolicyResponseModel(BaseModel):
     policy: str = Field(alias="Policy")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListResourcesForWebACLResponse(BaseModel):
+class ListResourcesForWebACLResponseModel(BaseModel):
     resource_arns: List[str] = Field(alias="ResourceArns")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PutManagedRuleSetVersionsResponse(BaseModel):
+class PutManagedRuleSetVersionsResponseModel(BaseModel):
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateIPSetResponse(BaseModel):
+class UpdateIPSetResponseModel(BaseModel):
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateManagedRuleSetVersionExpiryDateResponse(BaseModel):
+class UpdateManagedRuleSetVersionExpiryDateResponseModel(BaseModel):
     expiring_version: str = Field(alias="ExpiringVersion")
     expiry_timestamp: datetime = Field(alias="ExpiryTimestamp")
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateRegexPatternSetResponse(BaseModel):
+class UpdateRegexPatternSetResponseModel(BaseModel):
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateRuleGroupResponse(BaseModel):
+class UpdateRuleGroupResponseModel(BaseModel):
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class UpdateWebACLResponse(BaseModel):
+class UpdateWebACLResponseModel(BaseModel):
     next_lock_token: str = Field(alias="NextLockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class Condition(BaseModel):
-    action_condition: Optional[ActionCondition] = Field(
+class ConditionModel(BaseModel):
+    action_condition: Optional[ActionConditionModel] = Field(
         default=None, alias="ActionCondition"
     )
-    label_name_condition: Optional[LabelNameCondition] = Field(
+    label_name_condition: Optional[LabelNameConditionModel] = Field(
         default=None, alias="LabelNameCondition"
     )
 
 
-class Cookies(BaseModel):
-    match_pattern: CookieMatchPattern = Field(alias="MatchPattern")
+class CookiesModel(BaseModel):
+    match_pattern: CookieMatchPatternModel = Field(alias="MatchPattern")
     match_scope: Literal["ALL", "KEY", "VALUE"] = Field(alias="MatchScope")
     oversize_handling: Literal["CONTINUE", "MATCH", "NO_MATCH"] = Field(
         alias="OversizeHandling"
     )
 
 
-class CreateIPSetRequest(BaseModel):
+class CreateIPSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     ip_address_version: Literal["IPV4", "IPV6"] = Field(alias="IPAddressVersion")
     addresses: Sequence[str] = Field(alias="Addresses")
     description: Optional[str] = Field(default=None, alias="Description")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
 
 
-class MobileSdkRelease(BaseModel):
+class MobileSdkReleaseModel(BaseModel):
     release_version: Optional[str] = Field(default=None, alias="ReleaseVersion")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
     release_notes: Optional[str] = Field(default=None, alias="ReleaseNotes")
-    tags: Optional[List[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[List[TagModel]] = Field(default=None, alias="Tags")
 
 
-class TagInfoForResource(BaseModel):
+class TagInfoForResourceModel(BaseModel):
     resource_arn: Optional[str] = Field(default=None, alias="ResourceARN")
-    tag_list: Optional[List[Tag]] = Field(default=None, alias="TagList")
+    tag_list: Optional[List[TagModel]] = Field(default=None, alias="TagList")
 
 
-class TagResourceRequest(BaseModel):
+class TagResourceRequestModel(BaseModel):
     resource_arn: str = Field(alias="ResourceARN")
-    tags: Sequence[Tag] = Field(alias="Tags")
+    tags: Sequence[TagModel] = Field(alias="Tags")
 
 
-class CreateIPSetResponse(BaseModel):
-    summary: IPSetSummary = Field(alias="Summary")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class CreateIPSetResponseModel(BaseModel):
+    summary: IPSetSummaryModel = Field(alias="Summary")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListIPSetsResponse(BaseModel):
+class ListIPSetsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    ip_sets: List[IPSetSummary] = Field(alias="IPSets")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    ip_sets: List[IPSetSummaryModel] = Field(alias="IPSets")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateRegexPatternSetRequest(BaseModel):
+class CreateRegexPatternSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
-    regular_expression_list: Sequence[Regex] = Field(alias="RegularExpressionList")
+    regular_expression_list: Sequence[RegexModel] = Field(alias="RegularExpressionList")
     description: Optional[str] = Field(default=None, alias="Description")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
 
 
-class RegexPatternSet(BaseModel):
+class RegexPatternSetModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
     id: Optional[str] = Field(default=None, alias="Id")
     arn: Optional[str] = Field(default=None, alias="ARN")
     description: Optional[str] = Field(default=None, alias="Description")
-    regular_expression_list: Optional[List[Regex]] = Field(
+    regular_expression_list: Optional[List[RegexModel]] = Field(
         default=None, alias="RegularExpressionList"
     )
 
 
-class UpdateRegexPatternSetRequest(BaseModel):
+class UpdateRegexPatternSetRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
-    regular_expression_list: Sequence[Regex] = Field(alias="RegularExpressionList")
+    regular_expression_list: Sequence[RegexModel] = Field(alias="RegularExpressionList")
     lock_token: str = Field(alias="LockToken")
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class CreateRegexPatternSetResponse(BaseModel):
-    summary: RegexPatternSetSummary = Field(alias="Summary")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class CreateRegexPatternSetResponseModel(BaseModel):
+    summary: RegexPatternSetSummaryModel = Field(alias="Summary")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListRegexPatternSetsResponse(BaseModel):
+class ListRegexPatternSetsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    regex_pattern_sets: List[RegexPatternSetSummary] = Field(alias="RegexPatternSets")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    regex_pattern_sets: List[RegexPatternSetSummaryModel] = Field(
+        alias="RegexPatternSets"
+    )
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateRuleGroupResponse(BaseModel):
-    summary: RuleGroupSummary = Field(alias="Summary")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class CreateRuleGroupResponseModel(BaseModel):
+    summary: RuleGroupSummaryModel = Field(alias="Summary")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListRuleGroupsResponse(BaseModel):
+class ListRuleGroupsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    rule_groups: List[RuleGroupSummary] = Field(alias="RuleGroups")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    rule_groups: List[RuleGroupSummaryModel] = Field(alias="RuleGroups")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateWebACLResponse(BaseModel):
-    summary: WebACLSummary = Field(alias="Summary")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class CreateWebACLResponseModel(BaseModel):
+    summary: WebACLSummaryModel = Field(alias="Summary")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListWebACLsResponse(BaseModel):
+class ListWebACLsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    web_acls: List[WebACLSummary] = Field(alias="WebACLs")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    web_acls: List[WebACLSummaryModel] = Field(alias="WebACLs")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CustomRequestHandling(BaseModel):
-    insert_headers: Sequence[CustomHTTPHeader] = Field(alias="InsertHeaders")
+class CustomRequestHandlingModel(BaseModel):
+    insert_headers: Sequence[CustomHTTPHeaderModel] = Field(alias="InsertHeaders")
 
 
-class CustomResponse(BaseModel):
+class CustomResponseModel(BaseModel):
     response_code: int = Field(alias="ResponseCode")
     custom_response_body_key: Optional[str] = Field(
         default=None, alias="CustomResponseBodyKey"
     )
-    response_headers: Optional[Sequence[CustomHTTPHeader]] = Field(
+    response_headers: Optional[Sequence[CustomHTTPHeaderModel]] = Field(
         default=None, alias="ResponseHeaders"
     )
 
 
-class GeoMatchStatement(BaseModel):
+class GeoMatchStatementModel(BaseModel):
     country_codes: Optional[
         Sequence[
             Literal[
@@ -1018,72 +1020,72 @@ class GeoMatchStatement(BaseModel):
             ]
         ]
     ] = Field(default=None, alias="CountryCodes")
-    forwarded_ip_config: Optional[ForwardedIPConfig] = Field(
+    forwarded_ip_config: Optional[ForwardedIPConfigModel] = Field(
         default=None, alias="ForwardedIPConfig"
     )
 
 
-class RateBasedStatement(BaseModel):
+class RateBasedStatementModel(BaseModel):
     limit: int = Field(alias="Limit")
     aggregate_key_type: Literal["FORWARDED_IP", "IP"] = Field(alias="AggregateKeyType")
-    scope_down_statement: Optional[Statement] = Field(
+    scope_down_statement: Optional[StatementModel] = Field(
         default=None, alias="ScopeDownStatement"
     )
-    forwarded_ip_config: Optional[ForwardedIPConfig] = Field(
+    forwarded_ip_config: Optional[ForwardedIPConfigModel] = Field(
         default=None, alias="ForwardedIPConfig"
     )
 
 
-class GetIPSetResponse(BaseModel):
-    ip_set: IPSet = Field(alias="IPSet")
+class GetIPSetResponseModel(BaseModel):
+    ip_set: IPSetModel = Field(alias="IPSet")
     lock_token: str = Field(alias="LockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetRateBasedStatementManagedKeysResponse(BaseModel):
-    managed_keys_ip_v4: RateBasedStatementManagedKeysIPSet = Field(
+class GetRateBasedStatementManagedKeysResponseModel(BaseModel):
+    managed_keys_ip_v4: RateBasedStatementManagedKeysIPSetModel = Field(
         alias="ManagedKeysIPV4"
     )
-    managed_keys_ip_v6: RateBasedStatementManagedKeysIPSet = Field(
+    managed_keys_ip_v6: RateBasedStatementManagedKeysIPSetModel = Field(
         alias="ManagedKeysIPV6"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetSampledRequestsRequest(BaseModel):
+class GetSampledRequestsRequestModel(BaseModel):
     web_acl_arn: str = Field(alias="WebAclArn")
     rule_metric_name: str = Field(alias="RuleMetricName")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
-    time_window: TimeWindow = Field(alias="TimeWindow")
+    time_window: TimeWindowModel = Field(alias="TimeWindow")
     max_items: int = Field(alias="MaxItems")
 
 
-class HTTPRequest(BaseModel):
+class HTTPRequestModel(BaseModel):
     client_ip: Optional[str] = Field(default=None, alias="ClientIP")
     country: Optional[str] = Field(default=None, alias="Country")
     uri: Optional[str] = Field(default=None, alias="URI")
     method: Optional[str] = Field(default=None, alias="Method")
     http_version: Optional[str] = Field(default=None, alias="HTTPVersion")
-    headers: Optional[List[HTTPHeader]] = Field(default=None, alias="Headers")
+    headers: Optional[List[HTTPHeaderModel]] = Field(default=None, alias="Headers")
 
 
-class Headers(BaseModel):
-    match_pattern: HeaderMatchPattern = Field(alias="MatchPattern")
+class HeadersModel(BaseModel):
+    match_pattern: HeaderMatchPatternModel = Field(alias="MatchPattern")
     match_scope: Literal["ALL", "KEY", "VALUE"] = Field(alias="MatchScope")
     oversize_handling: Literal["CONTINUE", "MATCH", "NO_MATCH"] = Field(
         alias="OversizeHandling"
     )
 
 
-class IPSetReferenceStatement(BaseModel):
+class IPSetReferenceStatementModel(BaseModel):
     arn: str = Field(alias="ARN")
-    ip_set_forwarded_ip_config: Optional[IPSetForwardedIPConfig] = Field(
+    ip_set_forwarded_ip_config: Optional[IPSetForwardedIPConfigModel] = Field(
         default=None, alias="IPSetForwardedIPConfig"
     )
 
 
-class JsonBody(BaseModel):
-    match_pattern: JsonMatchPattern = Field(alias="MatchPattern")
+class JsonBodyModel(BaseModel):
+    match_pattern: JsonMatchPatternModel = Field(alias="MatchPattern")
     match_scope: Literal["ALL", "KEY", "VALUE"] = Field(alias="MatchScope")
     invalid_fallback_behavior: Optional[
         Literal["EVALUATE_AS_STRING", "MATCH", "NO_MATCH"]
@@ -1093,151 +1095,155 @@ class JsonBody(BaseModel):
     )
 
 
-class ListAvailableManagedRuleGroupVersionsResponse(BaseModel):
+class ListAvailableManagedRuleGroupVersionsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    versions: List[ManagedRuleGroupVersion] = Field(alias="Versions")
+    versions: List[ManagedRuleGroupVersionModel] = Field(alias="Versions")
     current_default_version: str = Field(alias="CurrentDefaultVersion")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListAvailableManagedRuleGroupsResponse(BaseModel):
+class ListAvailableManagedRuleGroupsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    managed_rule_groups: List[ManagedRuleGroupSummary] = Field(
+    managed_rule_groups: List[ManagedRuleGroupSummaryModel] = Field(
         alias="ManagedRuleGroups"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListManagedRuleSetsResponse(BaseModel):
+class ListManagedRuleSetsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    managed_rule_sets: List[ManagedRuleSetSummary] = Field(alias="ManagedRuleSets")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    managed_rule_sets: List[ManagedRuleSetSummaryModel] = Field(alias="ManagedRuleSets")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListMobileSdkReleasesResponse(BaseModel):
-    release_summaries: List[ReleaseSummary] = Field(alias="ReleaseSummaries")
+class ListMobileSdkReleasesResponseModel(BaseModel):
+    release_summaries: List[ReleaseSummaryModel] = Field(alias="ReleaseSummaries")
     next_marker: str = Field(alias="NextMarker")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RequestInspection(BaseModel):
+class RequestInspectionModel(BaseModel):
     payload_type: Literal["FORM_ENCODED", "JSON"] = Field(alias="PayloadType")
-    username_field: UsernameField = Field(alias="UsernameField")
-    password_field: PasswordField = Field(alias="PasswordField")
+    username_field: UsernameFieldModel = Field(alias="UsernameField")
+    password_field: PasswordFieldModel = Field(alias="PasswordField")
 
 
-class ManagedRuleSet(BaseModel):
+class ManagedRuleSetModel(BaseModel):
     name: str = Field(alias="Name")
     id: str = Field(alias="Id")
     arn: str = Field(alias="ARN")
     description: Optional[str] = Field(default=None, alias="Description")
-    published_versions: Optional[Dict[str, ManagedRuleSetVersion]] = Field(
+    published_versions: Optional[Dict[str, ManagedRuleSetVersionModel]] = Field(
         default=None, alias="PublishedVersions"
     )
     recommended_version: Optional[str] = Field(default=None, alias="RecommendedVersion")
     label_namespace: Optional[str] = Field(default=None, alias="LabelNamespace")
 
 
-class PutManagedRuleSetVersionsRequest(BaseModel):
+class PutManagedRuleSetVersionsRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
     lock_token: str = Field(alias="LockToken")
     recommended_version: Optional[str] = Field(default=None, alias="RecommendedVersion")
-    versions_to_publish: Optional[Mapping[str, VersionToPublish]] = Field(
+    versions_to_publish: Optional[Mapping[str, VersionToPublishModel]] = Field(
         default=None, alias="VersionsToPublish"
     )
 
 
-class ResponseInspection(BaseModel):
-    status_code: Optional[ResponseInspectionStatusCode] = Field(
+class ResponseInspectionModel(BaseModel):
+    status_code: Optional[ResponseInspectionStatusCodeModel] = Field(
         default=None, alias="StatusCode"
     )
-    header: Optional[ResponseInspectionHeader] = Field(default=None, alias="Header")
-    body_contains: Optional[ResponseInspectionBodyContains] = Field(
+    header: Optional[ResponseInspectionHeaderModel] = Field(
+        default=None, alias="Header"
+    )
+    body_contains: Optional[ResponseInspectionBodyContainsModel] = Field(
         default=None, alias="BodyContains"
     )
-    json_: Optional[ResponseInspectionJson] = Field(default=None, alias="Json")
+    json_: Optional[ResponseInspectionJsonModel] = Field(default=None, alias="Json")
 
 
-class Filter(BaseModel):
+class FilterModel(BaseModel):
     behavior: Literal["DROP", "KEEP"] = Field(alias="Behavior")
     requirement: Literal["MEETS_ALL", "MEETS_ANY"] = Field(alias="Requirement")
-    conditions: List[Condition] = Field(alias="Conditions")
+    conditions: List[ConditionModel] = Field(alias="Conditions")
 
 
-class GetMobileSdkReleaseResponse(BaseModel):
-    mobile_sdk_release: MobileSdkRelease = Field(alias="MobileSdkRelease")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class GetMobileSdkReleaseResponseModel(BaseModel):
+    mobile_sdk_release: MobileSdkReleaseModel = Field(alias="MobileSdkRelease")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListTagsForResourceResponse(BaseModel):
+class ListTagsForResourceResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    tag_info_for_resource: TagInfoForResource = Field(alias="TagInfoForResource")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    tag_info_for_resource: TagInfoForResourceModel = Field(alias="TagInfoForResource")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetRegexPatternSetResponse(BaseModel):
-    regex_pattern_set: RegexPatternSet = Field(alias="RegexPatternSet")
+class GetRegexPatternSetResponseModel(BaseModel):
+    regex_pattern_set: RegexPatternSetModel = Field(alias="RegexPatternSet")
     lock_token: str = Field(alias="LockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class AllowAction(BaseModel):
-    custom_request_handling: Optional[CustomRequestHandling] = Field(
+class AllowActionModel(BaseModel):
+    custom_request_handling: Optional[CustomRequestHandlingModel] = Field(
         default=None, alias="CustomRequestHandling"
     )
 
 
-class CaptchaAction(BaseModel):
-    custom_request_handling: Optional[CustomRequestHandling] = Field(
+class CaptchaActionModel(BaseModel):
+    custom_request_handling: Optional[CustomRequestHandlingModel] = Field(
         default=None, alias="CustomRequestHandling"
     )
 
 
-class ChallengeAction(BaseModel):
-    custom_request_handling: Optional[CustomRequestHandling] = Field(
+class ChallengeActionModel(BaseModel):
+    custom_request_handling: Optional[CustomRequestHandlingModel] = Field(
         default=None, alias="CustomRequestHandling"
     )
 
 
-class CountAction(BaseModel):
-    custom_request_handling: Optional[CustomRequestHandling] = Field(
+class CountActionModel(BaseModel):
+    custom_request_handling: Optional[CustomRequestHandlingModel] = Field(
         default=None, alias="CustomRequestHandling"
     )
 
 
-class BlockAction(BaseModel):
-    custom_response: Optional[CustomResponse] = Field(
+class BlockActionModel(BaseModel):
+    custom_response: Optional[CustomResponseModel] = Field(
         default=None, alias="CustomResponse"
     )
 
 
-class SampledHTTPRequest(BaseModel):
-    request: HTTPRequest = Field(alias="Request")
+class SampledHTTPRequestModel(BaseModel):
+    request: HTTPRequestModel = Field(alias="Request")
     weight: int = Field(alias="Weight")
     timestamp: Optional[datetime] = Field(default=None, alias="Timestamp")
     action: Optional[str] = Field(default=None, alias="Action")
     rule_name_within_rule_group: Optional[str] = Field(
         default=None, alias="RuleNameWithinRuleGroup"
     )
-    request_headers_inserted: Optional[List[HTTPHeader]] = Field(
+    request_headers_inserted: Optional[List[HTTPHeaderModel]] = Field(
         default=None, alias="RequestHeadersInserted"
     )
     response_code_sent: Optional[int] = Field(default=None, alias="ResponseCodeSent")
-    labels: Optional[List[Label]] = Field(default=None, alias="Labels")
-    captcha_response: Optional[CaptchaResponse] = Field(
+    labels: Optional[List[LabelModel]] = Field(default=None, alias="Labels")
+    captcha_response: Optional[CaptchaResponseModel] = Field(
         default=None, alias="CaptchaResponse"
     )
-    challenge_response: Optional[ChallengeResponse] = Field(
+    challenge_response: Optional[ChallengeResponseModel] = Field(
         default=None, alias="ChallengeResponse"
     )
     overridden_action: Optional[str] = Field(default=None, alias="OverriddenAction")
 
 
-class FieldToMatch(BaseModel):
-    single_header: Optional[SingleHeader] = Field(default=None, alias="SingleHeader")
-    single_query_argument: Optional[SingleQueryArgument] = Field(
+class FieldToMatchModel(BaseModel):
+    single_header: Optional[SingleHeaderModel] = Field(
+        default=None, alias="SingleHeader"
+    )
+    single_query_argument: Optional[SingleQueryArgumentModel] = Field(
         default=None, alias="SingleQueryArgument"
     )
     all_query_arguments: Optional[Mapping[str, Any]] = Field(
@@ -1245,65 +1251,65 @@ class FieldToMatch(BaseModel):
     )
     uri_path: Optional[Mapping[str, Any]] = Field(default=None, alias="UriPath")
     query_string: Optional[Mapping[str, Any]] = Field(default=None, alias="QueryString")
-    body: Optional[Body] = Field(default=None, alias="Body")
+    body: Optional[BodyModel] = Field(default=None, alias="Body")
     method: Optional[Mapping[str, Any]] = Field(default=None, alias="Method")
-    json_body: Optional[JsonBody] = Field(default=None, alias="JsonBody")
-    headers: Optional[Headers] = Field(default=None, alias="Headers")
-    cookies: Optional[Cookies] = Field(default=None, alias="Cookies")
+    json_body: Optional[JsonBodyModel] = Field(default=None, alias="JsonBody")
+    headers: Optional[HeadersModel] = Field(default=None, alias="Headers")
+    cookies: Optional[CookiesModel] = Field(default=None, alias="Cookies")
 
 
-class GetManagedRuleSetResponse(BaseModel):
-    managed_rule_set: ManagedRuleSet = Field(alias="ManagedRuleSet")
+class GetManagedRuleSetResponseModel(BaseModel):
+    managed_rule_set: ManagedRuleSetModel = Field(alias="ManagedRuleSet")
     lock_token: str = Field(alias="LockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class AWSManagedRulesATPRuleSet(BaseModel):
+class AWSManagedRulesATPRuleSetModel(BaseModel):
     login_path: str = Field(alias="LoginPath")
-    request_inspection: Optional[RequestInspection] = Field(
+    request_inspection: Optional[RequestInspectionModel] = Field(
         default=None, alias="RequestInspection"
     )
-    response_inspection: Optional[ResponseInspection] = Field(
+    response_inspection: Optional[ResponseInspectionModel] = Field(
         default=None, alias="ResponseInspection"
     )
 
 
-class LoggingFilter(BaseModel):
-    filters: List[Filter] = Field(alias="Filters")
+class LoggingFilterModel(BaseModel):
+    filters: List[FilterModel] = Field(alias="Filters")
     default_behavior: Literal["DROP", "KEEP"] = Field(alias="DefaultBehavior")
 
 
-class OverrideAction(BaseModel):
-    count: Optional[CountAction] = Field(default=None, alias="Count")
+class OverrideActionModel(BaseModel):
+    count: Optional[CountActionModel] = Field(default=None, alias="Count")
     none_: Optional[Mapping[str, Any]] = Field(default=None, alias="None")
 
 
-class DefaultAction(BaseModel):
-    block: Optional[BlockAction] = Field(default=None, alias="Block")
-    allow: Optional[AllowAction] = Field(default=None, alias="Allow")
+class DefaultActionModel(BaseModel):
+    block: Optional[BlockActionModel] = Field(default=None, alias="Block")
+    allow: Optional[AllowActionModel] = Field(default=None, alias="Allow")
 
 
-class RuleAction(BaseModel):
-    block: Optional[BlockAction] = Field(default=None, alias="Block")
-    allow: Optional[AllowAction] = Field(default=None, alias="Allow")
-    count: Optional[CountAction] = Field(default=None, alias="Count")
-    captcha: Optional[CaptchaAction] = Field(default=None, alias="Captcha")
-    challenge: Optional[ChallengeAction] = Field(default=None, alias="Challenge")
+class RuleActionModel(BaseModel):
+    block: Optional[BlockActionModel] = Field(default=None, alias="Block")
+    allow: Optional[AllowActionModel] = Field(default=None, alias="Allow")
+    count: Optional[CountActionModel] = Field(default=None, alias="Count")
+    captcha: Optional[CaptchaActionModel] = Field(default=None, alias="Captcha")
+    challenge: Optional[ChallengeActionModel] = Field(default=None, alias="Challenge")
 
 
-class GetSampledRequestsResponse(BaseModel):
-    sampled_requests: List[SampledHTTPRequest] = Field(alias="SampledRequests")
+class GetSampledRequestsResponseModel(BaseModel):
+    sampled_requests: List[SampledHTTPRequestModel] = Field(alias="SampledRequests")
     population_size: int = Field(alias="PopulationSize")
-    time_window: TimeWindow = Field(alias="TimeWindow")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    time_window: TimeWindowModel = Field(alias="TimeWindow")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ByteMatchStatement(BaseModel):
+class ByteMatchStatementModel(BaseModel):
     search_string: Union[str, bytes, Type[IO[Any]], Type[StreamingBody]] = Field(
         alias="SearchString"
     )
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
-    text_transformations: Sequence[TextTransformation] = Field(
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
     positional_constraint: Literal[
@@ -1311,36 +1317,36 @@ class ByteMatchStatement(BaseModel):
     ] = Field(alias="PositionalConstraint")
 
 
-class RegexMatchStatement(BaseModel):
+class RegexMatchStatementModel(BaseModel):
     regex_string: str = Field(alias="RegexString")
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
-    text_transformations: Sequence[TextTransformation] = Field(
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
 
 
-class RegexPatternSetReferenceStatement(BaseModel):
+class RegexPatternSetReferenceStatementModel(BaseModel):
     arn: str = Field(alias="ARN")
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
-    text_transformations: Sequence[TextTransformation] = Field(
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
 
 
-class SizeConstraintStatement(BaseModel):
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
+class SizeConstraintStatementModel(BaseModel):
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
     comparison_operator: Literal["EQ", "GE", "GT", "LE", "LT", "NE"] = Field(
         alias="ComparisonOperator"
     )
     size: int = Field(alias="Size")
-    text_transformations: Sequence[TextTransformation] = Field(
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
 
 
-class SqliMatchStatement(BaseModel):
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
-    text_transformations: Sequence[TextTransformation] = Field(
+class SqliMatchStatementModel(BaseModel):
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
     sensitivity_level: Optional[Literal["HIGH", "LOW"]] = Field(
@@ -1348,248 +1354,268 @@ class SqliMatchStatement(BaseModel):
     )
 
 
-class XssMatchStatement(BaseModel):
-    field_to_match: FieldToMatch = Field(alias="FieldToMatch")
-    text_transformations: Sequence[TextTransformation] = Field(
+class XssMatchStatementModel(BaseModel):
+    field_to_match: FieldToMatchModel = Field(alias="FieldToMatch")
+    text_transformations: Sequence[TextTransformationModel] = Field(
         alias="TextTransformations"
     )
 
 
-class ManagedRuleGroupConfig(BaseModel):
+class ManagedRuleGroupConfigModel(BaseModel):
     login_path: Optional[str] = Field(default=None, alias="LoginPath")
     payload_type: Optional[Literal["FORM_ENCODED", "JSON"]] = Field(
         default=None, alias="PayloadType"
     )
-    username_field: Optional[UsernameField] = Field(default=None, alias="UsernameField")
-    password_field: Optional[PasswordField] = Field(default=None, alias="PasswordField")
+    username_field: Optional[UsernameFieldModel] = Field(
+        default=None, alias="UsernameField"
+    )
+    password_field: Optional[PasswordFieldModel] = Field(
+        default=None, alias="PasswordField"
+    )
     aws_managed_rules_bot_control_rule_set: Optional[
-        AWSManagedRulesBotControlRuleSet
+        AWSManagedRulesBotControlRuleSetModel
     ] = Field(default=None, alias="AWSManagedRulesBotControlRuleSet")
-    aws_managed_rules_atp_rule_set: Optional[AWSManagedRulesATPRuleSet] = Field(
+    aws_managed_rules_atp_rule_set: Optional[AWSManagedRulesATPRuleSetModel] = Field(
         default=None, alias="AWSManagedRulesATPRuleSet"
     )
 
 
-class LoggingConfiguration(BaseModel):
+class LoggingConfigurationModel(BaseModel):
     resource_arn: str = Field(alias="ResourceArn")
     log_destination_configs: List[str] = Field(alias="LogDestinationConfigs")
-    redacted_fields: Optional[List[FieldToMatch]] = Field(
+    redacted_fields: Optional[List[FieldToMatchModel]] = Field(
         default=None, alias="RedactedFields"
     )
     managed_by_firewall_manager: Optional[bool] = Field(
         default=None, alias="ManagedByFirewallManager"
     )
-    logging_filter: Optional[LoggingFilter] = Field(default=None, alias="LoggingFilter")
+    logging_filter: Optional[LoggingFilterModel] = Field(
+        default=None, alias="LoggingFilter"
+    )
 
 
-class RuleActionOverride(BaseModel):
+class RuleActionOverrideModel(BaseModel):
     name: str = Field(alias="Name")
-    action_to_use: RuleAction = Field(alias="ActionToUse")
+    action_to_use: RuleActionModel = Field(alias="ActionToUse")
 
 
-class RuleSummary(BaseModel):
+class RuleSummaryModel(BaseModel):
     name: Optional[str] = Field(default=None, alias="Name")
-    action: Optional[RuleAction] = Field(default=None, alias="Action")
+    action: Optional[RuleActionModel] = Field(default=None, alias="Action")
 
 
-class Rule(BaseModel):
+class RuleModel(BaseModel):
     name: str = Field(alias="Name")
     priority: int = Field(alias="Priority")
-    statement: Statement = Field(alias="Statement")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
-    action: Optional[RuleAction] = Field(default=None, alias="Action")
-    override_action: Optional[OverrideAction] = Field(
+    statement: StatementModel = Field(alias="Statement")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
+    action: Optional[RuleActionModel] = Field(default=None, alias="Action")
+    override_action: Optional[OverrideActionModel] = Field(
         default=None, alias="OverrideAction"
     )
-    rule_labels: Optional[Sequence[Label]] = Field(default=None, alias="RuleLabels")
-    captcha_config: Optional[CaptchaConfig] = Field(default=None, alias="CaptchaConfig")
-    challenge_config: Optional[ChallengeConfig] = Field(
+    rule_labels: Optional[Sequence[LabelModel]] = Field(
+        default=None, alias="RuleLabels"
+    )
+    captcha_config: Optional[CaptchaConfigModel] = Field(
+        default=None, alias="CaptchaConfig"
+    )
+    challenge_config: Optional[ChallengeConfigModel] = Field(
         default=None, alias="ChallengeConfig"
     )
 
 
-class GetLoggingConfigurationResponse(BaseModel):
-    logging_configuration: LoggingConfiguration = Field(alias="LoggingConfiguration")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class GetLoggingConfigurationResponseModel(BaseModel):
+    logging_configuration: LoggingConfigurationModel = Field(
+        alias="LoggingConfiguration"
+    )
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListLoggingConfigurationsResponse(BaseModel):
-    logging_configurations: List[LoggingConfiguration] = Field(
+class ListLoggingConfigurationsResponseModel(BaseModel):
+    logging_configurations: List[LoggingConfigurationModel] = Field(
         alias="LoggingConfigurations"
     )
     next_marker: str = Field(alias="NextMarker")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PutLoggingConfigurationRequest(BaseModel):
-    logging_configuration: LoggingConfiguration = Field(alias="LoggingConfiguration")
+class PutLoggingConfigurationRequestModel(BaseModel):
+    logging_configuration: LoggingConfigurationModel = Field(
+        alias="LoggingConfiguration"
+    )
 
 
-class PutLoggingConfigurationResponse(BaseModel):
-    logging_configuration: LoggingConfiguration = Field(alias="LoggingConfiguration")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class PutLoggingConfigurationResponseModel(BaseModel):
+    logging_configuration: LoggingConfigurationModel = Field(
+        alias="LoggingConfiguration"
+    )
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ManagedRuleGroupStatement(BaseModel):
+class ManagedRuleGroupStatementModel(BaseModel):
     vendor_name: str = Field(alias="VendorName")
     name: str = Field(alias="Name")
     version: Optional[str] = Field(default=None, alias="Version")
-    excluded_rules: Optional[Sequence[ExcludedRule]] = Field(
+    excluded_rules: Optional[Sequence[ExcludedRuleModel]] = Field(
         default=None, alias="ExcludedRules"
     )
-    scope_down_statement: Optional[Statement] = Field(
+    scope_down_statement: Optional[StatementModel] = Field(
         default=None, alias="ScopeDownStatement"
     )
-    managed_rule_group_configs: Optional[Sequence[ManagedRuleGroupConfig]] = Field(
+    managed_rule_group_configs: Optional[Sequence[ManagedRuleGroupConfigModel]] = Field(
         default=None, alias="ManagedRuleGroupConfigs"
     )
-    rule_action_overrides: Optional[Sequence[RuleActionOverride]] = Field(
+    rule_action_overrides: Optional[Sequence[RuleActionOverrideModel]] = Field(
         default=None, alias="RuleActionOverrides"
     )
 
 
-class RuleGroupReferenceStatement(BaseModel):
+class RuleGroupReferenceStatementModel(BaseModel):
     arn: str = Field(alias="ARN")
-    excluded_rules: Optional[Sequence[ExcludedRule]] = Field(
+    excluded_rules: Optional[Sequence[ExcludedRuleModel]] = Field(
         default=None, alias="ExcludedRules"
     )
-    rule_action_overrides: Optional[Sequence[RuleActionOverride]] = Field(
+    rule_action_overrides: Optional[Sequence[RuleActionOverrideModel]] = Field(
         default=None, alias="RuleActionOverrides"
     )
 
 
-class DescribeManagedRuleGroupResponse(BaseModel):
+class DescribeManagedRuleGroupResponseModel(BaseModel):
     version_name: str = Field(alias="VersionName")
     sns_topic_arn: str = Field(alias="SnsTopicArn")
     capacity: int = Field(alias="Capacity")
-    rules: List[RuleSummary] = Field(alias="Rules")
+    rules: List[RuleSummaryModel] = Field(alias="Rules")
     label_namespace: str = Field(alias="LabelNamespace")
-    available_labels: List[LabelSummary] = Field(alias="AvailableLabels")
-    consumed_labels: List[LabelSummary] = Field(alias="ConsumedLabels")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    available_labels: List[LabelSummaryModel] = Field(alias="AvailableLabels")
+    consumed_labels: List[LabelSummaryModel] = Field(alias="ConsumedLabels")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CheckCapacityRequest(BaseModel):
+class CheckCapacityRequestModel(BaseModel):
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
-    rules: Sequence[Rule] = Field(alias="Rules")
+    rules: Sequence[RuleModel] = Field(alias="Rules")
 
 
-class CreateRuleGroupRequest(BaseModel):
+class CreateRuleGroupRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     capacity: int = Field(alias="Capacity")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[Sequence[Rule]] = Field(default=None, alias="Rules")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
-    custom_response_bodies: Optional[Mapping[str, CustomResponseBody]] = Field(
+    rules: Optional[Sequence[RuleModel]] = Field(default=None, alias="Rules")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
+    custom_response_bodies: Optional[Mapping[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
 
 
-class CreateWebACLRequest(BaseModel):
+class CreateWebACLRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
-    default_action: DefaultAction = Field(alias="DefaultAction")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    default_action: DefaultActionModel = Field(alias="DefaultAction")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[Sequence[Rule]] = Field(default=None, alias="Rules")
-    tags: Optional[Sequence[Tag]] = Field(default=None, alias="Tags")
-    custom_response_bodies: Optional[Mapping[str, CustomResponseBody]] = Field(
+    rules: Optional[Sequence[RuleModel]] = Field(default=None, alias="Rules")
+    tags: Optional[Sequence[TagModel]] = Field(default=None, alias="Tags")
+    custom_response_bodies: Optional[Mapping[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
-    captcha_config: Optional[CaptchaConfig] = Field(default=None, alias="CaptchaConfig")
-    challenge_config: Optional[ChallengeConfig] = Field(
+    captcha_config: Optional[CaptchaConfigModel] = Field(
+        default=None, alias="CaptchaConfig"
+    )
+    challenge_config: Optional[ChallengeConfigModel] = Field(
         default=None, alias="ChallengeConfig"
     )
     token_domains: Optional[Sequence[str]] = Field(default=None, alias="TokenDomains")
 
 
-class RuleGroup(BaseModel):
+class RuleGroupModel(BaseModel):
     name: str = Field(alias="Name")
     id: str = Field(alias="Id")
     capacity: int = Field(alias="Capacity")
     arn: str = Field(alias="ARN")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[List[Rule]] = Field(default=None, alias="Rules")
+    rules: Optional[List[RuleModel]] = Field(default=None, alias="Rules")
     label_namespace: Optional[str] = Field(default=None, alias="LabelNamespace")
-    custom_response_bodies: Optional[Dict[str, CustomResponseBody]] = Field(
+    custom_response_bodies: Optional[Dict[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
-    available_labels: Optional[List[LabelSummary]] = Field(
+    available_labels: Optional[List[LabelSummaryModel]] = Field(
         default=None, alias="AvailableLabels"
     )
-    consumed_labels: Optional[List[LabelSummary]] = Field(
+    consumed_labels: Optional[List[LabelSummaryModel]] = Field(
         default=None, alias="ConsumedLabels"
     )
 
 
-class UpdateRuleGroupRequest(BaseModel):
+class UpdateRuleGroupRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     lock_token: str = Field(alias="LockToken")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[Sequence[Rule]] = Field(default=None, alias="Rules")
-    custom_response_bodies: Optional[Mapping[str, CustomResponseBody]] = Field(
+    rules: Optional[Sequence[RuleModel]] = Field(default=None, alias="Rules")
+    custom_response_bodies: Optional[Mapping[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
 
 
-class UpdateWebACLRequest(BaseModel):
+class UpdateWebACLRequestModel(BaseModel):
     name: str = Field(alias="Name")
     scope: Literal["CLOUDFRONT", "REGIONAL"] = Field(alias="Scope")
     id: str = Field(alias="Id")
-    default_action: DefaultAction = Field(alias="DefaultAction")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    default_action: DefaultActionModel = Field(alias="DefaultAction")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     lock_token: str = Field(alias="LockToken")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[Sequence[Rule]] = Field(default=None, alias="Rules")
-    custom_response_bodies: Optional[Mapping[str, CustomResponseBody]] = Field(
+    rules: Optional[Sequence[RuleModel]] = Field(default=None, alias="Rules")
+    custom_response_bodies: Optional[Mapping[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
-    captcha_config: Optional[CaptchaConfig] = Field(default=None, alias="CaptchaConfig")
-    challenge_config: Optional[ChallengeConfig] = Field(
+    captcha_config: Optional[CaptchaConfigModel] = Field(
+        default=None, alias="CaptchaConfig"
+    )
+    challenge_config: Optional[ChallengeConfigModel] = Field(
         default=None, alias="ChallengeConfig"
     )
     token_domains: Optional[Sequence[str]] = Field(default=None, alias="TokenDomains")
 
 
-class FirewallManagerStatement(BaseModel):
-    managed_rule_group_statement: Optional[ManagedRuleGroupStatement] = Field(
+class FirewallManagerStatementModel(BaseModel):
+    managed_rule_group_statement: Optional[ManagedRuleGroupStatementModel] = Field(
         default=None, alias="ManagedRuleGroupStatement"
     )
-    rule_group_reference_statement: Optional[RuleGroupReferenceStatement] = Field(
+    rule_group_reference_statement: Optional[RuleGroupReferenceStatementModel] = Field(
         default=None, alias="RuleGroupReferenceStatement"
     )
 
 
-class Statement(BaseModel):
-    byte_match_statement: Optional[ByteMatchStatement] = Field(
+class StatementModel(BaseModel):
+    byte_match_statement: Optional[ByteMatchStatementModel] = Field(
         default=None, alias="ByteMatchStatement"
     )
-    sqli_match_statement: Optional[SqliMatchStatement] = Field(
+    sqli_match_statement: Optional[SqliMatchStatementModel] = Field(
         default=None, alias="SqliMatchStatement"
     )
-    xss_match_statement: Optional[XssMatchStatement] = Field(
+    xss_match_statement: Optional[XssMatchStatementModel] = Field(
         default=None, alias="XssMatchStatement"
     )
-    size_constraint_statement: Optional[SizeConstraintStatement] = Field(
+    size_constraint_statement: Optional[SizeConstraintStatementModel] = Field(
         default=None, alias="SizeConstraintStatement"
     )
-    geo_match_statement: Optional[GeoMatchStatement] = Field(
+    geo_match_statement: Optional[GeoMatchStatementModel] = Field(
         default=None, alias="GeoMatchStatement"
     )
-    rule_group_reference_statement: Optional[RuleGroupReferenceStatement] = Field(
+    rule_group_reference_statement: Optional[RuleGroupReferenceStatementModel] = Field(
         default=None, alias="RuleGroupReferenceStatement"
     )
-    ip_set_reference_statement: Optional[IPSetReferenceStatement] = Field(
+    ip_set_reference_statement: Optional[IPSetReferenceStatementModel] = Field(
         default=None, alias="IPSetReferenceStatement"
     )
     regex_pattern_set_reference_statement: Optional[
-        RegexPatternSetReferenceStatement
+        RegexPatternSetReferenceStatementModel
     ] = Field(default=None, alias="RegexPatternSetReferenceStatement")
     rate_based_statement: Optional[Dict[str, Any]] = Field(
         default=None, alias="RateBasedStatement"
@@ -1600,66 +1626,68 @@ class Statement(BaseModel):
     managed_rule_group_statement: Optional[Dict[str, Any]] = Field(
         default=None, alias="ManagedRuleGroupStatement"
     )
-    label_match_statement: Optional[LabelMatchStatement] = Field(
+    label_match_statement: Optional[LabelMatchStatementModel] = Field(
         default=None, alias="LabelMatchStatement"
     )
-    regex_match_statement: Optional[RegexMatchStatement] = Field(
+    regex_match_statement: Optional[RegexMatchStatementModel] = Field(
         default=None, alias="RegexMatchStatement"
     )
 
 
-class GetRuleGroupResponse(BaseModel):
-    rule_group: RuleGroup = Field(alias="RuleGroup")
+class GetRuleGroupResponseModel(BaseModel):
+    rule_group: RuleGroupModel = Field(alias="RuleGroup")
     lock_token: str = Field(alias="LockToken")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class FirewallManagerRuleGroup(BaseModel):
+class FirewallManagerRuleGroupModel(BaseModel):
     name: str = Field(alias="Name")
     priority: int = Field(alias="Priority")
-    firewall_manager_statement: FirewallManagerStatement = Field(
+    firewall_manager_statement: FirewallManagerStatementModel = Field(
         alias="FirewallManagerStatement"
     )
-    override_action: OverrideAction = Field(alias="OverrideAction")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    override_action: OverrideActionModel = Field(alias="OverrideAction")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
 
 
-class WebACL(BaseModel):
+class WebACLModel(BaseModel):
     name: str = Field(alias="Name")
     id: str = Field(alias="Id")
     arn: str = Field(alias="ARN")
-    default_action: DefaultAction = Field(alias="DefaultAction")
-    visibility_config: VisibilityConfig = Field(alias="VisibilityConfig")
+    default_action: DefaultActionModel = Field(alias="DefaultAction")
+    visibility_config: VisibilityConfigModel = Field(alias="VisibilityConfig")
     description: Optional[str] = Field(default=None, alias="Description")
-    rules: Optional[List[Rule]] = Field(default=None, alias="Rules")
+    rules: Optional[List[RuleModel]] = Field(default=None, alias="Rules")
     capacity: Optional[int] = Field(default=None, alias="Capacity")
     pre_process_firewall_manager_rule_groups: Optional[
-        List[FirewallManagerRuleGroup]
+        List[FirewallManagerRuleGroupModel]
     ] = Field(default=None, alias="PreProcessFirewallManagerRuleGroups")
     post_process_firewall_manager_rule_groups: Optional[
-        List[FirewallManagerRuleGroup]
+        List[FirewallManagerRuleGroupModel]
     ] = Field(default=None, alias="PostProcessFirewallManagerRuleGroups")
     managed_by_firewall_manager: Optional[bool] = Field(
         default=None, alias="ManagedByFirewallManager"
     )
     label_namespace: Optional[str] = Field(default=None, alias="LabelNamespace")
-    custom_response_bodies: Optional[Dict[str, CustomResponseBody]] = Field(
+    custom_response_bodies: Optional[Dict[str, CustomResponseBodyModel]] = Field(
         default=None, alias="CustomResponseBodies"
     )
-    captcha_config: Optional[CaptchaConfig] = Field(default=None, alias="CaptchaConfig")
-    challenge_config: Optional[ChallengeConfig] = Field(
+    captcha_config: Optional[CaptchaConfigModel] = Field(
+        default=None, alias="CaptchaConfig"
+    )
+    challenge_config: Optional[ChallengeConfigModel] = Field(
         default=None, alias="ChallengeConfig"
     )
     token_domains: Optional[List[str]] = Field(default=None, alias="TokenDomains")
 
 
-class GetWebACLForResourceResponse(BaseModel):
-    web_acl: WebACL = Field(alias="WebACL")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class GetWebACLForResourceResponseModel(BaseModel):
+    web_acl: WebACLModel = Field(alias="WebACL")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetWebACLResponse(BaseModel):
-    web_acl: WebACL = Field(alias="WebACL")
+class GetWebACLResponseModel(BaseModel):
+    web_acl: WebACLModel = Field(alias="WebACL")
     lock_token: str = Field(alias="LockToken")
     application_integration_url: str = Field(alias="ApplicationIntegrationURL")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")

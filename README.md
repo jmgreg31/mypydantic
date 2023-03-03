@@ -10,15 +10,6 @@ mypy_boto3: [Link](https://mypy-boto3.readthedocs.io/en/latest/)
 
 pydantic: [Link](https://docs.pydantic.dev/)
 
-## Current Supported Resources
-
-I believe I have solved how to build these models out at scale, so more to come.
-Currently, the resources supported are:
-
-- wafv2
-- lambda
-- cloudformation
-
 ## Usage
 
 The following section provides some usage examples.
@@ -27,22 +18,22 @@ The following section provides some usage examples.
 
 ```py
 from mypydantic.models.wafv2 import (
-    CreateWebACLRequest,
-    DefaultAction,
-    VisibilityConfig,
+    CreateWebACLRequestModel,
+    DefaultActionModel,
+    VisibilityConfigModel,
 )
 
 config = {
     "Name": "example",
     "Scope": "REGIONAL",
-    "DefaultAction": DefaultAction(Allow={}),
-    "VisibilityConfig": VisibilityConfig(
+    "DefaultAction": DefaultActionModel(Allow={}),
+    "VisibilityConfig": VisibilityConfigModel(
         SampledRequestsEnabled=False,
         CloudWatchMetricsEnabled=False,
         MetricName="example-metric",
     ),
 }
-create_web_acl_request = CreateWebACLRequest(**config)
+create_web_acl_request = CreateWebACLRequestModel(**config)
 print(create_web_acl_request.name)
 print(create_web_acl_request.scope)
 ...
@@ -52,9 +43,9 @@ print(create_web_acl_request.scope)
 
 ```py
 from mypydantic.models.wafv2 import (
-    CreateWebACLRequest,
-    DefaultAction,
-    VisibilityConfig,
+    CreateWebACLRequestModel,
+    DefaultActionModel,
+    VisibilityConfigModel,
 )
 from mypy_boto3_wafv2.client import WAFV2Client
 
@@ -62,14 +53,14 @@ client: WAFV2Client = boto3.client("wafv2", aws_region="us-east-1")
 config = {
     "Name": "example",
     "Scope": "REGIONAL",
-    "DefaultAction": DefaultAction(Allow={}),
-    "VisibilityConfig": VisibilityConfig(
+    "DefaultAction": DefaultActionModel(Allow={}),
+    "VisibilityConfig": VisibilityConfigModel(
         SampledRequestsEnabled=False,
         CloudWatchMetricsEnabled=False,
         MetricName="example-metric",
     ),
 }
-create_web_acl_request = CreateWebACLRequest(**config)
+create_web_acl_request = CreateWebACLRequestModel(**config)
 
 # Using the 'by_alias' option retains the expected AWS request key casing
 client.create_web_acl(**create_web_acl_request.dict(by_alias=True, exclude_none=True))
@@ -78,7 +69,7 @@ client.create_web_acl(**create_web_acl_request.dict(by_alias=True, exclude_none=
 ### Loading a Response Model
 
 ```py
-from mypydantic.models.wafv2 import CreateWebACLResponse
+from mypydantic.models.wafv2 import CreateWebACLResponseModel
 from mypy_boto3_wafv2.client import WAFV2Client
 
 client: WAFV2Client = boto3.client("wafv2", aws_region="us-east-1")
@@ -93,7 +84,7 @@ config = {
     },
 }
 
-create_web_acl_response = CreateWebACLResponse(client.create_web_acl(**config))
+create_web_acl_response = CreateWebACLResponseModel(client.create_web_acl(**config))
 web_acl = create_web_acl_response.summary
 
 print(web_acl.name)

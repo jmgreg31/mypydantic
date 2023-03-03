@@ -1,19 +1,19 @@
-# Model Generated: Wed Mar  1 14:20:28 2023
+# Model Generated: Thu Mar  2 21:56:20 2023
 
 from __future__ import annotations
 
 from datetime import datetime
 from typing import (
-    IO,
     Any,
     Dict,
+    IO,
     List,
     Literal,
     Mapping,
     Optional,
     Sequence,
-    Union,
     Type,
+    Union,
 )
 
 from botocore.response import StreamingBody
@@ -22,7 +22,7 @@ from pydantic import Field
 from mypydantic.models.base_model import BaseModel
 
 
-class AccountLimit(BaseModel):
+class AccountLimitModel(BaseModel):
     total_code_size: Optional[int] = Field(default=None, alias="TotalCodeSize")
     code_size_unzipped: Optional[int] = Field(default=None, alias="CodeSizeUnzipped")
     code_size_zipped: Optional[int] = Field(default=None, alias="CodeSizeZipped")
@@ -34,12 +34,12 @@ class AccountLimit(BaseModel):
     )
 
 
-class AccountUsage(BaseModel):
+class AccountUsageModel(BaseModel):
     total_code_size: Optional[int] = Field(default=None, alias="TotalCodeSize")
     function_count: Optional[int] = Field(default=None, alias="FunctionCount")
 
 
-class AddLayerVersionPermissionRequest(BaseModel):
+class AddLayerVersionPermissionRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     version_number: int = Field(alias="VersionNumber")
     statement_id: str = Field(alias="StatementId")
@@ -49,7 +49,7 @@ class AddLayerVersionPermissionRequest(BaseModel):
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class ResponseMetadata(BaseModel):
+class ResponseMetadataModel(BaseModel):
     request_id: str = Field(alias="RequestId")
     host_id: str = Field(alias="HostId")
     http_status_code: int = Field(alias="HTTPStatusCode")
@@ -57,7 +57,7 @@ class ResponseMetadata(BaseModel):
     retry_attempts: int = Field(alias="RetryAttempts")
 
 
-class AddPermissionRequest(BaseModel):
+class AddPermissionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     statement_id: str = Field(alias="StatementId")
     action: str = Field(alias="Action")
@@ -73,35 +73,35 @@ class AddPermissionRequest(BaseModel):
     )
 
 
-class AliasRoutingConfiguration(BaseModel):
+class AliasRoutingConfigurationModel(BaseModel):
     additional_version_weights: Optional[Mapping[str, float]] = Field(
         default=None, alias="AdditionalVersionWeights"
     )
 
 
-class AllowedPublishers(BaseModel):
+class AllowedPublishersModel(BaseModel):
     signing_profile_version_arns: Sequence[str] = Field(
         alias="SigningProfileVersionArns"
     )
 
 
-class AmazonManagedKafkaEventSourceConfig(BaseModel):
+class AmazonManagedKafkaEventSourceConfigModel(BaseModel):
     consumer_group_id: Optional[str] = Field(default=None, alias="ConsumerGroupId")
 
 
-class CodeSigningPolicies(BaseModel):
+class CodeSigningPoliciesModel(BaseModel):
     untrusted_artifact_on_deployment: Optional[Literal["Enforce", "Warn"]] = Field(
         default=None, alias="UntrustedArtifactOnDeployment"
     )
 
 
-class Concurrency(BaseModel):
+class ConcurrencyModel(BaseModel):
     reserved_concurrent_executions: Optional[int] = Field(
         default=None, alias="ReservedConcurrentExecutions"
     )
 
 
-class Cors(BaseModel):
+class CorsModel(BaseModel):
     allow_credentials: Optional[bool] = Field(default=None, alias="AllowCredentials")
     allow_headers: Optional[Sequence[str]] = Field(default=None, alias="AllowHeaders")
     allow_methods: Optional[Sequence[str]] = Field(default=None, alias="AllowMethods")
@@ -110,7 +110,7 @@ class Cors(BaseModel):
     max_age: Optional[int] = Field(default=None, alias="MaxAge")
 
 
-class DocumentDBEventSourceConfig(BaseModel):
+class DocumentDBEventSourceConfigModel(BaseModel):
     database_name: Optional[str] = Field(default=None, alias="DatabaseName")
     collection_name: Optional[str] = Field(default=None, alias="CollectionName")
     full_document: Optional[Literal["Default", "UpdateLookup"]] = Field(
@@ -118,21 +118,21 @@ class DocumentDBEventSourceConfig(BaseModel):
     )
 
 
-class ScalingConfig(BaseModel):
+class ScalingConfigModel(BaseModel):
     maximum_concurrency: Optional[int] = Field(default=None, alias="MaximumConcurrency")
 
 
-class SelfManagedEventSource(BaseModel):
+class SelfManagedEventSourceModel(BaseModel):
     endpoints: Optional[
         Mapping[Literal["KAFKA_BOOTSTRAP_SERVERS"], Sequence[str]]
     ] = Field(default=None, alias="Endpoints")
 
 
-class SelfManagedKafkaEventSourceConfig(BaseModel):
+class SelfManagedKafkaEventSourceConfigModel(BaseModel):
     consumer_group_id: Optional[str] = Field(default=None, alias="ConsumerGroupId")
 
 
-class SourceAccessConfiguration(BaseModel):
+class SourceAccessConfigurationModel(BaseModel):
     type: Optional[
         Literal[
             "BASIC_AUTH",
@@ -148,24 +148,24 @@ class SourceAccessConfiguration(BaseModel):
     uri: Optional[str] = Field(default=None, alias="URI")
 
 
-class DeadLetterConfig(BaseModel):
+class DeadLetterConfigModel(BaseModel):
     target_arn: Optional[str] = Field(default=None, alias="TargetArn")
 
 
-class Environment(BaseModel):
+class EnvironmentModel(BaseModel):
     variables: Optional[Mapping[str, str]] = Field(default=None, alias="Variables")
 
 
-class EphemeralStorage(BaseModel):
+class EphemeralStorageModel(BaseModel):
     size: int = Field(alias="Size")
 
 
-class FileSystemConfig(BaseModel):
+class FileSystemConfigModel(BaseModel):
     arn: str = Field(alias="Arn")
     local_mount_path: str = Field(alias="LocalMountPath")
 
 
-class FunctionCode(BaseModel):
+class FunctionCodeModel(BaseModel):
     zip_file: Optional[Union[str, bytes, Type[IO[Any]], Type[StreamingBody]]] = Field(
         default=None, alias="ZipFile"
     )
@@ -175,100 +175,100 @@ class FunctionCode(BaseModel):
     image_uri: Optional[str] = Field(default=None, alias="ImageUri")
 
 
-class ImageConfig(BaseModel):
+class ImageConfigModel(BaseModel):
     entry_point: Optional[Sequence[str]] = Field(default=None, alias="EntryPoint")
     command: Optional[Sequence[str]] = Field(default=None, alias="Command")
     working_directory: Optional[str] = Field(default=None, alias="WorkingDirectory")
 
 
-class SnapStart(BaseModel):
+class SnapStartModel(BaseModel):
     apply_on: Optional[Literal["None", "PublishedVersions"]] = Field(
         default=None, alias="ApplyOn"
     )
 
 
-class TracingConfig(BaseModel):
+class TracingConfigModel(BaseModel):
     mode: Optional[Literal["Active", "PassThrough"]] = Field(default=None, alias="Mode")
 
 
-class VpcConfig(BaseModel):
+class VpcConfigModel(BaseModel):
     subnet_ids: Optional[Sequence[str]] = Field(default=None, alias="SubnetIds")
     security_group_ids: Optional[Sequence[str]] = Field(
         default=None, alias="SecurityGroupIds"
     )
 
 
-class DeleteAliasRequest(BaseModel):
+class DeleteAliasRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     name: str = Field(alias="Name")
 
 
-class DeleteCodeSigningConfigRequest(BaseModel):
+class DeleteCodeSigningConfigRequestModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
 
 
-class DeleteEventSourceMappingRequest(BaseModel):
+class DeleteEventSourceMappingRequestModel(BaseModel):
     uuid: str = Field(alias="UUID")
 
 
-class DeleteFunctionCodeSigningConfigRequest(BaseModel):
+class DeleteFunctionCodeSigningConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
 
 
-class DeleteFunctionConcurrencyRequest(BaseModel):
+class DeleteFunctionConcurrencyRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
 
 
-class DeleteFunctionEventInvokeConfigRequest(BaseModel):
-    function_name: str = Field(alias="FunctionName")
-    qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-
-
-class DeleteFunctionRequest(BaseModel):
+class DeleteFunctionEventInvokeConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class DeleteFunctionUrlConfigRequest(BaseModel):
+class DeleteFunctionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class DeleteLayerVersionRequest(BaseModel):
+class DeleteFunctionUrlConfigRequestModel(BaseModel):
+    function_name: str = Field(alias="FunctionName")
+    qualifier: Optional[str] = Field(default=None, alias="Qualifier")
+
+
+class DeleteLayerVersionRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     version_number: int = Field(alias="VersionNumber")
 
 
-class DeleteProvisionedConcurrencyConfigRequest(BaseModel):
+class DeleteProvisionedConcurrencyConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: str = Field(alias="Qualifier")
 
 
-class OnFailure(BaseModel):
+class OnFailureModel(BaseModel):
     destination: Optional[str] = Field(default=None, alias="Destination")
 
 
-class OnSuccess(BaseModel):
+class OnSuccessModel(BaseModel):
     destination: Optional[str] = Field(default=None, alias="Destination")
 
 
-class EnvironmentError(BaseModel):
+class EnvironmentErrorModel(BaseModel):
     error_code: Optional[str] = Field(default=None, alias="ErrorCode")
     message: Optional[str] = Field(default=None, alias="Message")
 
 
-class Filter(BaseModel):
+class FilterModel(BaseModel):
     pattern: Optional[str] = Field(default=None, alias="Pattern")
 
 
-class FunctionCodeLocation(BaseModel):
+class FunctionCodeLocationModel(BaseModel):
     repository_type: Optional[str] = Field(default=None, alias="RepositoryType")
     location: Optional[str] = Field(default=None, alias="Location")
     image_uri: Optional[str] = Field(default=None, alias="ImageUri")
     resolved_image_uri: Optional[str] = Field(default=None, alias="ResolvedImageUri")
 
 
-class Layer(BaseModel):
+class LayerModel(BaseModel):
     arn: Optional[str] = Field(default=None, alias="Arn")
     code_size: Optional[int] = Field(default=None, alias="CodeSize")
     signing_profile_version_arn: Optional[str] = Field(
@@ -277,7 +277,7 @@ class Layer(BaseModel):
     signing_job_arn: Optional[str] = Field(default=None, alias="SigningJobArn")
 
 
-class SnapStartResponse(BaseModel):
+class SnapStartResponseModel(BaseModel):
     apply_on: Optional[Literal["None", "PublishedVersions"]] = Field(
         default=None, alias="ApplyOn"
     )
@@ -286,11 +286,11 @@ class SnapStartResponse(BaseModel):
     )
 
 
-class TracingConfigResponse(BaseModel):
+class TracingConfigResponseModel(BaseModel):
     mode: Optional[Literal["Active", "PassThrough"]] = Field(default=None, alias="Mode")
 
 
-class VpcConfigResponse(BaseModel):
+class VpcConfigResponseModel(BaseModel):
     subnet_ids: Optional[List[str]] = Field(default=None, alias="SubnetIds")
     security_group_ids: Optional[List[str]] = Field(
         default=None, alias="SecurityGroupIds"
@@ -298,67 +298,67 @@ class VpcConfigResponse(BaseModel):
     vpc_id: Optional[str] = Field(default=None, alias="VpcId")
 
 
-class GetAliasRequest(BaseModel):
+class GetAliasRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     name: str = Field(alias="Name")
 
 
-class GetCodeSigningConfigRequest(BaseModel):
+class GetCodeSigningConfigRequestModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
 
 
-class GetEventSourceMappingRequest(BaseModel):
+class GetEventSourceMappingRequestModel(BaseModel):
     uuid: str = Field(alias="UUID")
 
 
-class GetFunctionCodeSigningConfigRequest(BaseModel):
+class GetFunctionCodeSigningConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
 
 
-class GetFunctionConcurrencyRequest(BaseModel):
+class GetFunctionConcurrencyRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
 
 
-class WaiterConfig(BaseModel):
+class WaiterConfigModel(BaseModel):
     delay: Optional[int] = Field(default=None, alias="Delay")
     max_attempts: Optional[int] = Field(default=None, alias="MaxAttempts")
 
 
-class GetFunctionConfigurationRequest(BaseModel):
+class GetFunctionConfigurationRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class GetFunctionEventInvokeConfigRequest(BaseModel):
+class GetFunctionEventInvokeConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class GetFunctionRequest(BaseModel):
+class GetFunctionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class GetFunctionUrlConfigRequest(BaseModel):
+class GetFunctionUrlConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class GetLayerVersionByArnRequest(BaseModel):
+class GetLayerVersionByArnRequestModel(BaseModel):
     arn: str = Field(alias="Arn")
 
 
-class GetLayerVersionPolicyRequest(BaseModel):
+class GetLayerVersionPolicyRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     version_number: int = Field(alias="VersionNumber")
 
 
-class GetLayerVersionRequest(BaseModel):
+class GetLayerVersionRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     version_number: int = Field(alias="VersionNumber")
 
 
-class LayerVersionContentOutput(BaseModel):
+class LayerVersionContentOutputModel(BaseModel):
     location: Optional[str] = Field(default=None, alias="Location")
     code_sha256: Optional[str] = Field(default=None, alias="CodeSha256")
     code_size: Optional[int] = Field(default=None, alias="CodeSize")
@@ -368,27 +368,27 @@ class LayerVersionContentOutput(BaseModel):
     signing_job_arn: Optional[str] = Field(default=None, alias="SigningJobArn")
 
 
-class GetPolicyRequest(BaseModel):
+class GetPolicyRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class GetProvisionedConcurrencyConfigRequest(BaseModel):
+class GetProvisionedConcurrencyConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: str = Field(alias="Qualifier")
 
 
-class GetRuntimeManagementConfigRequest(BaseModel):
+class GetRuntimeManagementConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class ImageConfigError(BaseModel):
+class ImageConfigErrorModel(BaseModel):
     error_code: Optional[str] = Field(default=None, alias="ErrorCode")
     message: Optional[str] = Field(default=None, alias="Message")
 
 
-class InvocationRequest(BaseModel):
+class InvocationRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     invocation_type: Optional[Literal["DryRun", "Event", "RequestResponse"]] = Field(
         default=None, alias="InvocationType"
@@ -401,14 +401,14 @@ class InvocationRequest(BaseModel):
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
 
 
-class InvokeAsyncRequest(BaseModel):
+class InvokeAsyncRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     invoke_args: Union[str, bytes, Type[IO[Any]], Type[StreamingBody]] = Field(
         alias="InvokeArgs"
     )
 
 
-class LayerVersionContentInput(BaseModel):
+class LayerVersionContentInputModel(BaseModel):
     s3_bucket: Optional[str] = Field(default=None, alias="S3Bucket")
     s3_key: Optional[str] = Field(default=None, alias="S3Key")
     s3_object_version: Optional[str] = Field(default=None, alias="S3ObjectVersion")
@@ -417,7 +417,7 @@ class LayerVersionContentInput(BaseModel):
     )
 
 
-class LayerVersionsListItem(BaseModel):
+class LayerVersionsListItemModel(BaseModel):
     layer_version_arn: Optional[str] = Field(default=None, alias="LayerVersionArn")
     version: Optional[int] = Field(default=None, alias="Version")
     description: Optional[str] = Field(default=None, alias="Description")
@@ -462,50 +462,50 @@ class LayerVersionsListItem(BaseModel):
     )
 
 
-class PaginatorConfig(BaseModel):
+class PaginatorConfigModel(BaseModel):
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
     page_size: Optional[int] = Field(default=None, alias="PageSize")
     starting_token: Optional[str] = Field(default=None, alias="StartingToken")
 
 
-class ListAliasesRequest(BaseModel):
+class ListAliasesRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     function_version: Optional[str] = Field(default=None, alias="FunctionVersion")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListCodeSigningConfigsRequest(BaseModel):
+class ListCodeSigningConfigsRequestModel(BaseModel):
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListEventSourceMappingsRequest(BaseModel):
+class ListEventSourceMappingsRequestModel(BaseModel):
     event_source_arn: Optional[str] = Field(default=None, alias="EventSourceArn")
     function_name: Optional[str] = Field(default=None, alias="FunctionName")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListFunctionEventInvokeConfigsRequest(BaseModel):
+class ListFunctionEventInvokeConfigsRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListFunctionUrlConfigsRequest(BaseModel):
+class ListFunctionUrlConfigsRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListFunctionsByCodeSigningConfigRequest(BaseModel):
+class ListFunctionsByCodeSigningConfigRequestModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListFunctionsRequest(BaseModel):
+class ListFunctionsRequestModel(BaseModel):
     master_region: Optional[str] = Field(default=None, alias="MasterRegion")
     function_version: Optional[Literal["ALL"]] = Field(
         default=None, alias="FunctionVersion"
@@ -514,7 +514,7 @@ class ListFunctionsRequest(BaseModel):
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ListLayerVersionsRequest(BaseModel):
+class ListLayerVersionsRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     compatible_runtime: Optional[
         Literal[
@@ -555,7 +555,7 @@ class ListLayerVersionsRequest(BaseModel):
     )
 
 
-class ListLayersRequest(BaseModel):
+class ListLayersRequestModel(BaseModel):
     compatible_runtime: Optional[
         Literal[
             "dotnet6",
@@ -595,13 +595,13 @@ class ListLayersRequest(BaseModel):
     )
 
 
-class ListProvisionedConcurrencyConfigsRequest(BaseModel):
+class ListProvisionedConcurrencyConfigsRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class ProvisionedConcurrencyConfigListItem(BaseModel):
+class ProvisionedConcurrencyConfigListItemModel(BaseModel):
     function_arn: Optional[str] = Field(default=None, alias="FunctionArn")
     requested_provisioned_concurrent_executions: Optional[int] = Field(
         default=None, alias="RequestedProvisionedConcurrentExecutions"
@@ -619,34 +619,34 @@ class ProvisionedConcurrencyConfigListItem(BaseModel):
     last_modified: Optional[str] = Field(default=None, alias="LastModified")
 
 
-class ListTagsRequest(BaseModel):
+class ListTagsRequestModel(BaseModel):
     resource: str = Field(alias="Resource")
 
 
-class ListVersionsByFunctionRequest(BaseModel):
+class ListVersionsByFunctionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     marker: Optional[str] = Field(default=None, alias="Marker")
     max_items: Optional[int] = Field(default=None, alias="MaxItems")
 
 
-class PublishVersionRequest(BaseModel):
+class PublishVersionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     code_sha256: Optional[str] = Field(default=None, alias="CodeSha256")
     description: Optional[str] = Field(default=None, alias="Description")
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class PutFunctionCodeSigningConfigRequest(BaseModel):
+class PutFunctionCodeSigningConfigRequestModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
     function_name: str = Field(alias="FunctionName")
 
 
-class PutFunctionConcurrencyRequest(BaseModel):
+class PutFunctionConcurrencyRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     reserved_concurrent_executions: int = Field(alias="ReservedConcurrentExecutions")
 
 
-class PutProvisionedConcurrencyConfigRequest(BaseModel):
+class PutProvisionedConcurrencyConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: str = Field(alias="Qualifier")
     provisioned_concurrent_executions: int = Field(
@@ -654,7 +654,7 @@ class PutProvisionedConcurrencyConfigRequest(BaseModel):
     )
 
 
-class PutRuntimeManagementConfigRequest(BaseModel):
+class PutRuntimeManagementConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     update_runtime_on: Literal["Auto", "FunctionUpdate", "Manual"] = Field(
         alias="UpdateRuntimeOn"
@@ -663,36 +663,36 @@ class PutRuntimeManagementConfigRequest(BaseModel):
     runtime_version_arn: Optional[str] = Field(default=None, alias="RuntimeVersionArn")
 
 
-class RemoveLayerVersionPermissionRequest(BaseModel):
+class RemoveLayerVersionPermissionRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     version_number: int = Field(alias="VersionNumber")
     statement_id: str = Field(alias="StatementId")
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class RemovePermissionRequest(BaseModel):
+class RemovePermissionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     statement_id: str = Field(alias="StatementId")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class RuntimeVersionError(BaseModel):
+class RuntimeVersionErrorModel(BaseModel):
     error_code: Optional[str] = Field(default=None, alias="ErrorCode")
     message: Optional[str] = Field(default=None, alias="Message")
 
 
-class TagResourceRequest(BaseModel):
+class TagResourceRequestModel(BaseModel):
     resource: str = Field(alias="Resource")
     tags: Mapping[str, str] = Field(alias="Tags")
 
 
-class UntagResourceRequest(BaseModel):
+class UntagResourceRequestModel(BaseModel):
     resource: str = Field(alias="Resource")
     tag_keys: Sequence[str] = Field(alias="TagKeys")
 
 
-class UpdateFunctionCodeRequest(BaseModel):
+class UpdateFunctionCodeRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     zip_file: Optional[Union[str, bytes, Type[IO[Any]], Type[StreamingBody]]] = Field(
         default=None, alias="ZipFile"
@@ -709,56 +709,56 @@ class UpdateFunctionCodeRequest(BaseModel):
     )
 
 
-class AddLayerVersionPermissionResponse(BaseModel):
+class AddLayerVersionPermissionResponseModel(BaseModel):
     statement: str = Field(alias="Statement")
     revision_id: str = Field(alias="RevisionId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class AddPermissionResponse(BaseModel):
+class AddPermissionResponseModel(BaseModel):
     statement: str = Field(alias="Statement")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ConcurrencyResponseMetadata(BaseModel):
+class ConcurrencyResponseMetadataModel(BaseModel):
     reserved_concurrent_executions: int = Field(alias="ReservedConcurrentExecutions")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class EmptyResponseMetadata(BaseModel):
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class EmptyResponseMetadataModel(BaseModel):
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetAccountSettingsResponse(BaseModel):
-    account_limit: AccountLimit = Field(alias="AccountLimit")
-    account_usage: AccountUsage = Field(alias="AccountUsage")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+class GetAccountSettingsResponseModel(BaseModel):
+    account_limit: AccountLimitModel = Field(alias="AccountLimit")
+    account_usage: AccountUsageModel = Field(alias="AccountUsage")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetFunctionCodeSigningConfigResponse(BaseModel):
+class GetFunctionCodeSigningConfigResponseModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
     function_name: str = Field(alias="FunctionName")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetFunctionConcurrencyResponse(BaseModel):
+class GetFunctionConcurrencyResponseModel(BaseModel):
     reserved_concurrent_executions: int = Field(alias="ReservedConcurrentExecutions")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetLayerVersionPolicyResponse(BaseModel):
+class GetLayerVersionPolicyResponseModel(BaseModel):
     policy: str = Field(alias="Policy")
     revision_id: str = Field(alias="RevisionId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetPolicyResponse(BaseModel):
+class GetPolicyResponseModel(BaseModel):
     policy: str = Field(alias="Policy")
     revision_id: str = Field(alias="RevisionId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetProvisionedConcurrencyConfigResponse(BaseModel):
+class GetProvisionedConcurrencyConfigResponseModel(BaseModel):
     requested_provisioned_concurrent_executions: int = Field(
         alias="RequestedProvisionedConcurrentExecutions"
     )
@@ -771,50 +771,50 @@ class GetProvisionedConcurrencyConfigResponse(BaseModel):
     status: Literal["FAILED", "IN_PROGRESS", "READY"] = Field(alias="Status")
     status_reason: str = Field(alias="StatusReason")
     last_modified: str = Field(alias="LastModified")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetRuntimeManagementConfigResponse(BaseModel):
+class GetRuntimeManagementConfigResponseModel(BaseModel):
     update_runtime_on: Literal["Auto", "FunctionUpdate", "Manual"] = Field(
         alias="UpdateRuntimeOn"
     )
     runtime_version_arn: str = Field(alias="RuntimeVersionArn")
     function_arn: str = Field(alias="FunctionArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class InvocationResponse(BaseModel):
+class InvocationResponseModel(BaseModel):
     status_code: int = Field(alias="StatusCode")
     function_error: str = Field(alias="FunctionError")
     log_result: str = Field(alias="LogResult")
     payload: Type[StreamingBody] = Field(alias="Payload")
     executed_version: str = Field(alias="ExecutedVersion")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class InvokeAsyncResponse(BaseModel):
+class InvokeAsyncResponseModel(BaseModel):
     status: int = Field(alias="Status")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListFunctionsByCodeSigningConfigResponse(BaseModel):
+class ListFunctionsByCodeSigningConfigResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
     function_arns: List[str] = Field(alias="FunctionArns")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListTagsResponse(BaseModel):
+class ListTagsResponseModel(BaseModel):
     tags: Dict[str, str] = Field(alias="Tags")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PutFunctionCodeSigningConfigResponse(BaseModel):
+class PutFunctionCodeSigningConfigResponseModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
     function_name: str = Field(alias="FunctionName")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PutProvisionedConcurrencyConfigResponse(BaseModel):
+class PutProvisionedConcurrencyConfigResponseModel(BaseModel):
     requested_provisioned_concurrent_executions: int = Field(
         alias="RequestedProvisionedConcurrentExecutions"
     )
@@ -827,146 +827,146 @@ class PutProvisionedConcurrencyConfigResponse(BaseModel):
     status: Literal["FAILED", "IN_PROGRESS", "READY"] = Field(alias="Status")
     status_reason: str = Field(alias="StatusReason")
     last_modified: str = Field(alias="LastModified")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PutRuntimeManagementConfigResponse(BaseModel):
+class PutRuntimeManagementConfigResponseModel(BaseModel):
     update_runtime_on: Literal["Auto", "FunctionUpdate", "Manual"] = Field(
         alias="UpdateRuntimeOn"
     )
     function_arn: str = Field(alias="FunctionArn")
     runtime_version_arn: str = Field(alias="RuntimeVersionArn")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class AliasConfigurationResponseMetadata(BaseModel):
+class AliasConfigurationResponseMetadataModel(BaseModel):
     alias_arn: str = Field(alias="AliasArn")
     name: str = Field(alias="Name")
     function_version: str = Field(alias="FunctionVersion")
     description: str = Field(alias="Description")
-    routing_config: AliasRoutingConfiguration = Field(alias="RoutingConfig")
+    routing_config: AliasRoutingConfigurationModel = Field(alias="RoutingConfig")
     revision_id: str = Field(alias="RevisionId")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class AliasConfiguration(BaseModel):
+class AliasConfigurationModel(BaseModel):
     alias_arn: Optional[str] = Field(default=None, alias="AliasArn")
     name: Optional[str] = Field(default=None, alias="Name")
     function_version: Optional[str] = Field(default=None, alias="FunctionVersion")
     description: Optional[str] = Field(default=None, alias="Description")
-    routing_config: Optional[AliasRoutingConfiguration] = Field(
+    routing_config: Optional[AliasRoutingConfigurationModel] = Field(
         default=None, alias="RoutingConfig"
     )
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class CreateAliasRequest(BaseModel):
+class CreateAliasRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     name: str = Field(alias="Name")
     function_version: str = Field(alias="FunctionVersion")
     description: Optional[str] = Field(default=None, alias="Description")
-    routing_config: Optional[AliasRoutingConfiguration] = Field(
+    routing_config: Optional[AliasRoutingConfigurationModel] = Field(
         default=None, alias="RoutingConfig"
     )
 
 
-class UpdateAliasRequest(BaseModel):
+class UpdateAliasRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     name: str = Field(alias="Name")
     function_version: Optional[str] = Field(default=None, alias="FunctionVersion")
     description: Optional[str] = Field(default=None, alias="Description")
-    routing_config: Optional[AliasRoutingConfiguration] = Field(
+    routing_config: Optional[AliasRoutingConfigurationModel] = Field(
         default=None, alias="RoutingConfig"
     )
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
 
 
-class CodeSigningConfig(BaseModel):
+class CodeSigningConfigModel(BaseModel):
     code_signing_config_id: str = Field(alias="CodeSigningConfigId")
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
-    allowed_publishers: AllowedPublishers = Field(alias="AllowedPublishers")
-    code_signing_policies: CodeSigningPolicies = Field(alias="CodeSigningPolicies")
+    allowed_publishers: AllowedPublishersModel = Field(alias="AllowedPublishers")
+    code_signing_policies: CodeSigningPoliciesModel = Field(alias="CodeSigningPolicies")
     last_modified: str = Field(alias="LastModified")
     description: Optional[str] = Field(default=None, alias="Description")
 
 
-class CreateCodeSigningConfigRequest(BaseModel):
-    allowed_publishers: AllowedPublishers = Field(alias="AllowedPublishers")
+class CreateCodeSigningConfigRequestModel(BaseModel):
+    allowed_publishers: AllowedPublishersModel = Field(alias="AllowedPublishers")
     description: Optional[str] = Field(default=None, alias="Description")
-    code_signing_policies: Optional[CodeSigningPolicies] = Field(
+    code_signing_policies: Optional[CodeSigningPoliciesModel] = Field(
         default=None, alias="CodeSigningPolicies"
     )
 
 
-class UpdateCodeSigningConfigRequest(BaseModel):
+class UpdateCodeSigningConfigRequestModel(BaseModel):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
     description: Optional[str] = Field(default=None, alias="Description")
-    allowed_publishers: Optional[AllowedPublishers] = Field(
+    allowed_publishers: Optional[AllowedPublishersModel] = Field(
         default=None, alias="AllowedPublishers"
     )
-    code_signing_policies: Optional[CodeSigningPolicies] = Field(
+    code_signing_policies: Optional[CodeSigningPoliciesModel] = Field(
         default=None, alias="CodeSigningPolicies"
     )
 
 
-class CreateFunctionUrlConfigRequest(BaseModel):
+class CreateFunctionUrlConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    cors: Optional[Cors] = Field(default=None, alias="Cors")
+    cors: Optional[CorsModel] = Field(default=None, alias="Cors")
 
 
-class CreateFunctionUrlConfigResponse(BaseModel):
+class CreateFunctionUrlConfigResponseModel(BaseModel):
     function_url: str = Field(alias="FunctionUrl")
     function_arn: str = Field(alias="FunctionArn")
     auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
-    cors: Cors = Field(alias="Cors")
+    cors: CorsModel = Field(alias="Cors")
     creation_time: str = Field(alias="CreationTime")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class FunctionUrlConfig(BaseModel):
+class FunctionUrlConfigModel(BaseModel):
     function_url: str = Field(alias="FunctionUrl")
     function_arn: str = Field(alias="FunctionArn")
-    creation_time: str = Field(alias="CreationTime")
-    last_modified_time: str = Field(alias="LastModifiedTime")
-    auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
-    cors: Optional[Cors] = Field(default=None, alias="Cors")
-
-
-class GetFunctionUrlConfigResponse(BaseModel):
-    function_url: str = Field(alias="FunctionUrl")
-    function_arn: str = Field(alias="FunctionArn")
-    auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
-    cors: Cors = Field(alias="Cors")
     creation_time: str = Field(alias="CreationTime")
     last_modified_time: str = Field(alias="LastModifiedTime")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
+    cors: Optional[CorsModel] = Field(default=None, alias="Cors")
 
 
-class UpdateFunctionUrlConfigRequest(BaseModel):
+class GetFunctionUrlConfigResponseModel(BaseModel):
+    function_url: str = Field(alias="FunctionUrl")
+    function_arn: str = Field(alias="FunctionArn")
+    auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
+    cors: CorsModel = Field(alias="Cors")
+    creation_time: str = Field(alias="CreationTime")
+    last_modified_time: str = Field(alias="LastModifiedTime")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class UpdateFunctionUrlConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
     auth_type: Optional[Literal["AWS_IAM", "NONE"]] = Field(
         default=None, alias="AuthType"
     )
-    cors: Optional[Cors] = Field(default=None, alias="Cors")
+    cors: Optional[CorsModel] = Field(default=None, alias="Cors")
 
 
-class UpdateFunctionUrlConfigResponse(BaseModel):
+class UpdateFunctionUrlConfigResponseModel(BaseModel):
     function_url: str = Field(alias="FunctionUrl")
     function_arn: str = Field(alias="FunctionArn")
     auth_type: Literal["AWS_IAM", "NONE"] = Field(alias="AuthType")
-    cors: Cors = Field(alias="Cors")
+    cors: CorsModel = Field(alias="Cors")
     creation_time: str = Field(alias="CreationTime")
     last_modified_time: str = Field(alias="LastModifiedTime")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class CreateFunctionRequest(BaseModel):
+class CreateFunctionRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     role: str = Field(alias="Role")
-    code: FunctionCode = Field(alias="Code")
+    code: FunctionCodeModel = Field(alias="Code")
     runtime: Optional[
         Literal[
             "dotnet6",
@@ -1004,43 +1004,45 @@ class CreateFunctionRequest(BaseModel):
     timeout: Optional[int] = Field(default=None, alias="Timeout")
     memory_size: Optional[int] = Field(default=None, alias="MemorySize")
     publish: Optional[bool] = Field(default=None, alias="Publish")
-    vpc_config: Optional[VpcConfig] = Field(default=None, alias="VpcConfig")
+    vpc_config: Optional[VpcConfigModel] = Field(default=None, alias="VpcConfig")
     package_type: Optional[Literal["Image", "Zip"]] = Field(
         default=None, alias="PackageType"
     )
-    dead_letter_config: Optional[DeadLetterConfig] = Field(
+    dead_letter_config: Optional[DeadLetterConfigModel] = Field(
         default=None, alias="DeadLetterConfig"
     )
-    environment: Optional[Environment] = Field(default=None, alias="Environment")
+    environment: Optional[EnvironmentModel] = Field(default=None, alias="Environment")
     kms_key_arn: Optional[str] = Field(default=None, alias="KMSKeyArn")
-    tracing_config: Optional[TracingConfig] = Field(default=None, alias="TracingConfig")
+    tracing_config: Optional[TracingConfigModel] = Field(
+        default=None, alias="TracingConfig"
+    )
     tags: Optional[Mapping[str, str]] = Field(default=None, alias="Tags")
     layers: Optional[Sequence[str]] = Field(default=None, alias="Layers")
-    file_system_configs: Optional[Sequence[FileSystemConfig]] = Field(
+    file_system_configs: Optional[Sequence[FileSystemConfigModel]] = Field(
         default=None, alias="FileSystemConfigs"
     )
-    image_config: Optional[ImageConfig] = Field(default=None, alias="ImageConfig")
+    image_config: Optional[ImageConfigModel] = Field(default=None, alias="ImageConfig")
     code_signing_config_arn: Optional[str] = Field(
         default=None, alias="CodeSigningConfigArn"
     )
     architectures: Optional[Sequence[Literal["arm64", "x86_64"]]] = Field(
         default=None, alias="Architectures"
     )
-    ephemeral_storage: Optional[EphemeralStorage] = Field(
+    ephemeral_storage: Optional[EphemeralStorageModel] = Field(
         default=None, alias="EphemeralStorage"
     )
-    snap_start: Optional[SnapStart] = Field(default=None, alias="SnapStart")
+    snap_start: Optional[SnapStartModel] = Field(default=None, alias="SnapStart")
 
 
-class UpdateFunctionConfigurationRequest(BaseModel):
+class UpdateFunctionConfigurationRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     role: Optional[str] = Field(default=None, alias="Role")
     handler: Optional[str] = Field(default=None, alias="Handler")
     description: Optional[str] = Field(default=None, alias="Description")
     timeout: Optional[int] = Field(default=None, alias="Timeout")
     memory_size: Optional[int] = Field(default=None, alias="MemorySize")
-    vpc_config: Optional[VpcConfig] = Field(default=None, alias="VpcConfig")
-    environment: Optional[Environment] = Field(default=None, alias="Environment")
+    vpc_config: Optional[VpcConfigModel] = Field(default=None, alias="VpcConfig")
+    environment: Optional[EnvironmentModel] = Field(default=None, alias="Environment")
     runtime: Optional[
         Literal[
             "dotnet6",
@@ -1073,75 +1075,89 @@ class UpdateFunctionConfigurationRequest(BaseModel):
             "ruby2.7",
         ]
     ] = Field(default=None, alias="Runtime")
-    dead_letter_config: Optional[DeadLetterConfig] = Field(
+    dead_letter_config: Optional[DeadLetterConfigModel] = Field(
         default=None, alias="DeadLetterConfig"
     )
     kms_key_arn: Optional[str] = Field(default=None, alias="KMSKeyArn")
-    tracing_config: Optional[TracingConfig] = Field(default=None, alias="TracingConfig")
+    tracing_config: Optional[TracingConfigModel] = Field(
+        default=None, alias="TracingConfig"
+    )
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
     layers: Optional[Sequence[str]] = Field(default=None, alias="Layers")
-    file_system_configs: Optional[Sequence[FileSystemConfig]] = Field(
+    file_system_configs: Optional[Sequence[FileSystemConfigModel]] = Field(
         default=None, alias="FileSystemConfigs"
     )
-    image_config: Optional[ImageConfig] = Field(default=None, alias="ImageConfig")
-    ephemeral_storage: Optional[EphemeralStorage] = Field(
+    image_config: Optional[ImageConfigModel] = Field(default=None, alias="ImageConfig")
+    ephemeral_storage: Optional[EphemeralStorageModel] = Field(
         default=None, alias="EphemeralStorage"
     )
-    snap_start: Optional[SnapStart] = Field(default=None, alias="SnapStart")
+    snap_start: Optional[SnapStartModel] = Field(default=None, alias="SnapStart")
 
 
-class DestinationConfig(BaseModel):
-    on_success: Optional[OnSuccess] = Field(default=None, alias="OnSuccess")
-    on_failure: Optional[OnFailure] = Field(default=None, alias="OnFailure")
+class DestinationConfigModel(BaseModel):
+    on_success: Optional[OnSuccessModel] = Field(default=None, alias="OnSuccess")
+    on_failure: Optional[OnFailureModel] = Field(default=None, alias="OnFailure")
 
 
-class EnvironmentResponse(BaseModel):
+class EnvironmentResponseModel(BaseModel):
     variables: Optional[Dict[str, str]] = Field(default=None, alias="Variables")
-    error: Optional[EnvironmentError] = Field(default=None, alias="Error")
+    error: Optional[EnvironmentErrorModel] = Field(default=None, alias="Error")
 
 
-class FilterCriteria(BaseModel):
-    filters: Optional[Sequence[Filter]] = Field(default=None, alias="Filters")
+class FilterCriteriaModel(BaseModel):
+    filters: Optional[Sequence[FilterModel]] = Field(default=None, alias="Filters")
 
 
-class GetFunctionConfigurationRequestFunctionActiveWait(BaseModel):
+class GetFunctionConfigurationRequestFunctionActiveWaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetFunctionConfigurationRequestFunctionUpdatedWait(BaseModel):
+class GetFunctionConfigurationRequestFunctionUpdatedWaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetFunctionConfigurationRequestPublishedVersionActiveWait(BaseModel):
+class GetFunctionConfigurationRequestPublishedVersionActiveWaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetFunctionRequestFunctionActiveV2Wait(BaseModel):
+class GetFunctionRequestFunctionActiveV2WaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetFunctionRequestFunctionExistsWait(BaseModel):
+class GetFunctionRequestFunctionExistsWaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetFunctionRequestFunctionUpdatedV2Wait(BaseModel):
+class GetFunctionRequestFunctionUpdatedV2WaitModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
-    waiter_config: Optional[WaiterConfig] = Field(default=None, alias="WaiterConfig")
+    waiter_config: Optional[WaiterConfigModel] = Field(
+        default=None, alias="WaiterConfig"
+    )
 
 
-class GetLayerVersionResponse(BaseModel):
-    content: LayerVersionContentOutput = Field(alias="Content")
+class GetLayerVersionResponseModel(BaseModel):
+    content: LayerVersionContentOutputModel = Field(alias="Content")
     layer_arn: str = Field(alias="LayerArn")
     layer_version_arn: str = Field(alias="LayerVersionArn")
     description: str = Field(alias="Description")
@@ -1183,11 +1199,11 @@ class GetLayerVersionResponse(BaseModel):
     compatible_architectures: List[Literal["arm64", "x86_64"]] = Field(
         alias="CompatibleArchitectures"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class PublishLayerVersionResponse(BaseModel):
-    content: LayerVersionContentOutput = Field(alias="Content")
+class PublishLayerVersionResponseModel(BaseModel):
+    content: LayerVersionContentOutputModel = Field(alias="Content")
     layer_arn: str = Field(alias="LayerArn")
     layer_version_arn: str = Field(alias="LayerVersionArn")
     description: str = Field(alias="Description")
@@ -1229,17 +1245,17 @@ class PublishLayerVersionResponse(BaseModel):
     compatible_architectures: List[Literal["arm64", "x86_64"]] = Field(
         alias="CompatibleArchitectures"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ImageConfigResponse(BaseModel):
-    image_config: Optional[ImageConfig] = Field(default=None, alias="ImageConfig")
-    error: Optional[ImageConfigError] = Field(default=None, alias="Error")
+class ImageConfigResponseModel(BaseModel):
+    image_config: Optional[ImageConfigModel] = Field(default=None, alias="ImageConfig")
+    error: Optional[ImageConfigErrorModel] = Field(default=None, alias="Error")
 
 
-class PublishLayerVersionRequest(BaseModel):
+class PublishLayerVersionRequestModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
-    content: LayerVersionContentInput = Field(alias="Content")
+    content: LayerVersionContentInputModel = Field(alias="Content")
     description: Optional[str] = Field(default=None, alias="Description")
     compatible_runtimes: Optional[
         Sequence[
@@ -1281,78 +1297,78 @@ class PublishLayerVersionRequest(BaseModel):
     )
 
 
-class LayersListItem(BaseModel):
+class LayersListItemModel(BaseModel):
     layer_name: Optional[str] = Field(default=None, alias="LayerName")
     layer_arn: Optional[str] = Field(default=None, alias="LayerArn")
-    latest_matching_version: Optional[LayerVersionsListItem] = Field(
+    latest_matching_version: Optional[LayerVersionsListItemModel] = Field(
         default=None, alias="LatestMatchingVersion"
     )
 
 
-class ListLayerVersionsResponse(BaseModel):
+class ListLayerVersionsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    layer_versions: List[LayerVersionsListItem] = Field(alias="LayerVersions")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    layer_versions: List[LayerVersionsListItemModel] = Field(alias="LayerVersions")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListAliasesRequestListAliasesPaginate(BaseModel):
+class ListAliasesRequestListAliasesPaginateModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     function_version: Optional[str] = Field(default=None, alias="FunctionVersion")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListCodeSigningConfigsRequestListCodeSigningConfigsPaginate(BaseModel):
-    pagination_config: Optional[PaginatorConfig] = Field(
+class ListCodeSigningConfigsRequestListCodeSigningConfigsPaginateModel(BaseModel):
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListEventSourceMappingsRequestListEventSourceMappingsPaginate(BaseModel):
+class ListEventSourceMappingsRequestListEventSourceMappingsPaginateModel(BaseModel):
     event_source_arn: Optional[str] = Field(default=None, alias="EventSourceArn")
     function_name: Optional[str] = Field(default=None, alias="FunctionName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListFunctionEventInvokeConfigsRequestListFunctionEventInvokeConfigsPaginate(
+class ListFunctionEventInvokeConfigsRequestListFunctionEventInvokeConfigsPaginateModel(
     BaseModel
 ):
     function_name: str = Field(alias="FunctionName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListFunctionUrlConfigsRequestListFunctionUrlConfigsPaginate(BaseModel):
+class ListFunctionUrlConfigsRequestListFunctionUrlConfigsPaginateModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListFunctionsByCodeSigningConfigRequestListFunctionsByCodeSigningConfigPaginate(
+class ListFunctionsByCodeSigningConfigRequestListFunctionsByCodeSigningConfigPaginateModel(
     BaseModel
 ):
     code_signing_config_arn: str = Field(alias="CodeSigningConfigArn")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListFunctionsRequestListFunctionsPaginate(BaseModel):
+class ListFunctionsRequestListFunctionsPaginateModel(BaseModel):
     master_region: Optional[str] = Field(default=None, alias="MasterRegion")
     function_version: Optional[Literal["ALL"]] = Field(
         default=None, alias="FunctionVersion"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListLayerVersionsRequestListLayerVersionsPaginate(BaseModel):
+class ListLayerVersionsRequestListLayerVersionsPaginateModel(BaseModel):
     layer_name: str = Field(alias="LayerName")
     compatible_runtime: Optional[
         Literal[
@@ -1389,12 +1405,12 @@ class ListLayerVersionsRequestListLayerVersionsPaginate(BaseModel):
     compatible_architecture: Optional[Literal["arm64", "x86_64"]] = Field(
         default=None, alias="CompatibleArchitecture"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListLayersRequestListLayersPaginate(BaseModel):
+class ListLayersRequestListLayersPaginateModel(BaseModel):
     compatible_runtime: Optional[
         Literal[
             "dotnet6",
@@ -1430,83 +1446,87 @@ class ListLayersRequestListLayersPaginate(BaseModel):
     compatible_architecture: Optional[Literal["arm64", "x86_64"]] = Field(
         default=None, alias="CompatibleArchitecture"
     )
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListProvisionedConcurrencyConfigsRequestListProvisionedConcurrencyConfigsPaginate(
+class ListProvisionedConcurrencyConfigsRequestListProvisionedConcurrencyConfigsPaginateModel(
     BaseModel
 ):
     function_name: str = Field(alias="FunctionName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListVersionsByFunctionRequestListVersionsByFunctionPaginate(BaseModel):
+class ListVersionsByFunctionRequestListVersionsByFunctionPaginateModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
-    pagination_config: Optional[PaginatorConfig] = Field(
+    pagination_config: Optional[PaginatorConfigModel] = Field(
         default=None, alias="PaginationConfig"
     )
 
 
-class ListProvisionedConcurrencyConfigsResponse(BaseModel):
-    provisioned_concurrency_configs: List[ProvisionedConcurrencyConfigListItem] = Field(
-        alias="ProvisionedConcurrencyConfigs"
+class ListProvisionedConcurrencyConfigsResponseModel(BaseModel):
+    provisioned_concurrency_configs: List[
+        ProvisionedConcurrencyConfigListItemModel
+    ] = Field(alias="ProvisionedConcurrencyConfigs")
+    next_marker: str = Field(alias="NextMarker")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class RuntimeVersionConfigModel(BaseModel):
+    runtime_version_arn: Optional[str] = Field(default=None, alias="RuntimeVersionArn")
+    error: Optional[RuntimeVersionErrorModel] = Field(default=None, alias="Error")
+
+
+class ListAliasesResponseModel(BaseModel):
+    next_marker: str = Field(alias="NextMarker")
+    aliases: List[AliasConfigurationModel] = Field(alias="Aliases")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class CreateCodeSigningConfigResponseModel(BaseModel):
+    code_signing_config: CodeSigningConfigModel = Field(alias="CodeSigningConfig")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class GetCodeSigningConfigResponseModel(BaseModel):
+    code_signing_config: CodeSigningConfigModel = Field(alias="CodeSigningConfig")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class ListCodeSigningConfigsResponseModel(BaseModel):
+    next_marker: str = Field(alias="NextMarker")
+    code_signing_configs: List[CodeSigningConfigModel] = Field(
+        alias="CodeSigningConfigs"
+    )
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class UpdateCodeSigningConfigResponseModel(BaseModel):
+    code_signing_config: CodeSigningConfigModel = Field(alias="CodeSigningConfig")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
+
+
+class ListFunctionUrlConfigsResponseModel(BaseModel):
+    function_url_configs: List[FunctionUrlConfigModel] = Field(
+        alias="FunctionUrlConfigs"
     )
     next_marker: str = Field(alias="NextMarker")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class RuntimeVersionConfig(BaseModel):
-    runtime_version_arn: Optional[str] = Field(default=None, alias="RuntimeVersionArn")
-    error: Optional[RuntimeVersionError] = Field(default=None, alias="Error")
-
-
-class ListAliasesResponse(BaseModel):
-    next_marker: str = Field(alias="NextMarker")
-    aliases: List[AliasConfiguration] = Field(alias="Aliases")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class CreateCodeSigningConfigResponse(BaseModel):
-    code_signing_config: CodeSigningConfig = Field(alias="CodeSigningConfig")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class GetCodeSigningConfigResponse(BaseModel):
-    code_signing_config: CodeSigningConfig = Field(alias="CodeSigningConfig")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class ListCodeSigningConfigsResponse(BaseModel):
-    next_marker: str = Field(alias="NextMarker")
-    code_signing_configs: List[CodeSigningConfig] = Field(alias="CodeSigningConfigs")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class UpdateCodeSigningConfigResponse(BaseModel):
-    code_signing_config: CodeSigningConfig = Field(alias="CodeSigningConfig")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class ListFunctionUrlConfigsResponse(BaseModel):
-    function_url_configs: List[FunctionUrlConfig] = Field(alias="FunctionUrlConfigs")
-    next_marker: str = Field(alias="NextMarker")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
-
-
-class FunctionEventInvokeConfigResponseMetadata(BaseModel):
+class FunctionEventInvokeConfigResponseMetadataModel(BaseModel):
     last_modified: datetime = Field(alias="LastModified")
     function_arn: str = Field(alias="FunctionArn")
     maximum_retry_attempts: int = Field(alias="MaximumRetryAttempts")
     maximum_event_age_in_seconds: int = Field(alias="MaximumEventAgeInSeconds")
-    destination_config: DestinationConfig = Field(alias="DestinationConfig")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    destination_config: DestinationConfigModel = Field(alias="DestinationConfig")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class FunctionEventInvokeConfig(BaseModel):
+class FunctionEventInvokeConfigModel(BaseModel):
     last_modified: Optional[datetime] = Field(default=None, alias="LastModified")
     function_arn: Optional[str] = Field(default=None, alias="FunctionArn")
     maximum_retry_attempts: Optional[int] = Field(
@@ -1515,12 +1535,12 @@ class FunctionEventInvokeConfig(BaseModel):
     maximum_event_age_in_seconds: Optional[int] = Field(
         default=None, alias="MaximumEventAgeInSeconds"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
 
 
-class PutFunctionEventInvokeConfigRequest(BaseModel):
+class PutFunctionEventInvokeConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
     maximum_retry_attempts: Optional[int] = Field(
@@ -1529,12 +1549,12 @@ class PutFunctionEventInvokeConfigRequest(BaseModel):
     maximum_event_age_in_seconds: Optional[int] = Field(
         default=None, alias="MaximumEventAgeInSeconds"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
 
 
-class UpdateFunctionEventInvokeConfigRequest(BaseModel):
+class UpdateFunctionEventInvokeConfigRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     qualifier: Optional[str] = Field(default=None, alias="Qualifier")
     maximum_retry_attempts: Optional[int] = Field(
@@ -1543,17 +1563,17 @@ class UpdateFunctionEventInvokeConfigRequest(BaseModel):
     maximum_event_age_in_seconds: Optional[int] = Field(
         default=None, alias="MaximumEventAgeInSeconds"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
 
 
-class CreateEventSourceMappingRequest(BaseModel):
+class CreateEventSourceMappingRequestModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     event_source_arn: Optional[str] = Field(default=None, alias="EventSourceArn")
     enabled: Optional[bool] = Field(default=None, alias="Enabled")
     batch_size: Optional[int] = Field(default=None, alias="BatchSize")
-    filter_criteria: Optional[FilterCriteria] = Field(
+    filter_criteria: Optional[FilterCriteriaModel] = Field(
         default=None, alias="FilterCriteria"
     )
     maximum_batching_window_in_seconds: Optional[int] = Field(
@@ -1568,7 +1588,7 @@ class CreateEventSourceMappingRequest(BaseModel):
     starting_position_timestamp: Optional[Union[datetime, str]] = Field(
         default=None, alias="StartingPositionTimestamp"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
     maximum_record_age_in_seconds: Optional[int] = Field(
@@ -1585,28 +1605,30 @@ class CreateEventSourceMappingRequest(BaseModel):
     )
     topics: Optional[Sequence[str]] = Field(default=None, alias="Topics")
     queues: Optional[Sequence[str]] = Field(default=None, alias="Queues")
-    source_access_configurations: Optional[Sequence[SourceAccessConfiguration]] = Field(
-        default=None, alias="SourceAccessConfigurations"
-    )
-    self_managed_event_source: Optional[SelfManagedEventSource] = Field(
+    source_access_configurations: Optional[
+        Sequence[SourceAccessConfigurationModel]
+    ] = Field(default=None, alias="SourceAccessConfigurations")
+    self_managed_event_source: Optional[SelfManagedEventSourceModel] = Field(
         default=None, alias="SelfManagedEventSource"
     )
     function_response_types: Optional[
         Sequence[Literal["ReportBatchItemFailures"]]
     ] = Field(default=None, alias="FunctionResponseTypes")
     amazon_managed_kafka_event_source_config: Optional[
-        AmazonManagedKafkaEventSourceConfig
+        AmazonManagedKafkaEventSourceConfigModel
     ] = Field(default=None, alias="AmazonManagedKafkaEventSourceConfig")
     self_managed_kafka_event_source_config: Optional[
-        SelfManagedKafkaEventSourceConfig
+        SelfManagedKafkaEventSourceConfigModel
     ] = Field(default=None, alias="SelfManagedKafkaEventSourceConfig")
-    scaling_config: Optional[ScalingConfig] = Field(default=None, alias="ScalingConfig")
-    document_dbevent_source_config: Optional[DocumentDBEventSourceConfig] = Field(
+    scaling_config: Optional[ScalingConfigModel] = Field(
+        default=None, alias="ScalingConfig"
+    )
+    document_dbevent_source_config: Optional[DocumentDBEventSourceConfigModel] = Field(
         default=None, alias="DocumentDBEventSourceConfig"
     )
 
 
-class EventSourceMappingConfigurationResponseMetadata(BaseModel):
+class EventSourceMappingConfigurationResponseMetadataModel(BaseModel):
     uuid: str = Field(alias="UUID")
     starting_position: Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"] = Field(
         alias="StartingPosition"
@@ -1618,19 +1640,19 @@ class EventSourceMappingConfigurationResponseMetadata(BaseModel):
     )
     parallelization_factor: int = Field(alias="ParallelizationFactor")
     event_source_arn: str = Field(alias="EventSourceArn")
-    filter_criteria: FilterCriteria = Field(alias="FilterCriteria")
+    filter_criteria: FilterCriteriaModel = Field(alias="FilterCriteria")
     function_arn: str = Field(alias="FunctionArn")
     last_modified: datetime = Field(alias="LastModified")
     last_processing_result: str = Field(alias="LastProcessingResult")
     state: str = Field(alias="State")
     state_transition_reason: str = Field(alias="StateTransitionReason")
-    destination_config: DestinationConfig = Field(alias="DestinationConfig")
+    destination_config: DestinationConfigModel = Field(alias="DestinationConfig")
     topics: List[str] = Field(alias="Topics")
     queues: List[str] = Field(alias="Queues")
-    source_access_configurations: List[SourceAccessConfiguration] = Field(
+    source_access_configurations: List[SourceAccessConfigurationModel] = Field(
         alias="SourceAccessConfigurations"
     )
-    self_managed_event_source: SelfManagedEventSource = Field(
+    self_managed_event_source: SelfManagedEventSourceModel = Field(
         alias="SelfManagedEventSource"
     )
     maximum_record_age_in_seconds: int = Field(alias="MaximumRecordAgeInSeconds")
@@ -1640,20 +1662,20 @@ class EventSourceMappingConfigurationResponseMetadata(BaseModel):
     function_response_types: List[Literal["ReportBatchItemFailures"]] = Field(
         alias="FunctionResponseTypes"
     )
-    amazon_managed_kafka_event_source_config: AmazonManagedKafkaEventSourceConfig = (
-        Field(alias="AmazonManagedKafkaEventSourceConfig")
+    amazon_managed_kafka_event_source_config: AmazonManagedKafkaEventSourceConfigModel = Field(
+        alias="AmazonManagedKafkaEventSourceConfig"
     )
-    self_managed_kafka_event_source_config: SelfManagedKafkaEventSourceConfig = Field(
-        alias="SelfManagedKafkaEventSourceConfig"
+    self_managed_kafka_event_source_config: SelfManagedKafkaEventSourceConfigModel = (
+        Field(alias="SelfManagedKafkaEventSourceConfig")
     )
-    scaling_config: ScalingConfig = Field(alias="ScalingConfig")
-    document_dbevent_source_config: DocumentDBEventSourceConfig = Field(
+    scaling_config: ScalingConfigModel = Field(alias="ScalingConfig")
+    document_dbevent_source_config: DocumentDBEventSourceConfigModel = Field(
         alias="DocumentDBEventSourceConfig"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class EventSourceMappingConfiguration(BaseModel):
+class EventSourceMappingConfigurationModel(BaseModel):
     uuid: Optional[str] = Field(default=None, alias="UUID")
     starting_position: Optional[
         Literal["AT_TIMESTAMP", "LATEST", "TRIM_HORIZON"]
@@ -1669,7 +1691,7 @@ class EventSourceMappingConfiguration(BaseModel):
         default=None, alias="ParallelizationFactor"
     )
     event_source_arn: Optional[str] = Field(default=None, alias="EventSourceArn")
-    filter_criteria: Optional[FilterCriteria] = Field(
+    filter_criteria: Optional[FilterCriteriaModel] = Field(
         default=None, alias="FilterCriteria"
     )
     function_arn: Optional[str] = Field(default=None, alias="FunctionArn")
@@ -1681,15 +1703,15 @@ class EventSourceMappingConfiguration(BaseModel):
     state_transition_reason: Optional[str] = Field(
         default=None, alias="StateTransitionReason"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
     topics: Optional[List[str]] = Field(default=None, alias="Topics")
     queues: Optional[List[str]] = Field(default=None, alias="Queues")
-    source_access_configurations: Optional[List[SourceAccessConfiguration]] = Field(
-        default=None, alias="SourceAccessConfigurations"
-    )
-    self_managed_event_source: Optional[SelfManagedEventSource] = Field(
+    source_access_configurations: Optional[
+        List[SourceAccessConfigurationModel]
+    ] = Field(default=None, alias="SourceAccessConfigurations")
+    self_managed_event_source: Optional[SelfManagedEventSourceModel] = Field(
         default=None, alias="SelfManagedEventSource"
     )
     maximum_record_age_in_seconds: Optional[int] = Field(
@@ -1708,29 +1730,31 @@ class EventSourceMappingConfiguration(BaseModel):
         default=None, alias="FunctionResponseTypes"
     )
     amazon_managed_kafka_event_source_config: Optional[
-        AmazonManagedKafkaEventSourceConfig
+        AmazonManagedKafkaEventSourceConfigModel
     ] = Field(default=None, alias="AmazonManagedKafkaEventSourceConfig")
     self_managed_kafka_event_source_config: Optional[
-        SelfManagedKafkaEventSourceConfig
+        SelfManagedKafkaEventSourceConfigModel
     ] = Field(default=None, alias="SelfManagedKafkaEventSourceConfig")
-    scaling_config: Optional[ScalingConfig] = Field(default=None, alias="ScalingConfig")
-    document_dbevent_source_config: Optional[DocumentDBEventSourceConfig] = Field(
+    scaling_config: Optional[ScalingConfigModel] = Field(
+        default=None, alias="ScalingConfig"
+    )
+    document_dbevent_source_config: Optional[DocumentDBEventSourceConfigModel] = Field(
         default=None, alias="DocumentDBEventSourceConfig"
     )
 
 
-class UpdateEventSourceMappingRequest(BaseModel):
+class UpdateEventSourceMappingRequestModel(BaseModel):
     uuid: str = Field(alias="UUID")
     function_name: Optional[str] = Field(default=None, alias="FunctionName")
     enabled: Optional[bool] = Field(default=None, alias="Enabled")
     batch_size: Optional[int] = Field(default=None, alias="BatchSize")
-    filter_criteria: Optional[FilterCriteria] = Field(
+    filter_criteria: Optional[FilterCriteriaModel] = Field(
         default=None, alias="FilterCriteria"
     )
     maximum_batching_window_in_seconds: Optional[int] = Field(
         default=None, alias="MaximumBatchingWindowInSeconds"
     )
-    destination_config: Optional[DestinationConfig] = Field(
+    destination_config: Optional[DestinationConfigModel] = Field(
         default=None, alias="DestinationConfig"
     )
     maximum_record_age_in_seconds: Optional[int] = Field(
@@ -1745,28 +1769,30 @@ class UpdateEventSourceMappingRequest(BaseModel):
     parallelization_factor: Optional[int] = Field(
         default=None, alias="ParallelizationFactor"
     )
-    source_access_configurations: Optional[Sequence[SourceAccessConfiguration]] = Field(
-        default=None, alias="SourceAccessConfigurations"
-    )
+    source_access_configurations: Optional[
+        Sequence[SourceAccessConfigurationModel]
+    ] = Field(default=None, alias="SourceAccessConfigurations")
     tumbling_window_in_seconds: Optional[int] = Field(
         default=None, alias="TumblingWindowInSeconds"
     )
     function_response_types: Optional[
         Sequence[Literal["ReportBatchItemFailures"]]
     ] = Field(default=None, alias="FunctionResponseTypes")
-    scaling_config: Optional[ScalingConfig] = Field(default=None, alias="ScalingConfig")
-    document_dbevent_source_config: Optional[DocumentDBEventSourceConfig] = Field(
+    scaling_config: Optional[ScalingConfigModel] = Field(
+        default=None, alias="ScalingConfig"
+    )
+    document_dbevent_source_config: Optional[DocumentDBEventSourceConfigModel] = Field(
         default=None, alias="DocumentDBEventSourceConfig"
     )
 
 
-class ListLayersResponse(BaseModel):
+class ListLayersResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    layers: List[LayersListItem] = Field(alias="Layers")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    layers: List[LayersListItemModel] = Field(alias="Layers")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class FunctionConfigurationResponseMetadata(BaseModel):
+class FunctionConfigurationResponseMetadataModel(BaseModel):
     function_name: str = Field(alias="FunctionName")
     function_arn: str = Field(alias="FunctionArn")
     runtime: Literal[
@@ -1808,14 +1834,14 @@ class FunctionConfigurationResponseMetadata(BaseModel):
     last_modified: str = Field(alias="LastModified")
     code_sha256: str = Field(alias="CodeSha256")
     version: str = Field(alias="Version")
-    vpc_config: VpcConfigResponse = Field(alias="VpcConfig")
-    dead_letter_config: DeadLetterConfig = Field(alias="DeadLetterConfig")
-    environment: EnvironmentResponse = Field(alias="Environment")
+    vpc_config: VpcConfigResponseModel = Field(alias="VpcConfig")
+    dead_letter_config: DeadLetterConfigModel = Field(alias="DeadLetterConfig")
+    environment: EnvironmentResponseModel = Field(alias="Environment")
     kms_key_arn: str = Field(alias="KMSKeyArn")
-    tracing_config: TracingConfigResponse = Field(alias="TracingConfig")
+    tracing_config: TracingConfigResponseModel = Field(alias="TracingConfig")
     master_arn: str = Field(alias="MasterArn")
     revision_id: str = Field(alias="RevisionId")
-    layers: List[Layer] = Field(alias="Layers")
+    layers: List[LayerModel] = Field(alias="Layers")
     state: Literal["Active", "Failed", "Inactive", "Pending"] = Field(alias="State")
     state_reason: str = Field(alias="StateReason")
     state_reason_code: Literal[
@@ -1871,19 +1897,21 @@ class FunctionConfigurationResponseMetadata(BaseModel):
         "KMSKeyNotFound",
         "SubnetOutOfIPAddresses",
     ] = Field(alias="LastUpdateStatusReasonCode")
-    file_system_configs: List[FileSystemConfig] = Field(alias="FileSystemConfigs")
+    file_system_configs: List[FileSystemConfigModel] = Field(alias="FileSystemConfigs")
     package_type: Literal["Image", "Zip"] = Field(alias="PackageType")
-    image_config_response: ImageConfigResponse = Field(alias="ImageConfigResponse")
+    image_config_response: ImageConfigResponseModel = Field(alias="ImageConfigResponse")
     signing_profile_version_arn: str = Field(alias="SigningProfileVersionArn")
     signing_job_arn: str = Field(alias="SigningJobArn")
     architectures: List[Literal["arm64", "x86_64"]] = Field(alias="Architectures")
-    ephemeral_storage: EphemeralStorage = Field(alias="EphemeralStorage")
-    snap_start: SnapStartResponse = Field(alias="SnapStart")
-    runtime_version_config: RuntimeVersionConfig = Field(alias="RuntimeVersionConfig")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    ephemeral_storage: EphemeralStorageModel = Field(alias="EphemeralStorage")
+    snap_start: SnapStartResponseModel = Field(alias="SnapStart")
+    runtime_version_config: RuntimeVersionConfigModel = Field(
+        alias="RuntimeVersionConfig"
+    )
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class FunctionConfiguration(BaseModel):
+class FunctionConfigurationModel(BaseModel):
     function_name: Optional[str] = Field(default=None, alias="FunctionName")
     function_arn: Optional[str] = Field(default=None, alias="FunctionArn")
     runtime: Optional[
@@ -1927,20 +1955,22 @@ class FunctionConfiguration(BaseModel):
     last_modified: Optional[str] = Field(default=None, alias="LastModified")
     code_sha256: Optional[str] = Field(default=None, alias="CodeSha256")
     version: Optional[str] = Field(default=None, alias="Version")
-    vpc_config: Optional[VpcConfigResponse] = Field(default=None, alias="VpcConfig")
-    dead_letter_config: Optional[DeadLetterConfig] = Field(
+    vpc_config: Optional[VpcConfigResponseModel] = Field(
+        default=None, alias="VpcConfig"
+    )
+    dead_letter_config: Optional[DeadLetterConfigModel] = Field(
         default=None, alias="DeadLetterConfig"
     )
-    environment: Optional[EnvironmentResponse] = Field(
+    environment: Optional[EnvironmentResponseModel] = Field(
         default=None, alias="Environment"
     )
     kms_key_arn: Optional[str] = Field(default=None, alias="KMSKeyArn")
-    tracing_config: Optional[TracingConfigResponse] = Field(
+    tracing_config: Optional[TracingConfigResponseModel] = Field(
         default=None, alias="TracingConfig"
     )
     master_arn: Optional[str] = Field(default=None, alias="MasterArn")
     revision_id: Optional[str] = Field(default=None, alias="RevisionId")
-    layers: Optional[List[Layer]] = Field(default=None, alias="Layers")
+    layers: Optional[List[LayerModel]] = Field(default=None, alias="Layers")
     state: Optional[Literal["Active", "Failed", "Inactive", "Pending"]] = Field(
         default=None, alias="State"
     )
@@ -2004,13 +2034,13 @@ class FunctionConfiguration(BaseModel):
             "SubnetOutOfIPAddresses",
         ]
     ] = Field(default=None, alias="LastUpdateStatusReasonCode")
-    file_system_configs: Optional[List[FileSystemConfig]] = Field(
+    file_system_configs: Optional[List[FileSystemConfigModel]] = Field(
         default=None, alias="FileSystemConfigs"
     )
     package_type: Optional[Literal["Image", "Zip"]] = Field(
         default=None, alias="PackageType"
     )
-    image_config_response: Optional[ImageConfigResponse] = Field(
+    image_config_response: Optional[ImageConfigResponseModel] = Field(
         default=None, alias="ImageConfigResponse"
     )
     signing_profile_version_arn: Optional[str] = Field(
@@ -2020,46 +2050,48 @@ class FunctionConfiguration(BaseModel):
     architectures: Optional[List[Literal["arm64", "x86_64"]]] = Field(
         default=None, alias="Architectures"
     )
-    ephemeral_storage: Optional[EphemeralStorage] = Field(
+    ephemeral_storage: Optional[EphemeralStorageModel] = Field(
         default=None, alias="EphemeralStorage"
     )
-    snap_start: Optional[SnapStartResponse] = Field(default=None, alias="SnapStart")
-    runtime_version_config: Optional[RuntimeVersionConfig] = Field(
+    snap_start: Optional[SnapStartResponseModel] = Field(
+        default=None, alias="SnapStart"
+    )
+    runtime_version_config: Optional[RuntimeVersionConfigModel] = Field(
         default=None, alias="RuntimeVersionConfig"
     )
 
 
-class ListFunctionEventInvokeConfigsResponse(BaseModel):
-    function_event_invoke_configs: List[FunctionEventInvokeConfig] = Field(
+class ListFunctionEventInvokeConfigsResponseModel(BaseModel):
+    function_event_invoke_configs: List[FunctionEventInvokeConfigModel] = Field(
         alias="FunctionEventInvokeConfigs"
     )
     next_marker: str = Field(alias="NextMarker")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListEventSourceMappingsResponse(BaseModel):
+class ListEventSourceMappingsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    event_source_mappings: List[EventSourceMappingConfiguration] = Field(
+    event_source_mappings: List[EventSourceMappingConfigurationModel] = Field(
         alias="EventSourceMappings"
     )
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class GetFunctionResponse(BaseModel):
-    configuration: FunctionConfiguration = Field(alias="Configuration")
-    code: FunctionCodeLocation = Field(alias="Code")
+class GetFunctionResponseModel(BaseModel):
+    configuration: FunctionConfigurationModel = Field(alias="Configuration")
+    code: FunctionCodeLocationModel = Field(alias="Code")
     tags: Dict[str, str] = Field(alias="Tags")
-    concurrency: Concurrency = Field(alias="Concurrency")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    concurrency: ConcurrencyModel = Field(alias="Concurrency")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListFunctionsResponse(BaseModel):
+class ListFunctionsResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    functions: List[FunctionConfiguration] = Field(alias="Functions")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    functions: List[FunctionConfigurationModel] = Field(alias="Functions")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")
 
 
-class ListVersionsByFunctionResponse(BaseModel):
+class ListVersionsByFunctionResponseModel(BaseModel):
     next_marker: str = Field(alias="NextMarker")
-    versions: List[FunctionConfiguration] = Field(alias="Versions")
-    response_metadata: ResponseMetadata = Field(alias="ResponseMetadata")
+    versions: List[FunctionConfigurationModel] = Field(alias="Versions")
+    response_metadata: ResponseMetadataModel = Field(alias="ResponseMetadata")

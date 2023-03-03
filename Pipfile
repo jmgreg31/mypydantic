@@ -356,6 +356,7 @@ pydantic = "*"
 
 
 [dev-packages]
+autoflake = "*"
 black = "==22.3.0"
 pdoc = "*"
 pylint = "*"
