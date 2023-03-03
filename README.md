@@ -2,7 +2,7 @@
 
 mypy boto3 type definitions as pydantic models
 
-Code Documentation: [Link](https://jmgreg31.github.io/docs/mypydantic.html)
+Code Documentation: [Link](https://jmgreg31.github.io/mypydantic.html)
 
 Huge thanks to the developers of mypy_boto3 and pydantic!
 
